@@ -287,6 +287,7 @@ const UXCaseStudyPage = () => {
                       height="450"
                       src="https://embed.figma.com/design/yCAgDP2YQZqYPyL9g2iPfr/Emergency-chatbot?node-id=0-1&embed-host=share"
                       allowFullScreen
+                      title="Figma Prototype Emergency Chatbot"
                     ></iframe>
                   </Box>
                 ) : section.images ? (
