@@ -11,14 +11,14 @@ const projects = [
     img: emergencyImg,
     desc: 'AI chatbot designed to assist users in emergency situations, providing quick access to critical information and resources app redesign focusing on UX improvements and accessibility.',
     skills: ['Chatbots', 'Emergency', 'Data-Driven Design', 'Brainstorming'],
-    link: '/projects/emergency', // link to the detailed page
+    link: '/projects/emergency', 
   },
   {
     title: 'Portfolio Website',
     img: '/images/project2.png',
     desc: 'Responsive portfolio website with interactive animations and dynamic content.',
     skills: ['React', 'Framer Motion', 'MUI'],
-    link: '/projects/portfolio', // example link
+    link: '/projects/MIA',
   }
 ];
 

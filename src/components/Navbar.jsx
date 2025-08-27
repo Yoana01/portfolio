@@ -52,7 +52,7 @@ export default function Navbar() {
             transition: "color 0.3s",
           }}
         >
-          My Portfolio
+          Yoana's Portfolio
         </Typography>
 
         {/* Desktop Links */}

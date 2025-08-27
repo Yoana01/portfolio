@@ -11,6 +11,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Project from './components/Projects';
 import EmergencyProject from './components/EmergencyProject';
+import MIAProject from './components/MIAProject';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -85,7 +86,22 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+              <Route
+         path="/projects/MIA"
+          element={
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5 }}
+              style={{ paddingTop: navHeight }}
+            >
+              <MIAProject/>
+            </motion.div>
+          }
+        />
       </Routes>
+        
     </AnimatePresence>
   );
 }
