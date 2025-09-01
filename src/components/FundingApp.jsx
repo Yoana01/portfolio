@@ -14,8 +14,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import financeImg from "../assets/Finance Cover.png";
 import SadStudent from "../assets/SadStudent.png";
-import financePersona from "../assets/Finanace Persona.png";
-import financeEmpathy from "../assets/Finance -Empathy.png";
+// import financePersona from "../assets/Finanace Persona.png";
+// import financeEmpathy from "../assets/Finance -Empathy.png";
 
 import { motion } from "framer-motion";
 
@@ -179,34 +179,15 @@ const FinanceApp = () => {
         align="center"
         sx={{ fontWeight: "bold", mb: 8 }}
       >
-        MIA: Media Inovation Assistant
+        Financial Management App for Students
       </Typography>
 
-      <Grid container spacing={6}>
-        {/* Sidebar */}
+   <Grid container spacing={6}>
+        {/* Desktop sidebar */}
         <Grid item xs={12} md={3}>
-          <Box
-            sx={{
-              display: { xs: "none", md: "block" },
-              position: "sticky",
-              top: 100,
-            }}
-          >
-            <Box
-              sx={{
-                border: 1,
-                borderColor: "divider",
-                borderRadius: 2,
-                p: 1,
-                mb: 4,
-              }}
-            >
-              <Typography
-                variant="subtitle2"
-                sx={{ px: 1, py: 1, fontWeight: 700 }}
-              >
-                Contents
-              </Typography>
+          <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
+            <Box sx={{ border: 1, borderColor: "divider", borderRadius: 2, p: 1, mb: 4 }}>
+              <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>Contents</Typography>
               <List dense>
                 {caseStudySections.map((s) => (
                   <ListItemButton
@@ -219,6 +200,37 @@ const FinanceApp = () => {
                 ))}
               </List>
             </Box>
+          </Box>
+
+          {/* Mobile accordion */}
+          <Box sx={{
+            display: { xs: "flex", md: "none" },
+            justifyContent: "center",
+            mb: 4,
+            width: "100%",
+            position: "sticky",
+            top: 0,
+            zIndex: 1000,
+            bgcolor: "background.paper",
+            boxShadow: 2,
+            py: 1
+          }}>
+            <Accordion sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700, textAlign: "center", width: "100%" }}>
+                  Contents
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <List dense>
+                  {caseStudySections.map((s) => (
+                    <ListItemButton key={s.id} onClick={() => scrollToId(s.id)}>
+                      <ListItemText primary={s.title} sx={{ textAlign: "center" }} />
+                    </ListItemButton>
+                  ))}
+                </List>
+              </AccordionDetails>
+            </Accordion>
           </Box>
         </Grid>
 
