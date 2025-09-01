@@ -12,6 +12,7 @@ import About from './components/About';
 import Project from './components/Projects';
 import EmergencyProject from './components/EmergencyProject';
 import MIAProject from './components/MIAProject';
+import FundingApp from './components/FundingApp';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -68,12 +69,12 @@ function AnimatedRoutes() {
               transition={{ duration: 0.5 }}
               style={{ paddingTop: navHeight }}
             >
-              <Project/>
+              <Project />
             </motion.div>
           }
         />
-         <Route
-         path="/projects/emergency"
+        <Route
+          path="/projects/emergency"
           element={
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -82,12 +83,12 @@ function AnimatedRoutes() {
               transition={{ duration: 0.5 }}
               style={{ paddingTop: navHeight }}
             >
-              <EmergencyProject/>
+              <EmergencyProject />
             </motion.div>
           }
         />
-              <Route
-         path="/projects/MIA"
+        <Route
+          path="/projects/MIA"
           element={
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -96,12 +97,26 @@ function AnimatedRoutes() {
               transition={{ duration: 0.5 }}
               style={{ paddingTop: navHeight }}
             >
-              <MIAProject/>
+              <MIAProject />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/projects/FundingApp"
+          element={
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5 }}
+              style={{ paddingTop: navHeight }}
+            >
+              <FundingApp/>
             </motion.div>
           }
         />
       </Routes>
-        
+
     </AnimatePresence>
   );
 }

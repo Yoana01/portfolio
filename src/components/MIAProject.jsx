@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EmergencyChatbotImage from "../assets/Emergency-moos.png";
-import EmergencyCover from "../assets/emergency-cover.png";
+import MIACover from "../assets/MIA.png";
 import Brainstorming1 from "../assets/Assosiations.PNG";
 import Brainstorming2 from "../assets/robin.PNG";
 import TakeawaysImg from "../assets/emergency-code.png";
@@ -27,13 +27,32 @@ const caseStudySections = [
     description: (
       <>
         <Typography>
-          This 4-week project focused on ideation and implementation. I contributed my own design idea and collaborated with three teammates. Together, we brainstormed multiple concepts and refined the most feasible solution: an AI-driven online emergency form.
+          The Media Innovation Assistant (MIA) is a platform designed to stimulate innovation within the Dutch media sector. It targets start-ups or
+          individuals planning to launch one through Media CampusNL. MIA addresses the challenge of validating early-stage ideas by offering a secure
+          and supportive environment for experimentation and feedback. This paper presents MIA’s design and evaluation process, highlighting its role in
+          empowering media innovators.
+          A value-sensitive design process involving iterative prototyping, stakeholder interviews, and usability testing is used to achieve the goal. This
+          project focuses on the tension around data privacy, transparency, and trust in generative AI systems.
+          User testing for this study uncovered that participants appreciated the AI feedback but were still worried about their data. To address this problem,
+          chatbot avatars and an incognito mode are designed to enhance trust and usability. The findings emphasize the importance of balancing
+          transparency with explainability and suggest broader implications for responsible AI design in the media sector, integrating human-in-the-loop
+          mechanisms and privacy-by-design principles.
+        </Typography>
+        <Typography>
+          A value-sensitive design process involving iterative prototyping, stakeholder interviews, and usability testing is used to achieve the goal. This
+          project focuses on the tension around data privacy, transparency, and trust in generative AI systems.
+        </Typography>
+        <Typography>
+          User testing for this study uncovered that participants appreciated the AI feedback but were still worried about their data. To address this problem,
+          chatbot avatars and an incognito mode are designed to enhance trust and usability. The findings emphasize the importance of balancing
+          transparency with explainability and suggest broader implications for responsible AI design in the media sector, integrating human-in-the-loop
+          mechanisms and privacy-by-design principles.
         </Typography>
       </>
     ),
-    image: EmergencyCover,
-    imageAlt: "Emergency Cover",
-    imageCaption: "Project cover illustrating the Emergency Chatbot concept."
+    image: MIACover,
+    imageAlt: "MIA Cover",
+    imageCaption: "Project cover illustrating the MIA platform."
   },
   {
     id: "context",
@@ -124,22 +143,31 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          To evaluate the design, I conducted several types of user testing. One of the first steps was a SUS survey, where the Diagnosis Chatbot received a score of 77.8, indicating good usability. The next stage involved prototype testing with seven participants, three of whom were experts. I used the think-aloud method, which provided deep insights into the designs and opened new perspectives.
+          Based on this research, building user confidence and trust requires <b>privacy, clear explanations, and transparency</b>.
+          This aligns with research identifying these elements as foundational pillars of trust in AI systems (Díaz-Rodríguez, 2023).
+          Several iterations focused specifically on these aspects: implementing an <b>incognito mode</b> on the main page and refining the
+          submission interface to enhance clarity and user control.
         </Typography>
         <Typography paragraph>
-          Users not only identified issues but also proposed improvements-  for example, introducing more colors. Interestingly, feedback revealed conflicting expectations: some users valued quick responses, while others preferred detailed explanations of the AI’s decisions. For instance, the ER chatbot form was praised for being quick, smooth, and efficient. At the same time, participants suggested asking additional questions to gather more information for accurate results, and providing justifications for assigned severity levels. The most appreciated features were the body scan.
+          Importantly, privacy is not just one value among many — it is the foundation upon which all other trust-building features depend.
+          Designers must adopt a <b>privacy-by-design</b> approach, as even well-intentioned features like personalization may fail to gain users’ trust
+          without it. In this context, privacy becomes a requirement for meaningful user engagement and ethical AI deployment.
         </Typography>
         <Typography paragraph>
-          The most significant refinements came after combining design testing with a literature review. Both confirmed that early detection of patient conditions before hospital arrival can significantly improve emergency response and treatment outcomes. Other factors, such as real-time patient data transmission, clarity of language (inclusive for different levels of digital literacy), and the amount of information presented, all played a role in usability. Achieving the right balance between providing guidance, supporting autonomy, and building trust in the AI system became a central design challenge.
+          <b>The Transparency Paradox in Practice:</b> One main finding was that too much structure or transparency could backfire — an effect
+          illustrated by the transparency paradox (Stohl, C., Stohl, M., & Leonardi, P. M., 2016). User feedback revealed that visible evaluation criteria,
+          intended to improve clarity, sometimes led to conformity and performative behavior. This could harm the platform’s core goal of encouraging authentic idea-sharing.
         </Typography>
         <Typography paragraph>
-          One of the key tensions we encountered was how to balance user control with the system’s ability to make accurate assessments and guide decisions. This conflict highlighted an area requiring further research and refinement. While not all design criteria were fully met, the testing phase offered rich qualitative insights from real users and helped us set clear priorities for the next iteration.
+          As a result, the design was adjusted to make evaluation criteria <b>selectively visible</b> — available when needed, but not constantly present.
+          This shift helped preserve originality while offering enough guidance, directly addressing the challenge of increasing trust and openness
+          without compromising user autonomy.
         </Typography>
       </>
     ),
     image: ImpactImg,
     imageAlt: "Impact & Results",
-    imageCaption: "Visualization of the AI and Human interaction"
+    imageCaption: "Visualization of the AI and human interaction"
   },
   {
     id: "takeaways",
@@ -147,33 +175,24 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          This project highlighted the importance of balancing <b>efficiency and empathy</b> in emergency care design. 
-          Users appreciated the quick and smooth experience of the ER chatbot form, but they also asked for reassurance, 
-          explanations, and transparency. Finding the right balance between user autonomy and AI-driven guidance 
-          emerged as a key design challenge.
+          Creating MIA presents a complex design challenge, specifically in balancing competing values such as trust, privacy, transparency, and usability.
+          The platform’s core objective is to support innovation in the Dutch media sector by offering a safe space for idea validation and knowledge-sharing.
+          This was achieved through features such as chatbot avatars, incognito mode, and a structured idea submission flow, which were shown to promote
+          user trust and engagement. Participants reported that these elements would help them refine their ideas and feel more confident sharing them.
+          Therefore, MIA can effectively support idea development and knowledge-sharing between start-ups by addressing concerns around data privacy
+          and AI transparency through thoughtful, value-sensitive design.
         </Typography>
         <Typography paragraph>
-          Another important lesson was the value of <b>iterative user testing</b>. Even small testing rounds revealed 
-          unexpected gaps — such as the need to justify severity levels and adapt language for users with different 
-          levels of digital literacy. Insights like the demand for body scans and video explanations pushed the 
-          design toward greater inclusivity and trust.
+          It is essential to position MIA as a supportive assistant rather than a decision-maker, in line with concerns about overreliance on AI and the critical
+          need for human oversight in AI-assisted systems (Klingbeil, A., Grützner, C., & Schreck, P., 2024). Users should be encouraged to engage critically
+          with the feedback provided, rather than accepting it uncritically, especially given the limitations and contextual nature of the underlying data
+          (Beaulieu, A., Leonelli, S., 2021). To support this, the system should be trained on diverse and representative data to minimize the risk of
+          algorithmic biases. Maintaining a human-in-the-loop approach is crucial in the idea evaluation and chatbot interactions. Human oversight ensures
+          the platform remains adaptable, context-aware, and responsive to evolving user needs (Figure 13).
+          Another key recommendation is to strengthen the platform’s community aspect. The participants expressed a desire for a blog-like feature where
+          they could share their challenges and successes through collective learning and a sense of belonging.
         </Typography>
-        <Typography paragraph>
-          To take the idea further, I created a small <b>working chatbot prototype using LangChain</b>. This allowed me 
-          to experiment with how conversational AI could deliver real-time guidance and to observe how users interacted 
-          with an early functional version of the system. While limited in scope, it demonstrated the potential for 
-          scaling more dynamic, data-driven emergency support.
-        </Typography>
-        <Typography paragraph>
-          Looking ahead, the next steps would be expanding testing to a more diverse group of patients, collaborating 
-          with healthcare professionals to validate accuracy, and exploring real-time data integration (e.g., wearables, 
-          EHR systems). A refined LangChain-powered chatbot could also test how transparency and empathy can be scaled 
-          in emergency contexts.
-        </Typography>
-        <Typography paragraph>
-          Ultimately, this project reinforced my belief that <b>AI in healthcare must remain human-centered first</b>, 
-          with usability, clarity, and trust at the core of every design decision.
-        </Typography>
+
       </>
     ),
     image: TakeawaysImg,
@@ -187,7 +206,7 @@ const scrollToId = (id) => {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const MIAProject= () => {
+const MIAProject = () => {
   const [activeSection, setActiveSection] = useState(caseStudySections[0].id);
 
   useEffect(() => {

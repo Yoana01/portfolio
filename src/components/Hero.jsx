@@ -27,7 +27,7 @@ export default function Hero() {
           Recent Projects
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" paragraph>
-          Discover what I’ve built and accomplished over the past two years.
+          Discover what I’ve built and accomplished over the past year.
         </Typography>
         <Projects />
       </Container>

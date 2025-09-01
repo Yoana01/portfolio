@@ -4,6 +4,7 @@ import { Box, Typography, Grid, Card, CardMedia, CardContent, Chip } from '@mui/
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'; // <-- import Link
 import emergencyImg from '../assets/emergency-cover.png';
+import financeImg from '../assets/Finance Cover.png';
 
 const projects = [
   {
@@ -14,11 +15,11 @@ const projects = [
     link: '/projects/emergency', 
   },
   {
-    title: 'Portfolio Website',
-    img: '/images/project2.png',
-    desc: 'Responsive portfolio website with interactive animations and dynamic content.',
-    skills: ['React', 'Framer Motion', 'MUI'],
-    link: '/projects/MIA',
+    title: 'Financial App',
+    img: financeImg,
+    desc: 'Financial app focusing on helping students with their financial literacy and management through intuitive design and user-friendly features.',
+    skills: ['Research', 'AI', 'Gamification', 'Literacy', 'UX/UI', 'Finance'],
+    link: '/projects/FundingApp',
   }
 ];
 
