@@ -46,7 +46,7 @@ export default function About() {
 
           <Button
             variant="outlined"
-            sx={{ mt: 3, color: '#4caf50', borderColor: '#4caf50', '&:hover': { borderColor: '#388e3c', color: '#388e3c' } }}
+            sx={{ mt: 3, color: '#32620e', borderColor: '#32620e', '&:hover': { borderColor: '#388e3c', color: '#388e3c' } }}
             // onClick={handleMailClick}
             href="https://www.linkedin.com/in/yoana-churkina-9408a1234/"
             component="a"

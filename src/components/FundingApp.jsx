@@ -12,12 +12,27 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+// ✅ Outlined + green icons
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
+
 import financeImg from "../assets/Finance Cover.png";
 import SadStudent from "../assets/SadStudent.png";
 import Students from "../assets/Students.png";
-// import financeEmpathy from "../assets/Finance -Empathy.png";
 
 import { motion } from "framer-motion";
+
+const icons = [
+  <DescriptionOutlinedIcon fontSize="small" color="#32620e" />,
+  <LightbulbOutlinedIcon fontSize="small" color="#32620e" />,
+  <ScienceOutlinedIcon fontSize="small" color="#32620e" />,
+  <CheckCircleOutlinedIcon fontSize="small" color="#32620e"/>,
+  <EmojiEventsOutlinedIcon fontSize="small" color="#32620e" />,
+];
 
 const caseStudySections = [
   {
@@ -38,7 +53,7 @@ const caseStudySections = [
     ),
     image: financeImg,
     imageAlt: "Financial App Cover",
-    imageCaption: "Project cover illustrating the finacial app.",
+    imageCaption: "Project cover illustrating the financial app.",
   },
   {
     id: "context",
@@ -104,15 +119,7 @@ const caseStudySections = [
         </Typography>
       </>
     ),
-    // images: [
-    //   { src: financeEmpathy, alt: "Finance Empathy", caption: "Empathy Map" },
-    //   {
-    //     src: financePersona,
-    //     alt: "Finance Persona",
-    //     caption: "Persona of the student",
-    //   },
-    // ],
-    isResearch: true, // 👈 new flag to embed Jam here
+    isResearch: true,
   },
   {
     id: "prototype",
@@ -140,22 +147,38 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          The research showed clear similarities between the literature review and study results. Many students still rely on family or DUO support, motivating them to seek independence through part-time work. Interestingly, <b>70% preferred Excel</b> over financial apps for convenience.
+          The research showed clear similarities between the literature review
+          and study results. Many students still rely on family or DUO support,
+          motivating them to seek independence through part-time work.
+          Interestingly, <b>70% preferred Excel</b> over financial apps for
+          convenience.
         </Typography>
         <Typography paragraph>
-          From the <b>banks’ perspective</b>, younger users favor step-by-step short videos (e.g., Instagram reels) for learning. The participating bank also provides financial literacy lectures in high schools. Focus groups revealed that financial apps are often linked to <b>negative emotions</b> - stress, anxiety, and overwhelm. However, students were more open to apps if they were certified as secure and included educational video content.
+          From the <b>banks’ perspective</b>, younger users favor step-by-step
+          short videos (e.g., Instagram reels) for learning. The participating
+          bank also provides financial literacy lectures in high schools. Focus
+          groups revealed that financial apps are often linked to{" "}
+          <b>negative emotions</b> - stress, anxiety, and overwhelm. However,
+          students were more open to apps if they were certified as secure and
+          included educational video content.
         </Typography>
         <Typography paragraph>
-          Future research should explore <b>financial avoidance</b> and how to shift students’ mindset. The challenge is to design tools that promote literacy, motivate usage, and reduce stress.
+          Future research should explore <b>financial avoidance</b> and how to
+          shift students’ mindset. The challenge is to design tools that promote
+          literacy, motivate usage, and reduce stress.
         </Typography>
         <Typography paragraph>
-          <b>In conclusion:</b> The target audience experiences financial anxiety and lacks confidence in their knowledge. The app should act as a <b>learning space</b> to build <b>confidence in financial skills</b>, while motivating users to track expenses and reduce spending.
+          <b>In conclusion:</b> The target audience experiences financial
+          anxiety and lacks confidence in their knowledge. The app should act as
+          a <b>learning space</b> to build <b>confidence in financial skills</b>
+          , while motivating users to track expenses and reduce spending.
         </Typography>
       </>
     ),
     image: Students,
     imageAlt: "Student feeling happy about finances",
-    imageCaption: "AI Illustration showing the happy students because they are not worried about their finances.",
+    imageCaption:
+      "AI Illustration showing the happy students because they are not worried about their finances.",
   },
 ];
 
@@ -171,7 +194,10 @@ const FinanceApp = () => {
     const handleScroll = () => {
       const offsets = caseStudySections.map((section) => {
         const el = document.getElementById(section.id);
-        return { id: section.id, offset: el ? el.getBoundingClientRect().top : 0 };
+        return {
+          id: section.id,
+          offset: el ? el.getBoundingClientRect().top : 0,
+        };
       });
       const current =
         offsets.find((section) => section.offset >= 0) ||
@@ -183,197 +209,213 @@ const FinanceApp = () => {
   }, []);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Grid container spacing={6}>
-        {/* Desktop sidebar */}
-        <Grid item xs={12} md={3}>
-          <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
-            <Box sx={{ border: 1, borderColor: "divider", borderRadius: 2, p: 1, mb: 4 }}>
-              <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>Contents</Typography>
-              <List dense>
-                {caseStudySections.map((s) => (
-                  <ListItemButton
-                    key={s.id}
-                    onClick={() => scrollToId(s.id)}
-                    selected={activeSection === s.id}
-                  >
-                    <ListItemText primary={s.title} />
-                  </ListItemButton>
-                ))}
-              </List>
-            </Box>
-          </Box>
-
-          {/* Mobile accordion */}
-          <Box sx={{
-            display: { xs: "flex", md: "none" },
-            justifyContent: "center",
-            mb: 4,
-            width: "100%",
-            position: "sticky",
-            top: 0,
-            zIndex: 1000,
-            bgcolor: "background.paper",
-            boxShadow: 2,
-            py: 1
-          }}>
-            <Accordion sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700, textAlign: "center", width: "100%" }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "white", py: 8 }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={6}>
+          {/* Sidebar */}
+          <Grid item xs={12} md={3}>
+            {/* Desktop sidebar */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "block" },
+                position: "sticky",
+                top: 100,
+              }}
+            >
+              <Box
+                sx={{
+                  borderRadius: 3,
+                  p: 2,
+                  mb: 4,
+                  bgcolor: "white",
+                  boxShadow: 3,
+                }}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{ px: 1, py: 1, fontWeight: 700 }}
+                >
                   Contents
                 </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
                 <List dense>
-                  {caseStudySections.map((s) => (
-                    <ListItemButton key={s.id} onClick={() => scrollToId(s.id)}>
-                      <ListItemText primary={s.title} sx={{ textAlign: "center" }} />
+                  {caseStudySections.map((s, i) => (
+                    <ListItemButton
+                      key={s.id}
+                      onClick={() => scrollToId(s.id)}
+                      selected={activeSection === s.id}
+                      sx={{
+                        borderRadius: 2,
+                        mb: 1,
+                        bgcolor: "transparent",
+                        "&.Mui-selected": {
+                          bgcolor: "transparent", // remove background
+                        },
+                      }}
+                    >
+                      {icons[i]}
+                      <ListItemText
+                        primary={s.title}
+                        sx={{
+                          ml: 1,
+                          fontWeight: activeSection === s.id ? 700 : 400,
+                          borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                        }}
+                      />
                     </ListItemButton>
                   ))}
                 </List>
-              </AccordionDetails>
-            </Accordion>
-          </Box>
-        </Grid>
 
-        {/* Main content */}
-        <Grid item xs={12} md={8} lg={9}>
-          {caseStudySections.map((section, index) => (
-            <motion.div
-              key={index}
-              id={section.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              </Box>
+            </Box>
+
+            {/* Mobile accordion */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "center",
+                mb: 4,
+                width: "100%",
+                position: "sticky",
+                top: 0,
+                zIndex: 1000,
+                bgcolor: "background.paper",
+                boxShadow: 2,
+                py: 1,
+              }}
             >
-              <Box sx={{ mb: 8, maxWidth: 800, width: "100%" }}>
-                <Typography
-                  variant="h4"
-                  sx={{ fontWeight: "bold", mb: 2, color: "primary.main" }}
-                >
-                  {section.title}
-                </Typography>
-                <Box sx={{ color: "text.secondary", mb: 3 }}>
-                  {section.description}
-                </Box>
-
-                {/* Conditional Images / Prototype / Research Jam */}
-                {section.isPrototype ? (
-                  <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
-                    <iframe
-                      style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                      width="800"
-                      height="450"
-                      src="https://embed.figma.com/design/uvowkaNI2In1FGhXSyGmTD/Finance-App?node-id=37-1269&embed-host=share"
-                      allowFullScreen
-                      title="Finance App Prototype"
-                    />
-                  </Box>
-                ) : section.isResearch ? (
-                  <>
-                    {section.images?.map((img, idx) => (
-                      <Box key={idx} sx={{ mb: 2 }}>
-                        <Box
-                          component="img"
-                          src={img.src}
-                          alt={img.alt}
-                          sx={{
-                            width: "100%",
-                            height: "auto",
-                            borderRadius: 2,
-                            mb: 1,
-                            boxShadow: 3,
-                          }}
+              <Accordion sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontWeight: 700,
+                      textAlign: "center",
+                      width: "100%",
+                    }}
+                  >
+                    Contents
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List dense>
+                    {caseStudySections.map((s) => (
+                      <ListItemButton
+                        key={s.id}
+                        onClick={() => scrollToId(s.id)}
+                      >
+                        <ListItemText
+                          primary={s.title}
+                          sx={{ textAlign: "center" }}
                         />
-                        <Typography
-                          variant="caption"
-                          display="block"
-                          align="center"
-                          sx={{ mb: 2 }}
-                        >
-                          {img.caption}
-                        </Typography>
-                      </Box>
+                      </ListItemButton>
                     ))}
-                    {/* Embed Figma Jam (Situation Map) */}
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+            </Box>
+          </Grid>
+
+          {/* Main content */}
+          <Grid item xs={12} md={8} lg={9}>
+            {caseStudySections.map((section, index) => (
+              <motion.div
+                key={index}
+                id={section.id}
+                initial={{
+                  opacity: 0,
+                  x: index % 2 === 0 ? -40 : 40,
+                }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Box sx={{ mb: 8, maxWidth: 800, width: "100%" }}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: "bold",
+                      mb: 3,
+                      color: "#32620e", // ✅ green titles only
+                    }}
+                  >
+                    {section.title}
+                  </Typography>
+
+                  <Box sx={{ color: "text.secondary", mb: 3 }}>
+                    {section.description}
+                  </Box>
+
+                  {/* Images / Prototype / Research Jam */}
+                  {section.isPrototype ? (
                     <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
                       <iframe
                         style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                        width="800"
+                        width="100%"
+                        height="450"
+                        src="https://embed.figma.com/design/uvowkaNI2In1FGhXSyGmTD/Finance-App?node-id=37-1269&embed-host=share"
+                        allowFullScreen
+                        title="Finance App Prototype"
+                      />
+                    </Box>
+                  ) : section.isResearch ? (
+                    <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
+                      <iframe
+                        style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                        width="100%"
                         height="450"
                         src="https://embed.figma.com/board/ll07NUUDbfCHruIXm33pwc/Finance-Research?node-id=1-6843&embed-host=share"
                         allowFullScreen
                         title="Finance Situation Map"
                       />
                     </Box>
-                  </>
-                ) : section.images ? (
-                  section.images.map((img, idx) => (
-                    <Box key={idx} sx={{ mb: 2 }}>
+                  ) : section.image ? (
+                    <Box sx={{ mb: 2 }}>
                       <Box
-                        component="img"
-                        src={img.src}
-                        alt={img.alt}
+                        component={motion.img}
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.3 }}
+                        src={section.image}
+                        alt={section.imageAlt}
                         sx={{
                           width: "100%",
                           height: "auto",
-                          borderRadius: 2,
+                          borderRadius: 4,
                           mb: 1,
-                          boxShadow: 3,
+                          boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
                         }}
                       />
                       <Typography
                         variant="caption"
                         display="block"
                         align="center"
-                        sx={{ mb: 2 }}
                       >
-                        {img.caption}
+                        {section.imageCaption}
                       </Typography>
                     </Box>
-                  ))
-                ) : section.image ? (
-                  <Box sx={{ mb: 2 }}>
+                  ) : (
                     <Box
-                      component="img"
-                      src={section.image}
-                      alt={section.imageAlt}
                       sx={{
                         width: "100%",
-                        height: "auto",
+                        height: 250,
+                        bgcolor: "grey.200",
                         borderRadius: 2,
-                        mb: 1,
-                        boxShadow: 3,
+                        mb: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "text.disabled",
                       }}
-                    />
-                    <Typography variant="caption" display="block" align="center">
-                      {section.imageCaption}
-                    </Typography>
-                  </Box>
-                ) : (
-                  <Box
-                    sx={{
-                      width: "100%",
-                      height: 250,
-                      bgcolor: "grey.200",
-                      borderRadius: 2,
-                      mb: 2,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "text.disabled",
-                    }}
-                  >
-                    Image / Screenshot Placeholder
-                  </Box>
-                )}
-              </Box>
-            </motion.div>
-          ))}
+                    >
+                      Image / Screenshot Placeholder
+                    </Box>
+                  )}
+                </Box>
+              </motion.div>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

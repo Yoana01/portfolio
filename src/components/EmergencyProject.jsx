@@ -11,25 +11,40 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ForwardOutlinedIcon from '@mui/icons-material/ForwardOutlined';
+
 import EmergencyChatbotImage from "../assets/Emergency-moos.png";
 import EmergencyCover from "../assets/emergency-cover.png";
 import Brainstorming1 from "../assets/Assosiations.PNG";
 import Brainstorming2 from "../assets/robin.PNG";
 import TakeawaysImg from "../assets/emergency-code.png";
 import ImpactImg from "../assets/Impact.jpg";
+
 import { motion } from "framer-motion";
+
+const icons = [
+  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <ForwardOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+];
 
 const caseStudySections = [
   {
     id: "overview",
     title: "Emergency Chatbot: Overview",
     description: (
-      <>
-        <Typography>
-          This 4-week project focused on ideation and implementation. I contributed my own design idea and collaborated with three teammates. Together, we brainstormed multiple concepts and refined the most feasible solution: an AI-driven online emergency form.
-        </Typography>
-      </>
+      <Typography>
+        This 4-week project focused on ideation and implementation. I contributed my own design idea and collaborated with three teammates. Together, we brainstormed multiple concepts and refined the most feasible solution: an AI-driven online emergency form.
+      </Typography>
     ),
     image: EmergencyCover,
     imageAlt: "Emergency Cover",
@@ -57,28 +72,26 @@ const caseStudySections = [
     title: "Ideation & Design Process",
     description: (
       <>
-  <Typography paragraph>
-    We explored multiple ideation methods - including analogies, assumptions, provocations, random entry, SCAMPER, and Round Robin - to generate creative solutions for emergency care.
-  </Typography>
-  <Typography paragraph>
-    <b>Analogies:</b> Comparing ER services to <b>McDonald’s</b> (fast, efficient) and a <b>kettle</b> (timely, multipurpose) inspired ideas for streamlining processes and leveraging technology. Mood boards helped visualize concepts and spark further creativity.
-  </Typography>
-  <Typography paragraph>
-    <b>Assumptions & Insights:</b> Challenging assumptions revealed <b>communication barriers</b> and <b>overworked staff</b> as weak points, highlighting opportunities for technology - like an AI chatbot - to support both patients and staff.
-  </Typography>
-  <Typography paragraph>
-    <b>Round Robin x SCAMPER:</b> 
-    <ul>
-      <li>Round 1: Initial solutions faced unrealistic expectations (robots everywhere, AI errors, stress from tracking ambulances).</li>
-      <li>Round 2: Focus shifted to patient autonomy and data-driven solutions, noting some patients may prefer human help only.</li>
-      <li>Round 3: Design criteria overlapped with previous rounds; human supervision was deemed necessary due to potential AI biases.</li>
-    </ul>
-  </Typography>
-  <Typography paragraph>
-    <b>Outcomes:</b> Methods led to diverse ideas, including additional ER checkpoints, sectioned spaces for efficiency, and automated triage, directly informing the design of our AI-driven online emergency form.
-  </Typography>
-
-
+        <Typography paragraph>
+          We explored multiple ideation methods - including analogies, assumptions, provocations, random entry, SCAMPER, and Round Robin - to generate creative solutions for emergency care.
+        </Typography>
+        <Typography paragraph>
+          <b>Analogies:</b> Comparing ER services to <b>McDonald’s</b> (fast, efficient) and a <b>kettle</b> (timely, multipurpose) inspired ideas for streamlining processes and leveraging technology. Mood boards helped visualize concepts and spark further creativity.
+        </Typography>
+        <Typography paragraph>
+          <b>Assumptions & Insights:</b> Challenging assumptions revealed <b>communication barriers</b> and <b>overworked staff</b> as weak points, highlighting opportunities for technology - like an AI chatbot - to support both patients and staff.
+        </Typography>
+        <Typography paragraph>
+          <b>Round Robin x SCAMPER:</b>
+          <ul>
+            <li>Round 1: Initial solutions faced unrealistic expectations (robots everywhere, AI errors, stress from tracking ambulances).</li>
+            <li>Round 2: Focus shifted to patient autonomy and data-driven solutions, noting some patients may prefer human help only.</li>
+            <li>Round 3: Design criteria overlapped with previous rounds; human supervision was deemed necessary due to potential AI biases.</li>
+          </ul>
+        </Typography>
+        <Typography paragraph>
+          <b>Outcomes:</b> Methods led to diverse ideas, including additional ER checkpoints, sectioned spaces for efficiency, and automated triage, directly informing the design of our AI-driven online emergency form.
+        </Typography>
       </>
     ),
     images: [
@@ -146,15 +159,14 @@ const caseStudySections = [
           scalable, data-driven emergency support.
         </Typography>
         <Typography paragraph>
-          Next steps include broader testing, collaboration with healthcare professionals, and real-time data integratio
+          Next steps include broader testing, collaboration with healthcare professionals, and real-time data integration
           (e.g., wearables, EHRs), keeping <b>usability, clarity, and trust</b> at the heart of <b>human-centered AI design</b>.
         </Typography>
       </>
-
     ),
     image: TakeawaysImg,
     imageAlt: "Takeaways & Next Steps",
-    imageCaption: "A codesnippet of the code I developed."
+    imageCaption: "A code snippet of the code I developed."
   }
 ];
 
@@ -181,24 +193,36 @@ const UXCaseStudyPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
-      {/* <Typography variant="h4" align="left" sx={{ fontWeight: "bold", mb: 8 }}>
-        
-      </Typography> */}
-
       <Grid container spacing={6}>
         {/* Desktop sidebar */}
         <Grid item xs={12} md={3}>
           <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
-            <Box sx={{ border: 1, borderColor: "divider", borderRadius: 2, p: 1, mb: 4 }}>
+            <Box sx={{ borderRadius: 2, p: 2, mb: 4, bgcolor: "white", boxShadow: 3 }}>
               <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>Contents</Typography>
               <List dense>
-                {caseStudySections.map((s) => (
+                {caseStudySections.map((s, i) => (
                   <ListItemButton
                     key={s.id}
                     onClick={() => scrollToId(s.id)}
                     selected={activeSection === s.id}
+                    sx={{
+                      borderRadius: 2,
+                      mb: 1,
+                      bgcolor: "transparent",
+                      "&.Mui-selected": {
+                        bgcolor: "transparent", // remove background
+                      },
+                    }}
                   >
-                    <ListItemText primary={s.title} />
+                    {icons[i]}
+                    <ListItemText
+                      primary={s.title}
+                      sx={{
+                        ml: 1,
+                        fontWeight: activeSection === s.id ? 700 : 400,
+                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                      }}
+                    />
                   </ListItemButton>
                 ))}
               </List>
@@ -249,7 +273,7 @@ const UXCaseStudyPage = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <Box sx={{ mb: 8, maxWidth: 800, width: "100%" }}>
-                <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, color: "primary.main" }}>
+                <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, color: "#32620e" }}>
                   {section.title}
                 </Typography>
                 <Box sx={{ color: "text.secondary", mb: 3 }}>{section.description}</Box>
@@ -264,7 +288,7 @@ const UXCaseStudyPage = () => {
                       src="https://embed.figma.com/design/yCAgDP2YQZqYPyL9g2iPfr/Emergency-chatbot?node-id=0-1&embed-host=share"
                       allowFullScreen
                       title="Figma Prototype Emergency Chatbot"
-                    ></iframe>
+                    />
                   </Box>
                 ) : section.images ? (
                   section.images.map((img, idx) => (
