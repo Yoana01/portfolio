@@ -7,13 +7,13 @@ import Nature from '../assets/nature.jpg';
 
 const stories = [
   {
-    title: "From Buddy to Vice President – Strengthening the Student Experience",
+    title: "From Buddy to Vice President - Strengthening the Student Experience",
     text: "When I first arrived in the Netherlands, I barely knew anyone. Starting from scratch in a new country was challenging, but I was lucky to have one friend who guided me through those early days, explaining how things work and helping me feel at home. That support meant a lot to me, and it inspired me to do the same for others.I began by volunteering as a buddy during the Introduction Weeks organized by Proxy, our study association. Wanting to be more involved, I later joined the board as Internal Affairs. Eventually, I was honored to serve as Vice President.In this leadership role, I helped organize events that connected students from diverse backgrounds, fostered a sense of community, and made university life more enjoyable. Through this journey, I developed strong leadership, organizational, and team management skills. More importantly, I learned how impactful it can be to create space for others, to lead with empathy and purpose. Being part of Proxy wasn’t just an extracurricular activity; it was my way of giving back and helping others feel that they belong.",
     video: "https://www.youtube.com/embed/VbDT_a_2rWk",
   },
   {
     title: "Inspirational Speaker - UX/UI Design Introduction",
-    text: "I had the privilege of introducing first-year students at Fontys University to the exciting world of UX/UI design. Through this interactive and thought-provoking session, I shared key insights into the power of user-centered design, highlighted real-world applications, and aimed to spark curiosity about the creative and strategic potential of this field. My goal was not only to inform but to inspire—a new generation of designers to think critically, design with empathy, and see UX/UI as a way to make meaningful impact in the digital world.",
+    text: "I had the privilege of introducing first-year students at Fontys University to the exciting world of UX/UI design. Through this interactive and thought-provoking session, I shared key insights into the power of user-centered design, highlighted real-world applications, and aimed to spark curiosity about the creative and strategic potential of this field. My goal was not only to inform but to inspire - a new generation of designers to think critically, design with empathy, and see UX/UI as a way to make meaningful impact in the digital world.",
     video: "https://www.youtube.com/embed/8RitzmtguBk",
   },
   {
