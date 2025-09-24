@@ -10,14 +10,14 @@ const projects = [
   {
     title: 'Emergency Chatbot',
     img: emergencyImg,
-    desc: 'AI chatbot designed to assist users in emergency situations, providing quick access to critical information and resources app redesign focusing on UX improvements and accessibility.',
+    // desc: 'AI chatbot designed to assist users in emergency situations, providing quick access to critical information and resources app redesign focusing on UX improvements and accessibility.',
     skills: ['Chatbots', 'Emergency', 'Data-Driven Design', 'Brainstorming'],
     link: '/projects/emergency', 
   },
   {
     title: 'Financial App',
     img: financeImg,
-    desc: 'Financial app focusing on helping students with their financial literacy and management through intuitive design and user-friendly features.',
+    // desc: 'Financial app focusing on helping students with their financial literacy and management through intuitive design and user-friendly features.',
     skills: ['Research', 'AI', 'Gamification', 'Literacy', 'UX/UI', 'Finance'],
     link: '/projects/FundingApp',
   }

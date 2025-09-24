@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import { Container, Grid, Typography, Box, Button, Stack, IconButton } from '@mui/material';
 import AboutStories from "./AboutStories";
 import profileImg from '../assets/profile.jpg';
 
 export default function About() {
+
   const paragraphs = [
     "Hi, I’m Yoana Churkina - a UX/UI designer and recent graduate of the Data-Driven Design master’s program at the University of Applied Studies Utrecht. Originally from Sofia, Bulgaria, I’ve spent the last five years in the Netherlands, where I’ve explored how design, data, and technology come together to create meaningful digital experiences.",
     "Throughout my work, I’ve come to realize that UI design on its own isn’t enough. To create real impact, design must be grounded in a deep understanding of user behavior, needs, and values. That’s why I approach every project with a research-first mindset — because only by knowing how people think and feel can we design experiences that truly resonate. I don’t just design screens — I design interactions and behaviors that support both user needs and stakeholder goals.",
@@ -29,10 +30,15 @@ export default function About() {
           <Button
             variant="outlined"
             sx={{ mt: 3, color: '#4caf50', borderColor: '#4caf50', '&:hover': { borderColor: '#388e3c', color: '#388e3c' } }}
-            href="mailto:yonichurikina@gmail.com"
+            // onClick={handleMailClick}
+            href="https://www.linkedin.com/in/yoana-churkina-9408a1234/"
+            component="a"
+            rel="noopener noreferrer"
           >
             👉 Let’s connect and create something meaningful together
           </Button>
+
+      
         </Grid>
 
         {/* Right Column */}
@@ -53,8 +59,6 @@ export default function About() {
         </Grid>
       </Grid>
 
-      {/* About Stories Section - outside main layout */}
-    
       <AboutStories />
     </Container>
   );

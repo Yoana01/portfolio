@@ -13,6 +13,7 @@ import Project from './components/Projects';
 import EmergencyProject from './components/EmergencyProject';
 import MIAProject from './components/MIAProject';
 import FundingApp from './components/FundingApp';
+import Footer from './components/Footer';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -115,7 +116,9 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+          
       </Routes>
+       <Footer />
 
     </AnimatePresence>
   );
