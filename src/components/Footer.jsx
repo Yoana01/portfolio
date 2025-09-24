@@ -16,7 +16,7 @@ export default function ConnectSection() {
           mb: 2,
         }}
       >
-        let&apos;s <span style={{ color: accent }}>connect</span>
+        Let&apos;s <span style={{ color: accent }}>connect</span>
       </Typography>
 
       {/* Subtitle */}

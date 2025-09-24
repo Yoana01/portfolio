@@ -6,11 +6,28 @@ import profileImg from '../assets/profile.jpg';
 export default function About() {
 
   const paragraphs = [
-    "Hi, I’m Yoana Churkina - a UX/UI designer and recent graduate of the Data-Driven Design master’s program at the University of Applied Studies Utrecht. Originally from Sofia, Bulgaria, I’ve spent the last five years in the Netherlands, where I’ve explored how design, data, and technology come together to create meaningful digital experiences.",
-    "Throughout my work, I’ve come to realize that UI design on its own isn’t enough. To create real impact, design must be grounded in a deep understanding of user behavior, needs, and values. That’s why I approach every project with a research-first mindset — because only by knowing how people think and feel can we design experiences that truly resonate. I don’t just design screens — I design interactions and behaviors that support both user needs and stakeholder goals.",
-    "The AI component of my studies made me even more aware of the importance of responsible design. As we increasingly integrate intelligent systems into digital products, it’s essential to consider the ethical impact of our choices. I believe in using data to inform design, not to control it, and in building trust through transparency and empathy.",
-    "I’m currently looking to join a team that values user-centered, socially responsible design, where I can keep growing, collaborating, and creating products that make a difference. Curious to learn more?"
+    <Typography paragraph key="intro">
+      Hi, I’m Yoana Churkina – a UX/UI designer and recent graduate of the Data-Driven Design master’s program at the University of Applied Studies Utrecht. Originally from Sofia, Bulgaria, I’ve spent the last five years in the Netherlands exploring how design, data, and technology come together to create meaningful digital experiences.
+    </Typography>,
+    <Typography variant="subtitle1" paragraph color="text.secondary" key="approach-title">
+      My Approach
+    </Typography>,
+    <Typography paragraph key="approach-text">
+      I believe UI design alone isn’t enough. To make real impact, design must be grounded in a deep understanding of user behavior, needs, and values. I approach every project with a research-first mindset because only by knowing how people think and feel can we design experiences that truly resonate. I don’t just design screens - I design interactions and behaviors that support both user needs and stakeholder goals.
+    </Typography>,
+
+    <Typography variant="subtitle1" paragraph color="text.secondary" key="approach-title">
+      AI & Responsible Design
+    </Typography>,
+    <Typography paragraph key="ai-text">
+      Studying AI made me even more aware of the importance of responsible design. As intelligent systems become part of everyday digital products, ethical considerations are essential. I use data to inform design, not control it, and strive to build trust through transparency and empathy.
+    </Typography>,
+
+    <Typography paragraph key="closing">
+      I’m looking to join a team that values user-centered, socially responsible design, where I can keep growing, collaborating, and creating products that make a difference.
+    </Typography>
   ];
+
 
   return (
     <Container maxWidth={false} sx={{ py: 5, px: { xs: 2, md: 8 } }}>
@@ -38,7 +55,7 @@ export default function About() {
             👉 Let’s connect and create something meaningful together
           </Button>
 
-      
+
         </Grid>
 
         {/* Right Column */}
