@@ -14,7 +14,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import financeImg from "../assets/Finance Cover.png";
 import SadStudent from "../assets/SadStudent.png";
-// import financePersona from "../assets/Finanace Persona.png";
+import Students from "../assets/Students.png";
 // import financeEmpathy from "../assets/Finance -Empathy.png";
 
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ import { motion } from "framer-motion";
 const caseStudySections = [
   {
     id: "overview",
-    title: "Overview",
+    title: "Financial App: Overview",
     description: (
       <>
         <Typography variant="h6">Overview</Typography>
@@ -139,13 +139,23 @@ const caseStudySections = [
     title: "Impact & Results",
     description: (
       <>
-        <Typography variant="h6">Impact</Typography>
-        <Typography>
-          Several parallels emerged between the literature review and research
-          findings:
+        <Typography paragraph>
+          The research showed clear similarities between the literature review and study results. Many students still rely on family or DUO support, motivating them to seek independence through part-time work. Interestingly, <b>70% preferred Excel</b> over financial apps for convenience.
+        </Typography>
+        <Typography paragraph>
+          From the <b>banks’ perspective</b>, younger users favor step-by-step short videos (e.g., Instagram reels) for learning. The participating bank also provides financial literacy lectures in high schools. Focus groups revealed that financial apps are often linked to <b>negative emotions</b> - stress, anxiety, and overwhelm. However, students were more open to apps if they were certified as secure and included educational video content.
+        </Typography>
+        <Typography paragraph>
+          Future research should explore <b>financial avoidance</b> and how to shift students’ mindset. The challenge is to design tools that promote literacy, motivate usage, and reduce stress.
+        </Typography>
+        <Typography paragraph>
+          <b>In conclusion:</b> The target audience experiences financial anxiety and lacks confidence in their knowledge. The app should act as a <b>learning space</b> to build <b>confidence in financial skills</b>, while motivating users to track expenses and reduce spending.
         </Typography>
       </>
     ),
+    image: Students,
+    imageAlt: "Student feeling happy about finances",
+    imageCaption: "AI Illustration showing the happy students because they are not worried about their finances.",
   },
 ];
 
@@ -174,15 +184,7 @@ const FinanceApp = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Typography
-        variant="h3"
-        align="center"
-        sx={{ fontWeight: "bold", mb: 8 }}
-      >
-        Financial Management App for Students
-      </Typography>
-
-   <Grid container spacing={6}>
+      <Grid container spacing={6}>
         {/* Desktop sidebar */}
         <Grid item xs={12} md={3}>
           <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
