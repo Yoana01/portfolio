@@ -12,18 +12,33 @@ export default function Hero() {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h3" paragraph>
-          My signature touch is evident in every website or app I create, designing and developing experiences that{' '}
-          <Box component="span" sx={{ color: '#32620e', fontWeight: 'bold' }}>
-            simplify people's lives
-          </Box>
-          .
-        </Typography>
+       <Typography
+  variant="h3"
+  sx={{
+    fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' },
+    lineHeight: 1.4,
+    textAlign: 'center',
+  }}
+>
+  Design truly matters when it begins with understanding people. <br />
+  <Box
+    component="span"
+    sx={{ 
+      color: '#32620e', 
+      fontWeight: 500, 
+      display: 'inline-block', 
+      mt: 1 
+    }}
+  >
+    Guided by empathy and impactful insights from data.
+  </Box>
+</Typography>
+
       </Container>
 
       {/* Projects section */}
       <Container sx={{ textAlign: 'center', mt: 6 }}>
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant="h3" fontWeight="bold" gutterBottom>
           Recent Projects
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" paragraph>
