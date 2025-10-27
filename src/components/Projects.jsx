@@ -4,8 +4,15 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import emergencyImg from '../assets/emergency-cover.png';
 import financeImg from '../assets/Finance Cover.png';
+import miaImg from '../assets/MIA.png';
 
 const projects = [
+    {
+    title: 'Media Innovation Assistant',
+    img: miaImg,
+    skills: ['Research', 'AI', 'Conversational Agent', 'Langchain', 'Trust', 'Privacy', 'Innovation'],
+    link: '/projects/MIA',
+  },
   {
     title: 'Emergency Chatbot',
     img: emergencyImg,

@@ -43,7 +43,7 @@ const caseStudySections = [
     title: "Emergency Chatbot: Overview",
     description: (
       <Typography>
-        4-week project designing an AI-driven online emergency form. Collaborated with three teammates to brainstorm, refine, and implement the most feasible solution.
+        This 4-week project focused on ideation and implementation. I contributed my own design idea and collaborated with three teammates. Together, we brainstormed multiple concepts and refined the most feasible solution: an AI-driven online emergency form.
       </Typography>
     ),
     image: EmergencyCover,
@@ -54,9 +54,14 @@ const caseStudySections = [
     id: "context",
     title: "Problem & Context",
     description: (
-      <Typography>
-        ERs face high demand, causing delays. Our AI chatbot automates triage, guides patients efficiently, and pre-sends medical information to support staff workflow and patient access.
-      </Typography>
+      <>
+        <Typography>
+          Emergency services often face high demand, causing delays in critical care. Our solution, a smart online form with an AI chatbot, helps patients quickly determine if they need emergency care or alternative treatment while sending essential medical information to hospitals in advance.
+        </Typography>
+        <Typography>
+          By automating triage and guidance, the form reduces unnecessary ER visits, supports emergency personnel, and improves access for patients hesitant to call emergency services.
+        </Typography>
+      </>
     ),
     image: EmergencyChatbotImage,
     imageAlt: "Emergency Chatbot Context",
@@ -64,16 +69,33 @@ const caseStudySections = [
   },
   {
     id: "ideation",
-    title: "Ideation & Methods",
+    title: "Ideation & Design Process",
     description: (
-      <Typography>
-        We applied <b>Analogies, SCAMPER, Assumptions, and Round Robin</b> to generate creative solutions. Key insights revealed <b>communication gaps, overworked staff, and patient autonomy needs</b>, guiding the design of the AI form.
-      </Typography>
+      <>
+        <Typography paragraph>
+          We explored multiple ideation methods - including analogies, assumptions, provocations, random entry, SCAMPER, and Round Robin - to generate creative solutions for emergency care.
+        </Typography>
+        <Typography paragraph>
+          <b>Analogies:</b> Comparing ER services to <b>McDonald’s</b> (fast, efficient) and a <b>kettle</b> (timely, multipurpose) inspired ideas for streamlining processes and leveraging technology. Mood boards helped visualize concepts and spark further creativity.
+        </Typography>
+        <Typography paragraph>
+          <b>Assumptions & Insights:</b> Challenging assumptions revealed <b>communication barriers</b> and <b>overworked staff</b> as weak points, highlighting opportunities for technology - like an AI chatbot - to support both patients and staff.
+        </Typography>
+        <Typography paragraph>
+          <b>Round Robin x SCAMPER:</b>
+          <ul>
+            <li>Round 1: Initial solutions faced unrealistic expectations (robots everywhere, AI errors, stress from tracking ambulances).</li>
+            <li>Round 2: Focus shifted to patient autonomy and data-driven solutions, noting some patients may prefer human help only.</li>
+            <li>Round 3: Design criteria overlapped with previous rounds; human supervision was deemed necessary due to potential AI biases.</li>
+          </ul>
+        </Typography>
+        <Typography paragraph>
+          <b>Outcomes:</b> Methods led to diverse ideas, including additional ER checkpoints, sectioned spaces for efficiency, and automated triage, directly informing the design of our AI-driven online emergency form.
+        </Typography>
+      </>
     ),
-    methods: ["Analogies", "SCAMPER", "Assumptions", "Round Robin"],
-    results: ["Automated triage workflow", "ER checkpoints", "Sectioned spaces for efficiency"],
     images: [
-      { src: Brainstorming1, alt: "Brainstorming Ideas 1", caption: "Initial sketches and analogies for brainstorming." },
+      { src: Brainstorming1, alt: "Brainstorming Ideas 1", caption: "Initial idea sketches and analogies used in brainstorming." },
       { src: Brainstorming2, alt: "Brainstorming Ideas 2", caption: "Further brainstorming with Round Robin and SCAMPER methods." }
     ]
   },
@@ -81,24 +103,39 @@ const caseStudySections = [
     id: "prototype",
     title: "Prototype & Testing",
     description: (
-      <Typography>
-        Iterated colors and flows based on <b>user testing</b>. Developed a chatbot offering <b>real-time updates, skippable questions, and empathetic follow-ups</b>, improving trust and usability.
-      </Typography>
+      <>
+        <Typography paragraph>
+          When working on the prototype, I experimented with colors to influence user experience. The first iteration used green for calmness, the second red to convey hospital urgency, and the final blue to communicate stability and peace.
+        </Typography>
+        <Typography paragraph>
+          <b>User testing</b> shaped the prototype further. Testers suggested making some questions skippable or more efficient, guiding a <b>streamlined experience</b>.
+        </Typography>
+        <Typography paragraph>
+          An idea that emerged was a <b>chatbot inspired by Uber</b> that provides <b>real-time ambulance updates</b> and <b>follow-up interactions</b> to check on users. This fosters <b>empathy and care</b> while collecting feedback to improve the system over time.
+        </Typography>
+      </>
     ),
-    methods: ["User Testing", "Iterative Prototyping", "Color Experiments", "Flow Optimization"],
-    results: ["Enhanced empathy", "Streamlined experience", "Data-driven design decisions"],
     isPrototype: true
   },
   {
     id: "impact",
     title: "Impact & Results",
     description: (
-      <Typography>
-        Evaluated with 7 participants and a <b>SUS score of 77.8</b>. Users valued <b>real-time updates, clear guidance, and body scan features</b>. Insights informed balancing autonomy with AI recommendations and improving ER efficiency.
-      </Typography>
+      <>
+        <Typography paragraph>
+          I evaluated the Diagnosis Chatbot through multiple user tests. A SUS survey scored it 77.8, showing good usability. Prototype testing with seven participants (three experts) and the think-aloud method revealed both issues and improvement ideas, like adding more colors.
+        </Typography>
+        <Typography paragraph>
+          Users’ expectations varied: some wanted speed, others detailed explanations. The ER chatbot was praised for efficiency, yet participants suggested extra questions and severity justifications. The body scan feature stood out as the most appreciated.
+        </Typography>
+        <Typography paragraph>
+          Testing combined with literature research confirmed that early detection before hospital arrival can improve outcomes. Key design factors included real-time data, clear language for all digital literacy levels, and balancing guidance with autonomy and trust.
+        </Typography>
+        <Typography paragraph>
+          A main challenge was reconciling user control with the system’s decision-making. While not all criteria were met, the insights gained shaped clear priorities for the next iteration.
+        </Typography>
+      </>
     ),
-    methods: ["SUS Survey", "Think-Aloud Testing", "Expert Review"],
-    results: ["Balanced autonomy with AI", "Improved efficiency", "Accessible for all literacy levels"],
     image: ImpactImg,
     imageAlt: "Impact & Results",
     imageCaption: "Visualization of the AI and Human interaction"
@@ -107,18 +144,31 @@ const caseStudySections = [
     id: "takeaways",
     title: "Takeaways & Next Steps",
     description: (
-      <Typography>
-        Explored <b>balancing speed and empathy</b>. LangChain prototype demonstrated scalable, real-time guidance. Next steps: broader testing, healthcare collaboration, and live data integration, keeping <b>usability, clarity, and trust</b> central.
-      </Typography>
+      <>
+        <Typography paragraph>
+          This project explored <b>balancing efficiency and empathy</b> in emergency care design. Users valued the ER chatbot’s
+          <b> speed and smooth experience</b> but also requested <b>reassurance, explanations, and transparency</b>, highlighting
+          the challenge of balancing user autonomy with AI guidance.
+        </Typography>
+        <Typography paragraph>
+          Iterative testing revealed gaps like justifying severity levels and adapting language for diverse digital literacy,
+          while features such as <b>body scans</b> and <b>video explanations</b> boosted <b>trust and inclusivity</b>.
+        </Typography>
+        <Typography paragraph>
+          I built a <b>LangChain prototype</b> to experiment with <b>real-time guidance</b>, demonstrating potential for
+          scalable, data-driven emergency support.
+        </Typography>
+        <Typography paragraph>
+          Next steps include broader testing, collaboration with healthcare professionals, and real-time data integration
+          (e.g., wearables, EHRs), keeping <b>usability, clarity, and trust</b> at the heart of <b>human-centered AI design</b>.
+        </Typography>
+      </>
     ),
-    methods: ["Iterative Testing", "Healthcare Collaboration", "Prototype Experimentation"],
-    results: ["Broader testing", "Live data integration", "Focus on trust & clarity"],
     image: TakeawaysImg,
     imageAlt: "Takeaways & Next Steps",
     imageCaption: "A code snippet of the code I developed."
   }
 ];
-
 
 const scrollToId = (id) => {
   const el = document.getElementById(id);

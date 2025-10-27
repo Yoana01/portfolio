@@ -11,15 +11,34 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
+import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import EmergencyChatbotImage from "../assets/Emergency-moos.png";
+import ForwardOutlinedIcon from '@mui/icons-material/ForwardOutlined';
+import IconButton from "@mui/material/IconButton";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import Dialog from "@mui/material/Dialog";
+import CloseIcon from "@mui/icons-material/Close";
+
+import BlackBox from "../assets/MIAblackbox.png";
 import MIACover from "../assets/MIA.png";
-import Brainstorming1 from "../assets/Assosiations.PNG";
-import Brainstorming2 from "../assets/robin.PNG";
-import TakeawaysImg from "../assets/emergency-code.png";
-import ImpactImg from "../assets/Impact.jpg";
+import Research from "../assets/MIA RESEARCH.png";
+import Design from "../assets/Design 2.png";
+import TakeawaysImg from "../assets/Support.png";
+import ImpactImg from "../assets/MIA Design.png";
 import { motion } from "framer-motion";
 
+const icons = [
+  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <ForwardOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+];
 const caseStudySections = [
   {
     id: "overview",
@@ -29,24 +48,11 @@ const caseStudySections = [
         <Typography>
           The Media Innovation Assistant (MIA) is a platform designed to stimulate innovation within the Dutch media sector. It targets start-ups or
           individuals planning to launch one through Media CampusNL. MIA addresses the challenge of validating early-stage ideas by offering a secure
-          and supportive environment for experimentation and feedback. This paper presents MIA’s design and evaluation process, highlighting its role in
-          empowering media innovators.
-          A value-sensitive design process involving iterative prototyping, stakeholder interviews, and usability testing is used to achieve the goal. This
-          project focuses on the tension around data privacy, transparency, and trust in generative AI systems.
-          User testing for this study uncovered that participants appreciated the AI feedback but were still worried about their data. To address this problem,
-          chatbot avatars and an incognito mode are designed to enhance trust and usability. The findings emphasize the importance of balancing
-          transparency with explainability and suggest broader implications for responsible AI design in the media sector, integrating human-in-the-loop
-          mechanisms and privacy-by-design principles.
+          and supportive environment for experimentation and feedback.
         </Typography>
         <Typography>
           A value-sensitive design process involving iterative prototyping, stakeholder interviews, and usability testing is used to achieve the goal. This
           project focuses on the tension around data privacy, transparency, and trust in generative AI systems.
-        </Typography>
-        <Typography>
-          User testing for this study uncovered that participants appreciated the AI feedback but were still worried about their data. To address this problem,
-          chatbot avatars and an incognito mode are designed to enhance trust and usability. The findings emphasize the importance of balancing
-          transparency with explainability and suggest broader implications for responsible AI design in the media sector, integrating human-in-the-loop
-          mechanisms and privacy-by-design principles.
         </Typography>
       </>
     ),
@@ -60,16 +66,19 @@ const caseStudySections = [
     description: (
       <>
         <Typography>
-          Emergency services often face high demand, causing delays in critical care. Our solution, a smart online form with an AI chatbot, helps patients quickly determine if they need emergency care or alternative treatment while sending essential medical information to hospitals in advance.
+          AI systems are increasingly integrated into everyday decision-making, improving productivity and efficiency (Klingbeil et al., 2024). Yet, this integration carries risks: 66% of people rely on AI outputs without critical evaluation, and 56% have made mistakes because of it (Gillespie, 2025). This overreliance, driven by perceptions of AI’s mastery and efficiency, often hides the need for human oversight and critical thinking (Buçinca et al., 2021).
         </Typography>
         <Typography>
-          By automating triage and guidance, the form reduces unnecessary ER visits, supports emergency personnel, and improves access for patients hesitant to call emergency services.
+          In the media sector, where creativity, data ownership, and trust are crucial, professionals face a similar tension. Many view AI as a “black box” - powerful yet opaque - and hesitate to use it due to unclear data handling and transparency (Masood, 2025).
+        </Typography>
+        <Typography>
+          This project explores how the Media Innovation Assistant (MIA) can support Dutch media start-ups in generating ideas and sharing knowledge responsibly. Through six interviews with start-up owners, a key insight emerged: while users value AI tools, their main concern is how their data is used, revealing the “privacy paradox” (Gaber & Volkamer, 2018).
         </Typography>
       </>
     ),
-    image: EmergencyChatbotImage,
-    imageAlt: "Emergency Chatbot Context",
-    imageCaption: "Illustration showing the context and workflow of the emergency chatbot."
+    image: BlackBox,
+    imageAlt: "AI Black Box: Human Uncertainty in the Age of Automation.",
+    imageCaption: "Illustration showing AI Black Box: Human Uncertainty in the Age of Automation."
   },
   {
     id: "ideation",
@@ -77,49 +86,14 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          We explored multiple ideation methods, including analogies, assumptions, provocations, random entry, SCAMPER, and Round Robin to generate creative solutions for emergency care.
-        </Typography>
-
-        <Typography variant="subtitle1" paragraph>
-          Analogies
-        </Typography>
-        <Typography paragraph>
-          We compared ER services to McDonald’s (fast, efficient service) and a kettle (timely, multipurpose functionality). These parallels inspired ideas for streamlining processes, improving responsiveness, and leveraging technology. Mood boards were used to visualize these concepts and spark further creative thinking.
-        </Typography>
-
-        <Typography variant="subtitle1" paragraph>
-          Assumptions & Insights
-        </Typography>
-        <Typography paragraph>
-          Challenging assumptions revealed potential weaknesses, such as communication barriers for patients and overworked staff affecting care quality. This helped us identify areas where technology—like my AI chatbot concept—could support both patients and staff.
-        </Typography>
-
-        <Typography variant="subtitle1" paragraph>
-          Round Robin x SCAMPER
-        </Typography>
-        <Typography component="ul" paragraph>
-          <li>
-            <strong>Round 1:</strong> Initial solutions might fail due to unrealistic expectations (robots everywhere, AI errors, stress from tracking ambulances).
-          </li>
-          <li>
-            <strong>Round 2:</strong> We considered patient autonomy over AI assistants and making solutions more data-driven. Some patients may prefer human help only.
-          </li>
-          <li>
-            <strong>Round 3:</strong> Design criteria began overlapping with previous rounds; human supervision was deemed necessary due to potential AI biases.
-          </li>
-        </Typography>
-
-        <Typography variant="subtitle1" paragraph>
-          Outcomes
-        </Typography>
-        <Typography paragraph>
-          These methods led to diverse ideas, including more ER checkpoints, sectioned spaces for efficiency, and automated triage, directly informing the design of our AI-driven online emergency form.
+          The project employed methods based on Human-Centred Design and Value-Sensitive Design. This approach allows the alignment
+          among MIA, user values, and the addressed value tensions found earlier. Throughout the iterations, these principles directed the evaluation process,
+          which involved methods like cognitive walkthroughs, co-design sessions, and other user-centred methods.
         </Typography>
       </>
     ),
     images: [
-      { src: Brainstorming1, alt: "Brainstorming Ideas 1", caption: "Initial idea sketches and analogies used in brainstorming." },
-      { src: Brainstorming2, alt: "Brainstorming Ideas 2", caption: "Further brainstorming with Round Robin and SCAMPER methods." }
+      { src: Research, alt: "Research methods used to solve the problem", caption: "Research methods used to solve the problem" }
     ]
   },
   {
@@ -128,14 +102,16 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          When I started working on the prototype, my first focus was on experimenting with colors. In the first iteration, I chose green, because according to color theory it conveys calmness  -  something I felt was important in a hospital context. However, during the second iteration, I changed the color to red, as it is more strongly associated with hospitals and urgency. In the final iteration, I shifted to blue, as it conveys stability and peace, which better aligned with the feeling I wanted users to have.
+          Prototyping focused on creating a platform that balanced usability, privacy, and transparency. Early iterations tested structured submission flows and selective display of evaluation criteria to maintain user autonomy while providing guidance.
         </Typography>
         <Typography paragraph>
-          User testing played a crucial role in shaping the prototype further. Testers pointed out that some of the questions could either be skipped or made more efficient, which gave me direction on how to streamline the experience. Another interesting idea that emerged was the use of a chatbot. Inspired by Uber, the chatbot would not only provide real-time information about where the ambulance is, but also follow up with the user afterward to check if everything is okay. This small interaction creates a sense of empathy and care, while at the same time collecting feedback that can help the chatbot improve over time.
+          User testing informed refinements, including the addition of a chatbot avatar for real-time guidance, clearer instructions, and an incognito mode to enhance trust. These iterations ensured that MIA supported idea generation and feedback collection in a way that respected user values and promoted confidence in sharing ideas.
         </Typography>
       </>
     ),
-    isPrototype: true
+    images: [
+      { src: Design, alt: "One of the pages of MIA", caption: "Example of a MIA design page" }
+    ]
   },
   {
     id: "impact",
@@ -143,25 +119,16 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          Based on this research, building user confidence and trust requires <b>privacy, clear explanations, and transparency</b>.
-          This aligns with research identifying these elements as foundational pillars of trust in AI systems (Díaz-Rodríguez, 2023).
-          Several iterations focused specifically on these aspects: implementing an <b>incognito mode</b> on the main page and refining the
-          submission interface to enhance clarity and user control.
+          Research highlighted that building user trust requires <b>privacy, clarity, and transparency</b> (Díaz-Rodríguez, 2023). Key iterations included an <b>incognito mode</b> on the main page and refinements to the submission flow to enhance user control and clarity.
         </Typography>
         <Typography paragraph>
-          Importantly, privacy is not just one value among many — it is the foundation upon which all other trust-building features depend.
-          Designers must adopt a <b>privacy-by-design</b> approach, as even well-intentioned features like personalization may fail to gain users’ trust
-          without it. In this context, privacy becomes a requirement for meaningful user engagement and ethical AI deployment.
+          Privacy is the foundation for all trust-building features. Adopting a <b>privacy-by-design</b> approach ensures that even features like personalization gain user confidence, making privacy essential for ethical AI deployment and meaningful engagement.
         </Typography>
         <Typography paragraph>
-          <b>The Transparency Paradox in Practice:</b> One main finding was that too much structure or transparency could backfire — an effect
-          illustrated by the transparency paradox (Stohl, C., Stohl, M., & Leonardi, P. M., 2016). User feedback revealed that visible evaluation criteria,
-          intended to improve clarity, sometimes led to conformity and performative behavior. This could harm the platform’s core goal of encouraging authentic idea-sharing.
+          <b>The Transparency Paradox:</b> Too much visible structure can backfire (Stohl et al., 2016). Users reported that constantly visible evaluation criteria led to conformity, reducing authentic idea-sharing.
         </Typography>
         <Typography paragraph>
-          As a result, the design was adjusted to make evaluation criteria <b>selectively visible</b> — available when needed, but not constantly present.
-          This shift helped preserve originality while offering enough guidance, directly addressing the challenge of increasing trust and openness
-          without compromising user autonomy.
+          To address this, evaluation criteria were made <b>selectively visible</b>, available when needed but not constantly displayed. This preserved originality while providing guidance, balancing trust, transparency, and user autonomy.
         </Typography>
       </>
     ),
@@ -175,31 +142,19 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          Creating MIA presents a complex design challenge, specifically in balancing competing values such as trust, privacy, transparency, and usability.
-          The platform’s core objective is to support innovation in the Dutch media sector by offering a safe space for idea validation and knowledge-sharing.
-          This was achieved through features such as chatbot avatars, incognito mode, and a structured idea submission flow, which were shown to promote
-          user trust and engagement. Participants reported that these elements would help them refine their ideas and feel more confident sharing them.
-          Therefore, MIA can effectively support idea development and knowledge-sharing between start-ups by addressing concerns around data privacy
-          and AI transparency through thoughtful, value-sensitive design.
+          Designing MIA required balancing trust, privacy, transparency, and usability. Features like chatbot avatars, incognito mode, and a structured submission flow promoted trust and engagement, helping participants refine ideas confidently. MIA effectively supports idea validation and knowledge-sharing for Dutch media start-ups.
         </Typography>
         <Typography paragraph>
-          It is essential to position MIA as a supportive assistant rather than a decision-maker, in line with concerns about overreliance on AI and the critical
-          need for human oversight in AI-assisted systems (Klingbeil, A., Grützner, C., & Schreck, P., 2024). Users should be encouraged to engage critically
-          with the feedback provided, rather than accepting it uncritically, especially given the limitations and contextual nature of the underlying data
-          (Beaulieu, A., Leonelli, S., 2021). To support this, the system should be trained on diverse and representative data to minimize the risk of
-          algorithmic biases. Maintaining a human-in-the-loop approach is crucial in the idea evaluation and chatbot interactions. Human oversight ensures
-          the platform remains adaptable, context-aware, and responsive to evolving user needs (Figure 13).
-          Another key recommendation is to strengthen the platform’s community aspect. The participants expressed a desire for a blog-like feature where
-          they could share their challenges and successes through collective learning and a sense of belonging.
+          MIA is positioned as a <b>supportive assistant</b>, not a decision-maker, emphasizing human oversight (Klingbeil et al., 2024) and critical engagement with AI feedback (Beaulieu & Leonelli, 2021). Training on diverse data minimizes bias, while a human-in-the-loop approach keeps interactions adaptable and context-aware. 
         </Typography>
-
       </>
     ),
     image: TakeawaysImg,
-    imageAlt: "Takeaways & Next Steps",
-    imageCaption: "A codesnippet of the code I developed."
+    imageAlt: "AI as a supportive assistant",
+    imageCaption: "Illustration showing AI as a supportive assistant rather than a decision-maker."
   }
 ];
+
 
 const scrollToId = (id) => {
   const el = document.getElementById(id);
@@ -208,6 +163,7 @@ const scrollToId = (id) => {
 
 const MIAProject = () => {
   const [activeSection, setActiveSection] = useState(caseStudySections[0].id);
+  const [openImg, setOpenImg] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -222,26 +178,78 @@ const MIAProject = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  const renderImage = (src, alt, caption) => (
+    <Box sx={{ position: "relative", mb: 2 }}>
+      <motion.img
+        src={src}
+        alt={alt}
+        style={{
+          width: "100%",
+          height: "auto",
+          borderRadius: "8px",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+          cursor: "zoom-in"
+        }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => setOpenImg(src)}
+      />
+      <IconButton
+        onClick={() => setOpenImg(src)}
+        sx={{
+          position: "absolute",
+          top: 8,
+          right: 8,
+          bgcolor: "rgba(0,0,0,0.5)",
+          color: "white",
+          "&:hover": { bgcolor: "rgba(0,0,0,0.7)" }
+        }}
+        size="small"
+      >
+        <ZoomInIcon />
+      </IconButton>
+      <Typography variant="caption" display="block" align="center" sx={{ mt: 1 }}>
+        {caption}
+      </Typography>
+    </Box>
+  );
+
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
       <Typography variant="h3" align="center" sx={{ fontWeight: "bold", mb: 8 }}>
-        MIA: Media Inovation Assistant
+        MIA: Media Innovation Assistant
       </Typography>
 
       <Grid container spacing={6}>
-        {/* Desktop sidebar */}
         <Grid item xs={12} md={3}>
           <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
-            <Box sx={{ border: 1, borderColor: "divider", borderRadius: 2, p: 1, mb: 4 }}>
+            <Box sx={{ borderRadius: 2, p: 2, mb: 4, bgcolor: "white", boxShadow: 3 }}>
               <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>Contents</Typography>
               <List dense>
-                {caseStudySections.map((s) => (
+                {caseStudySections.map((s, i) => (
                   <ListItemButton
                     key={s.id}
                     onClick={() => scrollToId(s.id)}
                     selected={activeSection === s.id}
+                    sx={{
+                      borderRadius: 2,
+                      mb: 1,
+                      bgcolor: "transparent",
+                      "&.Mui-selected": {
+                        bgcolor: "transparent", // remove background
+                      },
+                    }}
                   >
-                    <ListItemText primary={s.title} />
+                    {icons[i]}
+                    <ListItemText
+                      primary={s.title}
+                      sx={{
+                        ml: 1,
+                        fontWeight: activeSection === s.id ? 700 : 400,
+                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                      }}
+                    />
                   </ListItemButton>
                 ))}
               </List>
@@ -280,7 +288,7 @@ const MIAProject = () => {
           </Box>
         </Grid>
 
-        {/* Main content */}
+
         <Grid item xs={12} md={8} lg={9}>
           {caseStudySections.map((section, index) => (
             <motion.div
@@ -297,7 +305,6 @@ const MIAProject = () => {
                 </Typography>
                 <Box sx={{ color: "text.secondary", mb: 3 }}>{section.description}</Box>
 
-                {/* Conditional Images / Prototype */}
                 {section.isPrototype ? (
                   <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
                     <iframe
@@ -310,29 +317,23 @@ const MIAProject = () => {
                     ></iframe>
                   </Box>
                 ) : section.images ? (
-                  section.images.map((img, idx) => (
-                    <Box key={idx} sx={{ mb: 2 }}>
-                      <Box component="img" src={img.src} alt={img.alt} sx={{ width: "100%", height: "auto", borderRadius: 2, mb: 1, boxShadow: 3 }} />
-                      <Typography variant="caption" display="block" align="center" sx={{ mb: 2 }}>{img.caption}</Typography>
-                    </Box>
-                  ))
+                  section.images.map((img, idx) => renderImage(img.src, img.alt, img.caption))
                 ) : section.image ? (
-                  <Box sx={{ mb: 2 }}>
-                    <Box component="img" src={section.image} alt={section.imageAlt} sx={{ width: "100%", height: "auto", borderRadius: 2, mb: 1, boxShadow: 3 }} />
-                    <Typography variant="caption" display="block" align="center">{section.imageCaption}</Typography>
-                  </Box>
+                  renderImage(section.image, section.imageAlt, section.imageCaption)
                 ) : (
-                  <Box sx={{
-                    width: "100%",
-                    height: 250,
-                    bgcolor: "grey.200",
-                    borderRadius: 2,
-                    mb: 2,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "text.disabled",
-                  }}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: 250,
+                      bgcolor: "grey.200",
+                      borderRadius: 2,
+                      mb: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "text.disabled"
+                    }}
+                  >
                     Image / Screenshot Placeholder
                   </Box>
                 )}
@@ -341,6 +342,26 @@ const MIAProject = () => {
           ))}
         </Grid>
       </Grid>
+
+      {/* Zoomed image dialog */}
+      <Dialog open={Boolean(openImg)} onClose={() => setOpenImg(null)} maxWidth="lg">
+        <Box sx={{ position: "relative" }}>
+          <IconButton
+            onClick={() => setOpenImg(null)}
+            sx={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+              bgcolor: "rgba(0,0,0,0.5)",
+              color: "white",
+              "&:hover": { bgcolor: "rgba(0,0,0,0.7)" }
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <Box component="img" src={openImg} alt="Zoomed Image" sx={{ width: "100%", height: "auto", borderRadius: 1 }} />
+        </Box>
+      </Dialog>
     </Container>
   );
 };
