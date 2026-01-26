@@ -89,7 +89,7 @@ export default function Navbar() {
           {/* Modern Rounded CV Button */}
           <Button
             component="a"
-            href="/CV UX updated.pdf"
+            href="/CV UX Yoana.pdf"
             target="_blank"
             variant="outlined"
             sx={{
