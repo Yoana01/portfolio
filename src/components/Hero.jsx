@@ -113,8 +113,7 @@ export default function Hero() {
     textAlign: 'center',
   }}
 >
-  Design truly matters when it begins with understanding people. <br />
-  <Box
+  {/* <Box
     component="span"
     sx={{ 
       color: '#32620e', 
@@ -122,9 +121,11 @@ export default function Hero() {
       display: 'inline-block', 
       mt: 1 
     }}
-  >
-    Guided by empathy and impactful insights from data.
-  </Box>
+  ><br />
+
+  </Box> */}
+  From insight to impact.
+  Designing human-centered, data-informed experiences.
 </Typography>
 
       </Container>
