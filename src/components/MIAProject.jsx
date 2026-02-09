@@ -26,12 +26,12 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
-import EmergencyChatbotImage from "../assets/Emergency-moos.png";
-import EmergencyCover from "../assets/emergency-cover.png";
-import Brainstorming1 from "../assets/Assosiations.PNG";
-import Brainstorming2 from "../assets/robin.PNG";
-import TakeawaysImg from "../assets/emergency-code.png";
-import ImpactImg from "../assets/Impact.jpg";
+import BlackBox from "../assets/MIAblackbox.png";
+import MIACover from "../assets/MIA.png";
+import Research from "../assets/MIA RESEARCH.png";
+import Design from "../assets/Design 2.png";
+import TakeawaysImg from "../assets/Support.png";
+import ImpactImg from "../assets/MIA Design.png";
 
 // Modern Callout Component
 const Callout = ({ children, icon }) => (
@@ -47,17 +47,17 @@ const Callout = ({ children, icon }) => (
     boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
   }}>
     {icon}
-    <Typography sx={{ color: "#32620e", fontWeight: 600, fontSize: "1rem", lineHeight: 1.6 }}>
+    <Typography sx={{ color: "#7F5539", fontWeight: 600, fontSize: "1rem", lineHeight: 1.6 }}>
       {children}
     </Typography>
   </Box>
 );
 
 const calloutIcons = {
-  insight: <LightbulbIcon sx={{ color: "#32620e", fontSize: 22 }} />,
-  decision: <ScienceIcon sx={{ color: "#32620e", fontSize: 22 }} />,
-  result: <TrophyIcon sx={{ color: "#32620e", fontSize: 22 }} />,
-  validation: <CheckIcon sx={{ color: "#32620e", fontSize: 22 }} />
+  insight: <LightbulbIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  decision: <ScienceIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  result: <TrophyIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  validation: <CheckIcon sx={{ color: "#7f5539", fontSize: 22 }} />
 };
 
 const icons = [
@@ -69,70 +69,66 @@ const icons = [
   <ForwardOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
 ];
 
-// Senior designer storytelling version of all sections
+// Case study sections
 const caseStudySections = [
   {
     id: "overview",
-    title: "Emergency Chatbot: Overview",
+    title: "Overview",
     description: (
       <>
-        <Typography paragraph>
-          Over a 4-week sprint, our team tackled the challenge of **making emergency care more accessible and empathetic**. I led the design of an **AI-driven emergency form**, working closely with three teammates to iterate from concept to functional prototype.
+        <Typography paragraph sx={{ mb: 2 }}>
+          The Media Innovation Assistant (MIA) is a platform created to support Dutch media start-ups in generating and validating ideas responsibly. Early-stage founders often hesitate to share ideas because of concerns around <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy, transparency, and trust</Typography>. MIA provides a secure and supportive environment where users can experiment, receive feedback, and maintain control over their data.
         </Typography>
-        <Typography paragraph>
-          This project wasn’t just about efficiency — it was about **building trust, clarity, and user confidence**. Every design decision aimed to empower patients while supporting hospital staff with accurate, actionable data.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Through an iterative value-sensitive design process involving prototyping, stakeholder interviews, and usability testing, the project focused on the delicate tension between <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>user autonomy and AI guidance</Typography>.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Key Insight: Emergency care benefits most when **automation complements human judgment**, not replaces it.
+          Key Insight: Balancing autonomy with AI support was identified as the central challenge from the start.
         </Callout>
       </>
     ),
-    image: EmergencyCover,
-    imageAlt: "Emergency Cover",
-    imageCaption: "Project cover illustrating the Emergency Chatbot concept."
+    image: MIACover,
+    imageAlt: "MIA Cover",
+    imageCaption: "Project cover illustrating the MIA platform."
   },
   {
     id: "context",
     title: "Problem & Context",
     description: (
       <>
-        <Typography paragraph>
-          ERs face chronic **overcrowding and delays**, and patients often arrive unsure if their condition warrants urgent attention. This uncertainty increases stress for both patients and medical staff.
+        <Typography paragraph sx={{ mb: 2 }}>
+          AI tools are increasingly used in everyday decision-making, yet many users rely on AI outputs without critical evaluation, sometimes leading to errors. In the media sector, where creativity, data ownership, and trust are paramount, professionals often perceive AI as a <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>“black box”</Typography>, making them hesitant to adopt these tools.
         </Typography>
-        <Typography paragraph>
-          Our solution: a **smart online triage form with an AI chatbot** that guides patients through symptom assessment, collects essential medical data, and routes them appropriately. By **reducing unnecessary ER visits**, it improves hospital efficiency while keeping humans in the loop for critical decisions.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Interviews with six start-up owners revealed a strong <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy paradox</Typography>: while users appreciated AI’s efficiency, they were deeply concerned about how their data would be used.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Insight: Providing patients with **autonomy, transparency, and reassurance** reduces anxiety and operational strain.
+          Insight: Privacy concerns were the top barrier to idea sharing, guiding all subsequent design decisions.
         </Callout>
       </>
     ),
-    image: EmergencyChatbotImage,
-    imageAlt: "Emergency Chatbot Context",
-    imageCaption: "Illustration showing the context and workflow of the emergency chatbot."
+    image: BlackBox,
+    imageAlt: "AI Black Box: Human Uncertainty in the Age of Automation.",
+    imageCaption: "Illustration showing AI Black Box: Human Uncertainty in the Age of Automation."
   },
   {
     id: "ideation",
     title: "Ideation & Design Process",
     description: (
       <>
-        <Typography paragraph>
-          We applied **diverse ideation methods** including analogies, SCAMPER, assumptions, and Round Robin exercises. These approaches revealed multiple opportunities and challenges in emergency care design.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Guided by Human-Centered Design and Value-Sensitive Design principles, I iteratively explored solutions aligned with MIA’s goals and user values. Cognitive walkthroughs, co-design sessions, and usability testing shaped every iteration.
         </Typography>
-        <Typography paragraph>
-          <b>Analogies:</b> Comparing ER workflows to **fast-food efficiency** and **multi-functional devices** highlighted the importance of speed, predictability, and flexibility. <b>Mood boards</b> helped visualize potential interactions and spark creativity.
-        </Typography>
-        <Typography paragraph>
-          <b>Assumptions & Insights:</b> Identifying weak points, like **overworked staff and communication gaps**, allowed us to define areas where AI could assist rather than replace humans.
+        <Typography paragraph sx={{ mb: 2 }}>
+          A key insight emerged early: <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>too much visible guidance suppressed originality</Typography>, whereas too little left users unsure of expectations. Balancing transparency with autonomy became the central challenge.
         </Typography>
         <Callout icon={calloutIcons.decision}>
-          Design Decision: Prioritize **human oversight and patient autonomy**, while automating repetitive tasks to reduce cognitive load on staff.
+          Design Decision: Evaluation criteria were made selectively visible to preserve creative freedom.
         </Callout>
       </>
     ),
     images: [
-      { src: Brainstorming1, alt: "Brainstorming Ideas 1", caption: "Initial idea sketches and analogies used in brainstorming." },
-      { src: Brainstorming2, alt: "Brainstorming Ideas 2", caption: "Further brainstorming with Round Robin and SCAMPER methods." }
+      { src: Research, alt: "Research methods used to solve the problem", caption: "Research methods used to solve the problem" }
     ]
   },
   {
@@ -140,62 +136,64 @@ const caseStudySections = [
     title: "Prototype & Testing",
     description: (
       <>
-        <Typography paragraph>
-          During prototyping, color was used deliberately to communicate **mood and urgency**: green for calm, red for alert, blue for stability. Iterative user testing helped refine a **streamlined, reassuring experience**.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Prototypes focused on balancing usability, privacy, and transparency. Structured submission flows were tested alongside selective evaluation criteria to maintain user control while providing guidance.
         </Typography>
-        <Typography paragraph>
-          We created a **chatbot inspired by Uber**, delivering **real-time ambulance updates** and follow-ups. Testers valued the combination of **speed, clarity, and empathy**.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Refinements included a chatbot avatar for guidance, clearer instructions, and an <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>incognito mode</Typography> to enhance trust.
         </Typography>
         <Callout icon={calloutIcons.result}>
-          Outcome: Real-time AI guidance fostered **trust and satisfaction**, while ensuring human supervision remained central.
+          Outcome: Users felt safer sharing ideas and more confident in the system, demonstrating trust-building through design.
         </Callout>
       </>
     ),
-    isPrototype: true
+    images: [
+      { src: Design, alt: "One of the pages of MIA", caption: "Example of a MIA design page" }
+    ]
   },
   {
     id: "impact",
     title: "Impact & Results",
     description: (
       <>
-        <Typography paragraph>
-          User testing revealed a **SUS score of 77.8**, confirming strong usability. Participants appreciated **clear instructions, autonomy, and real-time feedback**.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Testing confirmed that building trust requires <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy, clarity, and transparency</Typography>. The addition of incognito mode and refined submission flows significantly improved user confidence.
         </Typography>
-        <Typography paragraph>
-          Early detection before hospital arrival was highly valued. Users highlighted the need for **explanations alongside efficiency**, emphasizing trust and understanding over mere speed.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Evaluation also highlighted the <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>Transparency Paradox</Typography>: constant visibility of evaluation criteria encouraged conformity and reduced originality. Selective visibility preserved creative freedom while still providing guidance.
         </Typography>
         <Callout icon={calloutIcons.validation}>
-          Key Result: Thoughtful design increased **patient confidence**, improved hospital efficiency, and minimized unnecessary ER visits.
+          Key Result: Thoughtful transparency design increased authentic idea sharing without compromising guidance.
         </Callout>
       </>
     ),
     image: ImpactImg,
     imageAlt: "Impact & Results",
-    imageCaption: "Visualization of the AI and Human interaction"
+    imageCaption: "Visualization of the AI and human interaction"
   },
   {
     id: "takeaways",
     title: "Takeaways & Next Steps",
     description: (
       <>
-        <Typography paragraph>
-          The project highlighted the delicate balance of **efficiency, empathy, and clarity**. Features like **body scans and video explanations** fostered trust, while iterative testing highlighted areas for improving **language accessibility and guidance transparency**.
+        <Typography paragraph sx={{ mb: 2 }}>
+          Designing MIA required careful balancing of <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>trust, privacy, transparency, and usability</Typography>. Chatbot avatars, incognito mode, and structured submission flows promoted engagement and supported idea refinement.
         </Typography>
-        <Typography paragraph>
-          A LangChain prototype demonstrated the potential for **scalable, real-time emergency support**, keeping humans in the loop for critical decisions.
+        <Typography paragraph sx={{ mb: 2 }}>
+          MIA emphasizes a <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>supportive AI assistant</Typography> rather than a decision-maker. Human-in-the-loop interactions and diverse data training reduce bias while keeping the platform context-aware and adaptable.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Next Steps: Expand testing, integrate **real-time health data**, and collaborate closely with medical professionals to refine **human-centered AI design**.
+          Next Step: Expand collaborative validation features while maintaining trust and autonomy.
         </Callout>
       </>
     ),
     image: TakeawaysImg,
-    imageAlt: "Takeaways & Next Steps",
-    imageCaption: "A code snippet of the prototype implementation."
+    imageAlt: "AI as a supportive assistant",
+    imageCaption: "Illustration showing AI as a supportive assistant rather than a decision-maker."
   }
 ];
 
-// Render images MIA-style
+// Render images without zoom effect
 const renderImage = (src, alt, caption) => (
   <Box sx={{ mb: 4, borderRadius: 3, overflow: "hidden" }}>
     <img src={src} alt={alt} style={{ width: "100%", borderRadius: "8px", display: "block" }} />
@@ -205,7 +203,7 @@ const renderImage = (src, alt, caption) => (
   </Box>
 );
 
-const EmergencyCaseStudy = () => {
+const MIAProject = () => {
   const [activeSection, setActiveSection] = useState(caseStudySections[0].id);
 
   useEffect(() => {
@@ -229,12 +227,13 @@ const EmergencyCaseStudy = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 10 }}>
       <Typography variant="h3" align="center" sx={{ fontWeight: "bold", mb: 10 }}>
-        Emergency Chatbot Case Study
+        MIA: Media Innovation Assistant
       </Typography>
 
       <Grid container spacing={6}>
-        {/* Sidebar */}
+        {/* Left nav unchanged */}
         <Grid item xs={12} md={3}>
+          {/* Desktop sidebar */}
           <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
             <Box sx={{ borderRadius: 3, p: 3, mb: 4, bgcolor: "white", boxShadow: 3 }}>
               <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>Contents</Typography>
@@ -267,7 +266,7 @@ const EmergencyCaseStudy = () => {
             </Box>
           </Box>
 
-          {/* Mobile Accordion */}
+          {/* Mobile accordion */}
           <Box sx={{
             display: { xs: "flex", md: "none" },
             justifyContent: "center",
@@ -299,7 +298,7 @@ const EmergencyCaseStudy = () => {
           </Box>
         </Grid>
 
-        {/* Main Content */}
+        {/* Main content */}
         <Grid item xs={12} md={9}>
           {caseStudySections.map((section, index) => (
             <motion.div
@@ -318,18 +317,7 @@ const EmergencyCaseStudy = () => {
                   {section.description}
                 </Box>
 
-                {section.isPrototype ? (
-                  <Box sx={{ mb: 4, borderRadius: 3, overflow: "hidden" }}>
-                    <iframe
-                      style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                      width="100%"
-                      height="450"
-                      src="https://embed.figma.com/design/yCAgDP2YQZqYPyL9g2iPfr/Emergency-chatbot?node-id=0-1&embed-host=share"
-                      allowFullScreen
-                      title="Figma Prototype Emergency Chatbot"
-                    />
-                  </Box>
-                ) : section.images
+                {section.images
                   ? section.images.map((img, idx) => renderImage(img.src, img.alt, img.caption))
                   : section.image
                   ? renderImage(section.image, section.imageAlt, section.imageCaption)
@@ -345,4 +333,4 @@ const EmergencyCaseStudy = () => {
   );
 };
 
-export default EmergencyCaseStudy;
+export default MIAProject;
