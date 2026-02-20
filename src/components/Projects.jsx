@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Typography, Chip } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,20 +13,23 @@ const projects = [
   {
     title: 'Media Innovation Assistant',
     img: miaImg,
-    skills: ['Research', 'AI', 'Conversational Agent', 'Langchain', 'Trust', 'Privacy', 'Innovation'],
     link: '/projects/MIA',
+    sentence: 'A conversational agent that supports research and innovation in media projects.',
+    question: 'How did I ensure trust and privacy while making it useful for creators?',
   },
   {
     title: 'Emergency Chatbot',
     img: emergencyImg,
-    skills: ['Chatbots', 'Emergency', 'Data-Driven Design', 'Brainstorming'],
     link: '/projects/emergency',
+    sentence: 'A data-driven chatbot designed to assist in emergency scenarios.',
+    question: 'How did I make it fast and reliable for real-time use?',
   },
   {
     title: 'Financial App',
     img: financeImg,
-    skills: ['Research', 'AI', 'Gamification', 'Literacy', 'UX/UI', 'Finance'],
     link: '/projects/FundingApp',
+    sentence: 'A gamified app that helps students build financial literacy and responsible habits.',
+    question: 'How did I motivate students to track and reach their goals consistently?',
   },
 ];
 
@@ -37,19 +40,17 @@ export default function Project() {
     containerRef.current.forEach((el, idx) => {
       if (!el) return;
 
-      // Smooth parallax for the wrapper
       gsap.to(el, {
-        y: -(idx + 1) * 10, // smaller layered offset
+        y: -(idx + 1) * 10,
         ease: 'none',
         scrollTrigger: {
           trigger: el,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: true, // smooth parallax
+          scrub: true,
         },
       });
 
-      // Fade & scale entrance for inner card (no y transform!)
       const card = el.querySelector('.card-content');
       if (card) {
         gsap.from(card, {
@@ -78,7 +79,7 @@ export default function Project() {
             width: '100%',
             mb: 6,
             position: 'relative',
-            willChange: 'transform', // GPU acceleration
+            willChange: 'transform',
           }}
         >
           <Link to={project.link} style={{ textDecoration: 'none', width: '100%' }}>
@@ -106,6 +107,8 @@ export default function Project() {
                   transition: 'transform 0.5s ease',
                 }}
               />
+
+              {/* Stronger overlay for readability */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -113,39 +116,56 @@ export default function Project() {
                   width: '100%',
                   px: { xs: 2, sm: 4, md: 6 },
                   py: { xs: 2, sm: 4, md: 6 },
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0))',
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))',
                   backdropFilter: 'blur(12px)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: { xs: 1, sm: 1.5, md: 2 },
+                  gap: { xs: 0.5, sm: 1, md: 1.5 },
+                  alignItems: 'flex-start',
                 }}
               >
+                {/* Title */}
                 <Typography
                   variant="h5"
                   sx={{
-                    fontWeight: 700,
-                    color: 'white',
-                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                    fontWeight: 600,
+                    color: '#ffffff', // darker green for better contrast
+                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.3rem' },
                     textAlign: 'left',
                   }}
                 >
                   {project.title}
                 </Typography>
-                <Box sx={{ display: 'flex', gap: { xs: 0.5, sm: 1, md: 1.5 }, flexWrap: 'wrap' }}>
-                  {project.skills.map((skill, i) => (
-                    <Chip
-                      key={i}
-                      label={skill}
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        borderColor: 'white',
-                        color: 'white',
-                        fontSize: { xs: '0.65rem', sm: '0.75rem', md: '0.85rem' },
-                      }}
-                    />
-                  ))}
-                </Box>
+
+                {/* Context sentence */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: 'white',
+                    fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' },
+                    fontWeight: 400,
+                    lineHeight: 1.4,
+                    mt: 0.5,
+                    textShadow: '0px 1px 3px rgba(0,0,0,0.6)',
+                  }}
+                >
+                  {project.sentence}
+                </Typography>
+
+                {/* Teaser question */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: 'white',
+                    fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
+                    fontWeight: 400,
+                    lineHeight: 1.3,
+                    mt: 0.3,
+                    textShadow: '0px 1px 3px rgba(0,0,0,0.6)',
+                  }}
+                >
+                  {project.question}
+                </Typography>
               </Box>
             </Box>
           </Link>
