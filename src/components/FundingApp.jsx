@@ -13,42 +13,77 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-// ✅ Outlined + green icons
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
-import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
-import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
+import {
+  DescriptionOutlined as DescriptionOutlinedIcon,
+  LightbulbOutlined as LightbulbOutlinedIcon,
+  ScienceOutlined as ScienceOutlinedIcon,
+  CheckCircleOutlined as CheckCircleOutlinedIcon,
+  EmojiEventsOutlined as EmojiEventsOutlinedIcon,
+} from "@mui/icons-material";
+
+import { motion } from "framer-motion";
 
 import financeImg from "../assets/Finance Cover.png";
 import SadStudent from "../assets/SadStudent.png";
 import Students from "../assets/Students.png";
 
-import { motion } from "framer-motion";
-
+// Icons array
 const icons = [
-  <DescriptionOutlinedIcon fontSize="small" color="#32620e" />,
-  <LightbulbOutlinedIcon fontSize="small" color="#32620e" />,
-  <ScienceOutlinedIcon fontSize="small" color="#32620e" />,
-  <CheckCircleOutlinedIcon fontSize="small" color="#32620e"/>,
-  <EmojiEventsOutlinedIcon fontSize="small" color="#32620e" />,
+  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
 ];
 
+// Callout Component
+const Callout = ({ children, icon }) => (
+  <Box
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: 1.5,
+      bgcolor: "#f8faf7",
+      px: 3,
+      py: 2,
+      borderRadius: 3,
+      my: 3,
+      boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+    }}
+  >
+    {icon}
+    <Typography sx={{ fontWeight: 600, lineHeight: 1.6 }}>{children}</Typography>
+  </Box>
+);
+
+const calloutIcons = {
+  insight: <LightbulbOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  decision: <ScienceOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  result: <EmojiEventsOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  validation: <CheckCircleOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+};
+
+// Sections
 const caseStudySections = [
   {
     id: "overview",
-    title: "Financial App: Overview",
+    title: "Overview",
     description: (
       <>
-        <Typography variant="h6">Overview</Typography>
-        <Typography>
+        <Typography paragraph>
           This case study demonstrates the design and research process behind a
-          personalized, data-driven financial management tool for students aged
-          18–25. Through surveys, focus groups, expert interviews, storyboards,
-          empathy mapping, and stakeholder analysis, key insights were
-          uncovered: students often rely on family or DUO support, prefer Excel
-          over finance apps, and experience stress when managing finances.
+          personalized financial management tool for students aged 18–25.
         </Typography>
+        <Typography paragraph>
+          Through surveys, focus groups, interviews, storyboards, and empathy
+          mapping, key insights were uncovered: students often rely on family or
+          DUO support, prefer Excel over finance apps, and experience stress when
+          managing finances.
+        </Typography>
+        <Callout icon={calloutIcons.insight}>
+          Students associate financial management with stress and desire simple,
+          confidence-building tools.
+        </Callout>
       </>
     ),
     image: financeImg,
@@ -60,63 +95,31 @@ const caseStudySections = [
     title: "Problem & Context",
     description: (
       <>
-        <Typography>
-          Financial literacy is a crucial skill, yet many young adults struggle
-          to manage their finances effectively due to limited knowledge.{" "}
-          <em>
-            The research question - how can a personalized, data-driven
-            financial management tool be designed to effectively support diverse
-            student populations in improving their financial habits and
-            engagement?
-          </em>
+        <Typography paragraph>
+          Many students lack confidence in managing their finances independently.
+          Existing apps focus heavily on dashboards but fail to address emotional
+          barriers, often amplifying stress and avoidance.
         </Typography>
-        <Typography>
-          By promoting responsible spending, providing actionable insights, and
-          supporting long-term financial planning, the tool empowers students to
-          take control of their finances and reduce stress.
-        </Typography>
+        <Callout icon={calloutIcons.insight}>
+          Financial literacy challenges are behavioral and emotional, not just informational.
+        </Callout>
       </>
     ),
     image: SadStudent,
     imageAlt: "Student stressed about finances",
-    imageCaption: "Illustration showing the sad student.",
+    imageCaption: "Illustration showing the stressed student.",
   },
   {
     id: "ideation",
     title: "Ideation & Design Process",
     description: (
       <>
-        <Typography variant="h6">Methodology</Typography>
-        <Typography>
-          <strong>Empathy Mapping:</strong> The research began with creating an
-          empathy map to visualize the target audience, based on initial
-          assumptions rather than interviews.
+        <Typography paragraph>
+          Research included empathy mapping, stakeholder analysis, surveys, and focus groups. Storyboards helped uncover students’ mental models and financial habits.
         </Typography>
-        <Typography>
-          <strong>Toned and Untoned Values:</strong> Toned and untoned values
-          were identified to understand students’ priorities versus their actual
-          behaviors.
-        </Typography>
-        <Typography>
-          <strong>Stakeholder Map:</strong> A stakeholder map was created to
-          identify all parties involved in student financial management.
-        </Typography>
-        <Typography>
-          <strong>Survey:</strong> To validate assumptions and identify the
-          target audience, a survey was shared with colleagues and on Instagram.
-        </Typography>
-        <Typography>
-          <strong>Expert Interviews:</strong> Two interviews were conducted with
-          bank representatives to gain insights beyond student perspectives.
-        </Typography>
-        <Typography>
-          <strong>Focus Group:</strong> A focus group with two teammates used
-          inductive thematic and semantic analysis.
-        </Typography>
-        <Typography>
-          <strong>Storyboards:</strong> Students completed storyboards exploring
-          financial literacy resources and personal finance tracking.
-        </Typography>
+        <Callout icon={calloutIcons.decision}>
+          Insights guided design: reduce cognitive load, provide guidance, and build confidence.
+        </Callout>
       </>
     ),
     isResearch: true,
@@ -127,15 +130,8 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          When I started working on the prototype, my first focus was on
-          experimenting with colors. In the first iteration, I chose green,
-          because according to color theory it conveys calmness.
-        </Typography>
-        <Typography paragraph>
-          User testing played a crucial role in shaping the prototype further.
-          Testers pointed out that some of the questions could either be skipped
-          or made more efficient, which gave me direction on how to streamline
-          the experience.
+          Prototypes experimented with color, microlearning, and simplified flows.
+          User testing refined onboarding and clarified progress indicators.
         </Typography>
       </>
     ),
@@ -147,46 +143,29 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph>
-          The research showed clear similarities between the literature review
-          and study results. Many students still rely on family or DUO support,
-          motivating them to seek independence through part-time work.
-          Interestingly, <b>70% preferred Excel</b> over financial apps for
-          convenience.
+          Testing confirmed that the tool should feel supportive rather than corrective.
         </Typography>
+        <Callout icon={calloutIcons.result}>
+          Reframing the product as a confidence-building experience reduced stress and improved engagement.
+        </Callout>
         <Typography paragraph>
-          From the <b>banks’ perspective</b>, younger users favor step-by-step
-          short videos (e.g., Instagram reels) for learning. The participating
-          bank also provides financial literacy lectures in high schools. Focus
-          groups revealed that financial apps are often linked to{" "}
-          <b>negative emotions</b> - stress, anxiety, and overwhelm. However,
-          students were more open to apps if they were certified as secure and
-          included educational video content.
-        </Typography>
-        <Typography paragraph>
-          Future research should explore <b>financial avoidance</b> and how to
-          shift students’ mindset. The challenge is to design tools that promote
-          literacy, motivate usage, and reduce stress.
-        </Typography>
-        <Typography paragraph>
-          <b>In conclusion:</b> The target audience experiences financial
-          anxiety and lacks confidence in their knowledge. The app should act as
-          a <b>learning space</b> to build <b>confidence in financial skills</b>
-          , while motivating users to track expenses and reduce spending.
+          Students moved from financial anxiety to control and confidence.
         </Typography>
       </>
     ),
     image: Students,
-    imageAlt: "Student feeling happy about finances",
-    imageCaption:
-      "AI Illustration showing the happy students because they are not worried about their finances.",
+    imageAlt: "Students feeling happy about finances",
+    imageCaption: "Illustration showing students feeling confident about finances.",
   },
 ];
 
+// Scroll helper
 const scrollToId = (id) => {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
+// Component
 const FinanceApp = () => {
   const [activeSection, setActiveSection] = useState(caseStudySections[0].id);
 
@@ -194,228 +173,153 @@ const FinanceApp = () => {
     const handleScroll = () => {
       const offsets = caseStudySections.map((section) => {
         const el = document.getElementById(section.id);
-        return {
-          id: section.id,
-          offset: el ? el.getBoundingClientRect().top : 0,
-        };
+        return { id: section.id, offset: el ? el.getBoundingClientRect().top : 0 };
       });
-      const current =
-        offsets.find((section) => section.offset >= 0) ||
-        offsets[offsets.length - 1];
-      if (current) setActiveSection(current.id);
+      const current = offsets.reduce((prev, curr) =>
+        Math.abs(curr.offset) < Math.abs(prev.offset) ? curr : prev
+      );
+      setActiveSection(current.id);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "white", py: 8 }}>
-      <Container maxWidth="lg">
-        <Grid container spacing={6}>
-          {/* Sidebar */}
-          <Grid item xs={12} md={3}>
-            {/* Desktop sidebar */}
-            <Box
-              sx={{
-                display: { xs: "none", md: "block" },
-                position: "sticky",
-                top: 100,
-              }}
-            >
-              <Box
-                sx={{
-                  borderRadius: 3,
-                  p: 2,
-                  mb: 4,
-                  bgcolor: "white",
-                  boxShadow: 3,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ px: 1, py: 1, fontWeight: 700 }}
-                >
+    <Container maxWidth="lg" sx={{ py: 10 }}>
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{ fontWeight: "bold", mb: 10, color: "#32620e" }}
+      >
+        Student Financial Confidence Platform
+      </Typography>
+
+      <Grid container spacing={6}>
+        {/* Sidebar */}
+        <Grid item xs={12} md={3}>
+          <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
+            <Box sx={{ borderRadius: 3, p: 3, bgcolor: "white", boxShadow: 3 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2 }}>
+                Contents
+              </Typography>
+              <List dense>
+                {caseStudySections.map((s, i) => (
+                  <ListItemButton
+                    key={s.id}
+                    onClick={() => scrollToId(s.id)}
+                    selected={activeSection === s.id}
+                    sx={{ borderRadius: 2, mb: 1, "&.Mui-selected": { bgcolor: "transparent" } }}
+                  >
+                    {icons[i]}
+                    <ListItemText
+                      primary={s.title}
+                      sx={{
+                        ml: 1,
+                        fontWeight: activeSection === s.id ? 700 : 400,
+                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                      }}
+                    />
+                  </ListItemButton>
+                ))}
+              </List>
+            </Box>
+          </Box>
+
+          {/* Mobile accordion */}
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              justifyContent: "center",
+              mb: 4,
+              width: "100%",
+              position: "sticky",
+              top: 0,
+              zIndex: 1000,
+              bgcolor: "background.paper",
+              boxShadow: 2,
+              py: 1,
+            }}
+          >
+            <Accordion sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700, textAlign: "center" }}>
                   Contents
                 </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
                 <List dense>
-                  {caseStudySections.map((s, i) => (
-                    <ListItemButton
-                      key={s.id}
-                      onClick={() => scrollToId(s.id)}
-                      selected={activeSection === s.id}
-                      sx={{
-                        borderRadius: 2,
-                        mb: 1,
-                        bgcolor: "transparent",
-                        "&.Mui-selected": {
-                          bgcolor: "transparent", // remove background
-                        },
-                      }}
-                    >
-                      {icons[i]}
-                      <ListItemText
-                        primary={s.title}
-                        sx={{
-                          ml: 1,
-                          fontWeight: activeSection === s.id ? 700 : 400,
-                          borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
-                        }}
-                      />
+                  {caseStudySections.map((s) => (
+                    <ListItemButton key={s.id} onClick={() => scrollToId(s.id)}>
+                      <ListItemText primary={s.title} sx={{ textAlign: "center" }} />
                     </ListItemButton>
                   ))}
                 </List>
-
-              </Box>
-            </Box>
-
-            {/* Mobile accordion */}
-            <Box
-              sx={{
-                display: { xs: "flex", md: "none" },
-                justifyContent: "center",
-                mb: 4,
-                width: "100%",
-                position: "sticky",
-                top: 0,
-                zIndex: 1000,
-                bgcolor: "background.paper",
-                boxShadow: 2,
-                py: 1,
-              }}
-            >
-              <Accordion sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 700,
-                      textAlign: "center",
-                      width: "100%",
-                    }}
-                  >
-                    Contents
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <List dense>
-                    {caseStudySections.map((s) => (
-                      <ListItemButton
-                        key={s.id}
-                        onClick={() => scrollToId(s.id)}
-                      >
-                        <ListItemText
-                          primary={s.title}
-                          sx={{ textAlign: "center" }}
-                        />
-                      </ListItemButton>
-                    ))}
-                  </List>
-                </AccordionDetails>
-              </Accordion>
-            </Box>
-          </Grid>
-
-          {/* Main content */}
-          <Grid item xs={12} md={8} lg={9}>
-            {caseStudySections.map((section, index) => (
-              <motion.div
-                key={index}
-                id={section.id}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -40 : 40,
-                }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Box sx={{ mb: 8, maxWidth: 800, width: "100%" }}>
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      fontWeight: "bold",
-                      mb: 3,
-                      color: "#32620e", // ✅ green titles only
-                    }}
-                  >
-                    {section.title}
-                  </Typography>
-
-                  <Box sx={{ color: "text.secondary", mb: 3 }}>
-                    {section.description}
-                  </Box>
-
-                  {/* Images / Prototype / Research Jam */}
-                  {section.isPrototype ? (
-                    <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
-                      <iframe
-                        style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                        width="100%"
-                        height="450"
-                        src="https://embed.figma.com/design/uvowkaNI2In1FGhXSyGmTD/Finance-App?node-id=37-1269&embed-host=share"
-                        allowFullScreen
-                        title="Finance App Prototype"
-                      />
-                    </Box>
-                  ) : section.isResearch ? (
-                    <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
-                      <iframe
-                        style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                        width="100%"
-                        height="450"
-                        src="https://embed.figma.com/board/ll07NUUDbfCHruIXm33pwc/Finance-Research?node-id=1-6843&embed-host=share"
-                        allowFullScreen
-                        title="Finance Situation Map"
-                      />
-                    </Box>
-                  ) : section.image ? (
-                    <Box sx={{ mb: 2 }}>
-                      <Box
-                        component={motion.img}
-                        whileHover={{ scale: 1.03 }}
-                        transition={{ duration: 0.3 }}
-                        src={section.image}
-                        alt={section.imageAlt}
-                        sx={{
-                          width: "100%",
-                          height: "auto",
-                          borderRadius: 4,
-                          mb: 1,
-                          boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
-                        }}
-                      />
-                      <Typography
-                        variant="caption"
-                        display="block"
-                        align="center"
-                      >
-                        {section.imageCaption}
-                      </Typography>
-                    </Box>
-                  ) : (
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: 250,
-                        bgcolor: "grey.200",
-                        borderRadius: 2,
-                        mb: 2,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "text.disabled",
-                      }}
-                    >
-                      Image / Screenshot Placeholder
-                    </Box>
-                  )}
-                </Box>
-              </motion.div>
-            ))}
-          </Grid>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
         </Grid>
-      </Container>
-    </Box>
+
+        {/* Main content */}
+        <Grid item xs={12} md={9}>
+          {caseStudySections.map((section, index) => (
+            <motion.div
+              key={section.id}
+              id={section.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+            >
+              <Box sx={{ mb: 12, maxWidth: 800 }}>
+                <Typography variant="h4" sx={{ fontWeight: 800, mb: 4, color: "#32620e" }}>
+                  {section.title}
+                </Typography>
+
+                <Box sx={{ color: "text.secondary", mb: 4 }}>{section.description}</Box>
+
+                {section.isPrototype ? (
+                  <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
+                    <iframe
+                      style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                      width="100%"
+                      height="450"
+                      src="https://embed.figma.com/design/uvowkaNI2In1FGhXSyGmTD/Finance-App?node-id=37-1269&embed-host=share"
+                      allowFullScreen
+                      title="Finance App Prototype"
+                    />
+                  </Box>
+                ) : section.isResearch ? (
+                  <Box sx={{ mb: 2, borderRadius: 2, overflow: "hidden" }}>
+                    <iframe
+                      style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                      width="100%"
+                      height="450"
+                      src="https://embed.figma.com/board/ll07NUUDbfCHruIXm33pwc/Finance-Research?node-id=1-6843&embed-host=share"
+                      allowFullScreen
+                      title="Finance Research"
+                    />
+                  </Box>
+                ) : section.image ? (
+                  <Box sx={{ mb: 4, borderRadius: 3, overflow: "hidden" }}>
+                    <Box
+                      component={motion.img}
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ duration: 0.3 }}
+                      src={section.image}
+                      alt={section.imageAlt}
+                      sx={{ width: "100%", borderRadius: 3, mb: 1 }}
+                    />
+                    <Typography variant="caption" display="block" align="center">
+                      {section.imageCaption}
+                    </Typography>
+                  </Box>
+                ) : null}
+              </Box>
+            </motion.div>
+          ))}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

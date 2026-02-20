@@ -77,10 +77,10 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          The Media Innovation Assistant (MIA) is a platform created to support Dutch media start-ups in generating and validating ideas responsibly. Early-stage founders often hesitate to share ideas because of concerns around <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy, transparency, and trust</Typography>. MIA provides a secure and supportive environment where users can experiment, receive feedback, and maintain control over their data.
+          The Media Innovation Assistant (MIA) is a platform designed to help Dutch media start-ups generate and validate ideas responsibly. Early-stage founders often hesitate to share ideas due to privacy and trust concerns. MIA provides a secure, supportive environment where users can experiment, receive feedback, and maintain control over their data.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          Through an iterative value-sensitive design process involving prototyping, stakeholder interviews, and usability testing, the project focused on the delicate tension between <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>user autonomy and AI guidance</Typography>.
+          Through an iterative, value-sensitive design process-including prototyping, stakeholder interviews, and usability testing-I focused on the central challenge: balancing user autonomy with AI guidance.
         </Typography>
         <Callout icon={calloutIcons.insight}>
           Key Insight: Balancing autonomy with AI support was identified as the central challenge from the start.
@@ -97,13 +97,13 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          AI tools are increasingly used in everyday decision-making, yet many users rely on AI outputs without critical evaluation, sometimes leading to errors. In the media sector, where creativity, data ownership, and trust are paramount, professionals often perceive AI as a <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>“black box”</Typography>, making them hesitant to adopt these tools.
+          AI tools are increasingly embedded in decision-making, yet many users adopt outputs without critical evaluation. In the media sector-where creativity, trust, and data ownership are crucial-professionals often perceive AI as a “black box”, creating hesitancy.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          Interviews with six start-up owners revealed a strong <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy paradox</Typography>: while users appreciated AI’s efficiency, they were deeply concerned about how their data would be used.
+          Interviews with six start-up founders revealed a privacy paradox: while users valued AI efficiency, they feared data misuse. This insight became the guiding principle for every design decision.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Insight: Privacy concerns were the top barrier to idea sharing, guiding all subsequent design decisions.
+          Research Insight: Users rely on AI daily but remain cautious about sensitive data-guiding privacy-focused design decisions.
         </Callout>
       </>
     ),
@@ -117,13 +117,13 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          Guided by Human-Centered Design and Value-Sensitive Design principles, I iteratively explored solutions aligned with MIA’s goals and user values. Cognitive walkthroughs, co-design sessions, and usability testing shaped every iteration.
+          Guided by Human-Centered and Value-Sensitive Design, I iteratively explored solutions aligned with MIA’s goals and user values. Cognitive walkthroughs, co-design sessions, and usability testing shaped every iteration.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          A key insight emerged early: <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>too much visible guidance suppressed originality</Typography>, whereas too little left users unsure of expectations. Balancing transparency with autonomy became the central challenge.
+          Excessive guidance reduced creative output, while insufficient guidance left users uncertain. Evaluation criteria were made selectively visible to preserve creativity without sacrificing support.
         </Typography>
         <Callout icon={calloutIcons.decision}>
-          Design Decision: Evaluation criteria were made selectively visible to preserve creative freedom.
+          Design Decision: Led prototype flows, evaluation criteria, and guidance systems to maintain autonomy, trust, and transparency.
         </Callout>
       </>
     ),
@@ -137,13 +137,13 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          Prototypes focused on balancing usability, privacy, and transparency. Structured submission flows were tested alongside selective evaluation criteria to maintain user control while providing guidance.
+          Prototypes balanced usability, privacy, and transparency. Structured submission flows and selective evaluation criteria allowed users to stay in control while receiving guidance.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          Refinements included a chatbot avatar for guidance, clearer instructions, and an <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>incognito mode</Typography> to enhance trust.
+          Refinements included chatbot avatars for context-aware support and an incognito mode to address privacy concerns.
         </Typography>
         <Callout icon={calloutIcons.result}>
-          Outcome: Users felt safer sharing ideas and more confident in the system, demonstrating trust-building through design.
+          Outcome: Users reported higher confidence sharing ideas; task success improved to 80–95% and SUS score increased from 67.5 to 83.75, showing measurable improvements in usability and trust.
         </Callout>
       </>
     ),
@@ -157,13 +157,13 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          Testing confirmed that building trust requires <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>privacy, clarity, and transparency</Typography>. The addition of incognito mode and refined submission flows significantly improved user confidence.
+          Testing confirmed privacy, clarity, and transparency are essential for trust. Selective visibility of evaluation criteria preserved originality while providing guidance.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          Evaluation also highlighted the <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>Transparency Paradox</Typography>: constant visibility of evaluation criteria encouraged conformity and reduced originality. Selective visibility preserved creative freedom while still providing guidance.
+          Thoughtful design decisions increased authentic idea submissions, reduced hesitation to share, and demonstrated measurable impact in usability and engagement.
         </Typography>
         <Callout icon={calloutIcons.validation}>
-          Key Result: Thoughtful transparency design increased authentic idea sharing without compromising guidance.
+          Key Result: Balanced transparency and guidance enabled users to experiment confidently without compromising creativity.
         </Callout>
       </>
     ),
@@ -177,13 +177,13 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          Designing MIA required careful balancing of <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>trust, privacy, transparency, and usability</Typography>. Chatbot avatars, incognito mode, and structured submission flows promoted engagement and supported idea refinement.
+          MIA demonstrates how AI can act as a supportive assistant rather than a decision-maker. Human-in-the-loop interactions and context-aware design reduced bias while empowering users.
         </Typography>
         <Typography paragraph sx={{ mb: 2 }}>
-          MIA emphasizes a <Typography component="span" sx={{ color: "#7F5539", fontWeight: "bold" }}>supportive AI assistant</Typography> rather than a decision-maker. Human-in-the-loop interactions and diverse data training reduce bias while keeping the platform context-aware and adaptable.
+          Key design elements-chatbot avatars, structured submission flows, and incognito mode-promoted engagement and supported idea refinement.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Next Step: Expand collaborative validation features while maintaining trust and autonomy.
+          Next Step: Expand collaborative validation features while maintaining trust, autonomy, and transparency.
         </Callout>
       </>
     ),
