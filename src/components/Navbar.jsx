@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
-  Typography,
-  IconButton,
   Box,
   Button,
   Drawer,
   Slide,
+  IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useLocation } from "react-router-dom";
+
+// Import your logo
+import Logo from "../assets/Logo.png"; // adjust relative path to your file
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -51,42 +53,40 @@ export default function Navbar() {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Logo / Title */}
-        <Typography
-          variant="h6"
-          component={Link}
-          to="/"
-          sx={{
-            fontWeight: "bold",
-            color: location.pathname === "/" ? "#32620e" : "black",
-            textDecoration: "none",
-            cursor: "pointer",
-            transition: "color 0.3s",
-          }}
-        >
-          Yoana's Portfolio
-        </Typography>
+        {/* Logo */}
+        <Link to="/">
+          <img
+            src={Logo}
+            alt="Yoana Creative Logo"
+            style={{
+              height: 100, // adjust size
+              cursor: "pointer",
+              transition: "all 0.3s",
+              filter: location.pathname === "/" ? "none" : "grayscale(100%)",
+            }}
+          />
+        </Link>
 
         {/* Desktop Links */}
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, alignItems: "center" }}>
           {navLinks.map((link) => (
-            <Typography
+            <Button
               key={link.name}
               component={Link}
               to={link.path}
               sx={{
-                cursor: "pointer",
                 fontWeight: 500,
                 color: location.pathname === link.path ? "#32620e" : "black",
                 textDecoration: "none",
+                textTransform: "none",
                 transition: "color 0.3s",
               }}
             >
               {link.name}
-            </Typography>
+            </Button>
           ))}
 
-          {/* Modern Rounded CV Button */}
+          {/* CV Button */}
           <Button
             component="a"
             href="/CV UX Yoana.pdf"
@@ -149,8 +149,19 @@ export default function Navbar() {
                 <CloseIcon fontSize="inherit" />
               </IconButton>
 
+              {/* Optional: Logo in Drawer */}
+              <img
+                src={Logo}
+                alt="Yoana Creative Logo"
+                style={{
+                  height: 50,
+                  marginTop: 40,
+                  marginBottom: 20,
+                }}
+              />
+
               {/* Menu Items */}
-              <Box sx={{ mt: 8 }}>
+              <Box sx={{ mt: 4 }}>
                 {navLinks.map((link) => (
                   <Button
                     key={link.name}
@@ -169,7 +180,7 @@ export default function Navbar() {
                   </Button>
                 ))}
 
-                {/* CV Button in Drawer */}
+                {/* CV Button */}
                 <Button
                   component="a"
                   href="/CV UX updated.pdf"
