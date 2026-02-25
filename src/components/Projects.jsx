@@ -3,9 +3,11 @@ import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import emergencyImg from '../assets/emergency-cover.png';
 import financeImg from '../assets/Finance Cover.png';
 import miaImg from '../assets/MIA.png';
+import simacImg from '../assets/SimacOverview.png'; // add your Simac image
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +32,13 @@ const projects = [
     link: '/projects/FundingApp',
     sentence: 'A gamified app that helps students build financial literacy and responsible habits.',
     question: 'How did I motivate students to track and reach their goals consistently?',
+  },
+  {
+    title: 'Simac Onboarding Process',
+    img: simacImg,
+    link: '/projects/SimacOnboarding',
+    sentence: 'A challenge-based onboarding solution improving socialization and inclusion for non-Dutch employees.',
+    question: 'How can SIMAC become more attractive to non-Dutch people?',
   },
 ];
 
@@ -75,12 +84,7 @@ export default function Project() {
           key={idx}
           ref={(el) => (containerRef.current[idx] = el)}
           className="card-wrapper"
-          sx={{
-            width: '100%',
-            mb: 6,
-            position: 'relative',
-            willChange: 'transform',
-          }}
+          sx={{ width: '100%', mb: 6, position: 'relative', willChange: 'transform' }}
         >
           <Link to={project.link} style={{ textDecoration: 'none', width: '100%' }}>
             <Box
@@ -108,7 +112,7 @@ export default function Project() {
                 }}
               />
 
-              {/* Stronger overlay for readability */}
+              {/* Overlay */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -124,12 +128,11 @@ export default function Project() {
                   alignItems: 'flex-start',
                 }}
               >
-                {/* Title */}
                 <Typography
                   variant="h5"
                   sx={{
                     fontWeight: 600,
-                    color: '#ffffff', // darker green for better contrast
+                    color: '#ffffff',
                     fontSize: { xs: '1.5rem', sm: '2rem', md: '2.3rem' },
                     textAlign: 'left',
                   }}
@@ -137,7 +140,6 @@ export default function Project() {
                   {project.title}
                 </Typography>
 
-                {/* Context sentence */}
                 <Typography
                   variant="body1"
                   sx={{
@@ -152,7 +154,6 @@ export default function Project() {
                   {project.sentence}
                 </Typography>
 
-                {/* Teaser question */}
                 <Typography
                   variant="body1"
                   sx={{
