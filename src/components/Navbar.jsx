@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link, useLocation } from "react-router-dom";
 
 // Import your logo
-import Logo from "../assets/Logo.png"; // adjust relative path to your file
+import Logo from "../assets/Logo.svg"; 
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -53,22 +53,27 @@ export default function Navbar() {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Logo */}
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="Yoana Creative Logo"
-            style={{
-              height: 100, // adjust size
-              cursor: "pointer",
-              transition: "all 0.3s",
-              filter: location.pathname === "/" ? "none" : "grayscale(100%)",
-            }}
-          />
-        </Link>
+      <Link to="/">
+  <img
+    src={Logo}
+    alt="Yoana Creative Logo"
+    style={{
+      height: 60,       // adjust for navbar
+      width: "auto",    // maintain aspect ratio
+      cursor: "pointer",
+      transition: "all 0.3s",
+      filter:
+        location.pathname === "/"
+          ? "none"
+          : "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
+    }}
+  />
+</Link>
 
         {/* Desktop Links */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, alignItems: "center" }}>
+        <Box
+          sx={{ display: { xs: "none", md: "flex" }, gap: 3, alignItems: "center" }}
+        >
           {navLinks.map((link) => (
             <Button
               key={link.name}
@@ -89,7 +94,7 @@ export default function Navbar() {
           {/* CV Button */}
           <Button
             component="a"
-            href="/CV UX Yoana.pdf"
+            href="/CV Yoana Churkina.pdf"
             target="_blank"
             variant="outlined"
             sx={{
@@ -116,7 +121,11 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Menu */}
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
-          <IconButton edge="end" onClick={toggleDrawer(true)} sx={{ color: "#2C3E5F" }}>
+          <IconButton
+            edge="end"
+            onClick={toggleDrawer(true)}
+            sx={{ color: "#2C3E5F" }}
+          >
             <MenuIcon />
           </IconButton>
 
@@ -149,14 +158,19 @@ export default function Navbar() {
                 <CloseIcon fontSize="inherit" />
               </IconButton>
 
-              {/* Optional: Logo in Drawer */}
+              {/* Logo in Drawer */}
               <img
                 src={Logo}
                 alt="Yoana Creative Logo"
                 style={{
                   height: 50,
+                  width: "auto",
                   marginTop: 40,
                   marginBottom: 20,
+                  filter:
+                    location.pathname === "/" 
+                      ? "none" 
+                      : "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
                 }}
               />
 
@@ -183,7 +197,7 @@ export default function Navbar() {
                 {/* CV Button */}
                 <Button
                   component="a"
-                  href="/CV UX updated.pdf"
+                  href="/CV Yoana Churkina.pdf"
                   target="_blank"
                   onClick={toggleDrawer(false)}
                   variant="outlined"
