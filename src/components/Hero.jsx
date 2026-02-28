@@ -120,7 +120,7 @@ export default function HeroPage() {
           const scale = 0.3 + 0.7 * t;
 
           ctx.font = `bold ${56 * scale}px 'Ubuntu', sans-serif`;
-          ctx.fillStyle = "#32620e";
+          ctx.fillStyle = "#2C3E5F";
           ctx.fillText(letter.char, cx, cy);
         });
       }
@@ -128,7 +128,7 @@ export default function HeroPage() {
       else {
         letters.forEach(letter => {
           ctx.font = "bold 56px 'Ubuntu', sans-serif";
-          ctx.fillStyle = "#32620e";
+          ctx.fillStyle = "#2C3E5F";
           ctx.fillText(letter.char, letter.targetX, letter.targetY);
         });
         setShowSubtext(true);
@@ -213,7 +213,7 @@ export default function HeroPage() {
                 animation: 'bounce 1.5s infinite'
               }}
             >
-              <ArrowDownwardIcon sx={{ fontSize: 40, color: '#32620e' }} />
+              <ArrowDownwardIcon sx={{ fontSize: 40, color: '#2C3E5F' }} />
             </Box>
 
             {/* Keyframes for bounce */}

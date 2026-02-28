@@ -46,17 +46,17 @@ const Callout = ({ children, icon }) => (
     boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
   }}>
     {icon}
-    <Typography sx={{ color: "#7F5539", fontWeight: 600, fontSize: "1rem", lineHeight: 1.6 }}>
+    <Typography sx={{ color: "#7B7155", fontWeight: 600, fontSize: "1rem", lineHeight: 1.6 }}>
       {children}
     </Typography>
   </Box>
 );
 
 const calloutIcons = {
-  insight: <LightbulbIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  decision: <ScienceIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  result: <TrophyIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  validation: <CheckIcon sx={{ color: "#7f5539", fontSize: 22 }} />
+  insight: <LightbulbIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  decision: <ScienceIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  result: <TrophyIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  validation: <CheckIcon sx={{ color: "#7B7155", fontSize: 22 }} />
 };
 
 const icons = [
@@ -240,7 +240,7 @@ const SimacProject = () => {
                       sx={{
                         ml: 1,
                         fontWeight: activeSection === s.id ? 700 : 400,
-                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                        borderBottom: activeSection === s.id ? "2px solid #2C3E5F" : "none",
                       }}
                     />
                   </ListItemButton>

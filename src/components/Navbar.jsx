@@ -76,7 +76,7 @@ export default function Navbar() {
               to={link.path}
               sx={{
                 fontWeight: 500,
-                color: location.pathname === link.path ? "#32620e" : "black",
+                color: location.pathname === link.path ? "#2C3E5F" : "black",
                 textDecoration: "none",
                 textTransform: "none",
                 transition: "color 0.3s",
@@ -94,8 +94,8 @@ export default function Navbar() {
             variant="outlined"
             sx={{
               ml: 2,
-              borderColor: "#32620e",
-              color: "#32620e",
+              borderColor: "#2C3E5F",
+              color: "#2C3E5F",
               fontWeight: 500,
               borderRadius: "50px",
               px: 3,
@@ -103,9 +103,9 @@ export default function Navbar() {
               textTransform: "none",
               boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
               "&:hover": {
-                bgcolor: "#32620e",
+                bgcolor: "#2C3E5F",
                 color: "white",
-                borderColor: "#32620e",
+                borderColor: "#2C3E5F",
                 boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
               },
             }}
@@ -116,7 +116,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Menu */}
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
-          <IconButton edge="end" onClick={toggleDrawer(true)} sx={{ color: "#32620e" }}>
+          <IconButton edge="end" onClick={toggleDrawer(true)} sx={{ color: "#2C3E5F" }}>
             <MenuIcon />
           </IconButton>
 
@@ -142,7 +142,7 @@ export default function Navbar() {
                   position: "absolute",
                   top: 10,
                   right: 10,
-                  color: "#32620e",
+                  color: "#2C3E5F",
                   fontSize: "2rem",
                 }}
               >
@@ -171,7 +171,7 @@ export default function Navbar() {
                     sx={{
                       display: "block",
                       fontSize: "1.5rem",
-                      color: location.pathname === link.path ? "#32620e" : "black",
+                      color: location.pathname === link.path ? "#2C3E5F" : "black",
                       textDecoration: "none",
                       my: 2,
                     }}
@@ -189,17 +189,17 @@ export default function Navbar() {
                   variant="outlined"
                   sx={{
                     mt: 3,
-                    borderColor: "#32620e",
-                    color: "#32620e",
+                    borderColor: "#2C3E5F",
+                    color: "#2C3E5F",
                     fontWeight: 500,
                     borderRadius: "50px",
                     px: 4,
                     py: 1.5,
                     fontSize: "1.2rem",
                     "&:hover": {
-                      bgcolor: "#32620e",
+                      bgcolor: "#2C3E5F",
                       color: "white",
-                      borderColor: "#32620e",
+                      borderColor: "#2C3E5F",
                     },
                   }}
                 >

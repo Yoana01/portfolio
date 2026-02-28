@@ -29,12 +29,12 @@ import ImpactImg from "../assets/Impact.jpg";
 import { motion } from "framer-motion";
 
 const icons = [
-  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <ForwardOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <ForwardOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
 ];
 
 const caseStudySections = [
@@ -220,7 +220,7 @@ const UXCaseStudyPage = () => {
                       sx={{
                         ml: 1,
                         fontWeight: activeSection === s.id ? 700 : 400,
-                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                        borderBottom: activeSection === s.id ? "2px solid #2C3E5F" : "none",
                       }}
                     />
                   </ListItemButton>
@@ -273,7 +273,7 @@ const UXCaseStudyPage = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <Box sx={{ mb: 8, maxWidth: 800, width: "100%" }}>
-                <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, color: "#32620e" }}>
+                <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, color: "#2C3E5F" }}>
                   {section.title}
                 </Typography>
                 <Box sx={{ color: "text.secondary", mb: 3 }}>{section.description}</Box>

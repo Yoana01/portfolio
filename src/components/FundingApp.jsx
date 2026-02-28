@@ -29,11 +29,11 @@ import Students from "../assets/Students.png";
 
 // Icons array
 const icons = [
-  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
-  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#32620e" }} />,
+  <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <LightbulbOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <ScienceOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
+  <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#2C3E5F" }} />,
 ];
 
 // Callout Component
@@ -57,10 +57,10 @@ const Callout = ({ children, icon }) => (
 );
 
 const calloutIcons = {
-  insight: <LightbulbOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  decision: <ScienceOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  result: <EmojiEventsOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
-  validation: <CheckCircleOutlinedIcon sx={{ color: "#7f5539", fontSize: 22 }} />,
+  insight: <LightbulbOutlinedIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  decision: <ScienceOutlinedIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  result: <EmojiEventsOutlinedIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
+  validation: <CheckCircleOutlinedIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
 };
 
 // Sections
@@ -189,7 +189,7 @@ const FinanceApp = () => {
       <Typography
         variant="h3"
         align="center"
-        sx={{ fontWeight: "bold", mb: 10, color: "#32620e" }}
+        sx={{ fontWeight: "bold", mb: 10, color: "#2C3E5F" }}
       >
         Student Financial Confidence Platform
       </Typography>
@@ -216,7 +216,7 @@ const FinanceApp = () => {
                       sx={{
                         ml: 1,
                         fontWeight: activeSection === s.id ? 700 : 400,
-                        borderBottom: activeSection === s.id ? "2px solid #32620e" : "none",
+                        borderBottom: activeSection === s.id ? "2px solid #2C3E5F" : "none",
                       }}
                     />
                   </ListItemButton>
@@ -271,7 +271,7 @@ const FinanceApp = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <Box sx={{ mb: 12, maxWidth: 800 }}>
-                <Typography variant="h4" sx={{ fontWeight: 800, mb: 4, color: "#32620e" }}>
+                <Typography variant="h4" sx={{ fontWeight: 800, mb: 4, color: "#2C3E5F" }}>
                   {section.title}
                 </Typography>
 

@@ -4,7 +4,7 @@ import { Email, LinkedIn, Instagram, GitHub } from "@mui/icons-material";
 
 export default function ConnectSection() {
   const email = "yonichurikina@gmail.com";
-  const accent = "#32620e"; // your green
+  const accent = "#2C3E5F"; // your green
 
   return (
     <Box sx={{ py: 10, textAlign: "center" }}>

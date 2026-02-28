@@ -96,7 +96,7 @@ export default function AboutStories() {
                     variant="h5"
                     fontWeight="bold"
                     gutterBottom
-                    sx={{ color: "#32620e", fontFamily: "Ubuntu" }}
+                    sx={{ color: "#2C3E5F", fontFamily: "Ubuntu" }}
                   >
                     {story.title}
                   </Typography>

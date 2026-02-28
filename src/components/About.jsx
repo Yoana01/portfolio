@@ -10,14 +10,14 @@ export default function About() {
      Hi, I’m Yoana Churkina. <br />
     I’ve always been fascinated by why people do what they do and how design can make that easier, more intuitive, or even enjoyable.
     </Typography>,
-    <Typography variant="subtitle1" paragraph color="text.secondary" key="approach-title">
+    <Typography variant="subtitle1" paragraph color="#7B7155" key="approach-title">
       My Journey
     </Typography>,
     <Typography paragraph key="approach-text">
       During my master’s in Data-Driven Design, I learned that great design starts with understanding people. I’m passionate about uncovering the “why” behind user behavior, and I use research and data to guide decisions that make digital experiences both useful and meaningful.
     </Typography>,
 
-    <Typography variant="subtitle1" paragraph color="text.secondary" key="approach-title">
+    <Typography variant="subtitle1" paragraph color="#7B7155" key="approach-title">
        Design That Matters
     </Typography>,
     <Typography paragraph key="ai-text">
@@ -46,7 +46,7 @@ export default function About() {
 
           <Button
             variant="outlined"
-            sx={{ mt: 3, color: '#32620e', borderColor: '#32620e', '&:hover': { borderColor: '#388e3c', color: '#388e3c' } }}
+            sx={{ mt: 3, color: '#2C3E5F', borderColor: '#2C3E5F', '&:hover': { borderColor: '#7B7155', color: '#7B7155' } }}
             // onClick={handleMailClick}
             href="https://www.linkedin.com/in/yoana-churkina-9408a1234/"
             component="a"
