@@ -17,7 +17,7 @@ const projects = [
     img: miaImg,
     link: '/projects/MIA',
     sentence: 'A conversational agent that supports research and innovation in media projects.',
-    question: 'How did I ensure trust and privacy while making it useful for creators?',
+    // question: 'How did I ensure trust and privacy while making it useful for creators?',
   },
   {
     title: 'Emergency Chatbot',
@@ -31,7 +31,7 @@ const projects = [
     img: financeImg,
     link: '/projects/FundingApp',
     sentence: 'A gamified app that helps students build financial literacy and responsible habits.',
-    question: 'How did I motivate students to track and reach their goals consistently?',
+    // question: 'How did I motivate students to track and reach their goals consistently?',
   },
   {
     title: 'Simac Onboarding Process',

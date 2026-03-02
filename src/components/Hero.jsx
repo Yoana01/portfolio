@@ -18,6 +18,8 @@ export default function HeroPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); 
 
+  const animationRef = useRef(null);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -31,121 +33,150 @@ export default function HeroPage() {
 
     const message = "FROM INSIGHT TO IMPACT";
 
-    // Floating words
-    const floatingWords = Array.from({ length: isMobile ? 20 : 30 }).map(() => ({
-      text: wordsPool[Math.floor(Math.random() * wordsPool.length)],
-      x: Math.random() * canvas.width * (isMobile ? 0.8 : 1),
-      y: Math.random() * canvas.height * (isMobile ? 0.8 : 1),
-      vx: (Math.random() - 0.5) * 1.5,  // same speed
-      vy: (Math.random() - 0.5) * 1.5,  // same speed
-      opacity: 1
-    }));
-
-    const fontSize = isMobile ? 28 : 56;
-    ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
-
-    const totalWidth = ctx.measureText(message).width;
-    const startX = (canvas.width - totalWidth) / 2;
-    const startY = canvas.height / 2;
-
-    const targets = [];
-    let x = startX;
-    for (let char of message) {
-      const w = ctx.measureText(char).width;
-      targets.push({ char, x, y: startY });
-      x += w;
-    }
-
-    const scaleFactor = isMobile ? 0.7 : 1;
-
-    let letters = targets.map((target, i) => ({
-      char: target.char,
-      startX: Math.random() * canvas.width * scaleFactor,
-      startY: Math.random() * canvas.height * scaleFactor,
-      targetX: target.x,
-      targetY: target.y,
-      scale: isMobile ? 0.2 : 0.3,
-      delay: i * 0.03 + Math.random() * 0.3,
-      controlX: Math.random() * canvas.width * scaleFactor,
-      controlY: Math.random() * canvas.height / 2 * scaleFactor
-    }));
-
-    let startTime = null;
-    let collectionStart = null;
-    let animationFrameId;
-
     function ease(t) {
       return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     }
 
-    function animate(timestamp) {
-      if (!startTime) startTime = timestamp;
-      const elapsed = (timestamp - startTime) / 1000;
+    function startAnimation() {
+      setShowSubtext(false);
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Floating words
+      const floatingWords = Array.from({ length: isMobile ? 15 : 30 }).map(() => ({
+        text: wordsPool[Math.floor(Math.random() * wordsPool.length)],
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        opacity: 1
+      }));
 
-      if (elapsed < 2) {
-        floatingWords.forEach(word => {
-          word.x += word.vx;
-          word.y += word.vy;
-          if (word.x < 0 || word.x > canvas.width) word.vx *= -1;
-          if (word.y < 0 || word.y > canvas.height) word.vy *= -1;
+      const fontSize = isMobile ? 28 : 56;
+      ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
 
-          ctx.font = `${isMobile ? 14 : 20}px 'Ubuntu', sans-serif`;
-          ctx.fillStyle = `rgba(0,0,0,${word.opacity})`;
-          ctx.fillText(word.text, word.x, word.y);
-        });
+      // Target positions
+      const totalWidth = ctx.measureText(message).width;
+      const startX = (canvas.width - totalWidth) / 2;
+      const startY = isMobile ? canvas.height / 2.5 : canvas.height / 2;
+
+      const targets = [];
+      let x = startX;
+      for (let char of message) {
+        const w = ctx.measureText(char).width;
+        targets.push({ char, x, y: startY });
+        x += w;
       }
-      else if (elapsed < 4.5) {
-        if (!collectionStart) collectionStart = timestamp;
-        const tFade = Math.min(1, (timestamp - collectionStart) / 500);
 
-        floatingWords.forEach(word => {
-          word.opacity = 1 - tFade;
-          word.x += word.vx;
-          word.y += word.vy;
-          if (word.opacity > 0) {
+      const scaleFactor = isMobile ? 0.7 : 1;
+
+      // Only adjust start positions for mobile
+      const letters = targets.map((target, i) => ({
+        char: target.char,
+        startX: isMobile ? Math.random() * canvas.width : Math.random() * canvas.width * scaleFactor,
+        startY: isMobile ? Math.random() * canvas.height * 0.8 + canvas.height * 0.1 : Math.random() * canvas.height * scaleFactor,
+        targetX: target.x,
+        targetY: target.y,
+        scale: isMobile ? 0.2 : 0.3,
+        delay: i * 0.03 + Math.random() * 0.3,
+        controlX: Math.random() * canvas.width,
+        controlY: Math.random() * canvas.height / 2
+      }));
+
+      let startTime = null;
+      let collectionStart = null;
+
+      function animate(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = (timestamp - startTime) / 1000;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Phase 1: Floating words
+        if (elapsed < 2) {
+          floatingWords.forEach(word => {
+            word.x += word.vx;
+            word.y += word.vy;
+            if (word.x < 0 || word.x > canvas.width) word.vx *= -1;
+            if (word.y < 0 || word.y > canvas.height) word.vy *= -1;
+
             ctx.font = `${isMobile ? 14 : 20}px 'Ubuntu', sans-serif`;
             ctx.fillStyle = `rgba(0,0,0,${word.opacity})`;
             ctx.fillText(word.text, word.x, word.y);
-          }
-        });
+          });
+        } 
+        // Phase 2: Fade words & letters move
+        else if (elapsed < 4.5) {
+          if (!collectionStart) collectionStart = timestamp;
+          const tFade = Math.min(1, (timestamp - collectionStart) / 500);
 
-        letters.forEach(letter => {
-          const tLocal = Math.max(0, Math.min(1, (elapsed - 2 - letter.delay) / 1.5));
-          const t = ease(tLocal);
+          floatingWords.forEach(word => {
+            word.opacity = 1 - tFade;
+            word.x += word.vx;
+            word.y += word.vy;
+            if (word.opacity > 0) {
+              ctx.font = `${isMobile ? 14 : 20}px 'Ubuntu', sans-serif`;
+              ctx.fillStyle = `rgba(0,0,0,${word.opacity})`;
+              ctx.fillText(word.text, word.x, word.y);
+            }
+          });
 
-          const cx = (1 - t) * (1 - t) * letter.startX + 2 * (1 - t) * t * letter.controlX + t * t * letter.targetX;
-          const cy = (1 - t) * (1 - t) * letter.startY + 2 * (1 - t) * t * letter.controlY + t * t * letter.targetY;
+          letters.forEach(letter => {
+            const tLocal = Math.max(0, Math.min(1, (elapsed - 2 - letter.delay) / 1.5));
+            const t = ease(tLocal);
 
-          const scale = (isMobile ? 0.2 : 0.3) + ((isMobile ? 0.8 : 0.7) * t);
+            const cx = (1 - t) * (1 - t) * letter.startX + 2 * (1 - t) * t * letter.controlX + t * t * letter.targetX;
+            const cy = (1 - t) * (1 - t) * letter.startY + 2 * (1 - t) * t * letter.controlY + t * t * letter.targetY;
 
-          ctx.font = `bold ${fontSize * scale}px 'Ubuntu', sans-serif`;
-          ctx.fillStyle = "#2C3E5F";
-          ctx.fillText(letter.char, cx, cy);
-        });
+            const scale = (isMobile ? 0.2 : 0.3) + ((isMobile ? 0.8 : 0.7) * t);
+
+            ctx.font = `bold ${fontSize * scale}px 'Ubuntu', sans-serif`;
+            ctx.fillStyle = "#2C3E5F";
+            ctx.fillText(letter.char, cx, cy);
+          });
+        } 
+        // Phase 3: Letters collected
+        else {
+          letters.forEach(letter => {
+            ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
+            ctx.fillStyle = "#2C3E5F";
+            ctx.fillText(letter.char, letter.targetX, letter.targetY);
+          });
+          setShowSubtext(true);
+          return;
+        }
+
+        animationRef.current = requestAnimationFrame(animate);
       }
-      else {
-        letters.forEach(letter => {
-          ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
-          ctx.fillStyle = "#2C3E5F";
-          ctx.fillText(letter.char, letter.targetX, letter.targetY);
-        });
-        setShowSubtext(true);
-        return;
-      }
 
-      animationFrameId = requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     }
 
-    animationFrameId = requestAnimationFrame(animate);
+    startAnimation();
+
+    // Mobile only: restart animation when canvas comes back into view
+    if (isMobile) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            if (animationRef.current) cancelAnimationFrame(animationRef.current);
+            startAnimation();
+          }
+        },
+        { threshold: 0.1 }
+      );
+      if (canvasRef.current) observer.observe(canvasRef.current);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', resize);
     };
   }, [isMobile]);
 
+  // Projects observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
