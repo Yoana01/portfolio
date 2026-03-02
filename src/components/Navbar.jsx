@@ -12,8 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useLocation } from "react-router-dom";
 
-// Import your logo
-import Logo from "../assets/Logo.svg"; 
+import Logo from "../assets/Logo.svg";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -28,7 +27,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -44,52 +43,83 @@ export default function Navbar() {
       elevation={0}
       sx={{
         backgroundColor: scrolled
-          ? "rgba(255,255,255,0.85)"
-          : "rgba(255,255,255,0.2)",
-        color: "black",
-        backdropFilter: "blur(10px)",
-        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.1)" : "none",
+          ? "rgba(255,255,255,0.95)"
+          : "rgba(255,255,255,0.6)",
+        backdropFilter: "blur(12px)",
+        borderBottom: scrolled
+          ? "1px solid rgba(0,0,0,0.08)"
+          : "1px solid transparent",
         transition: "all 0.3s ease",
+        py: 1.5,
       }}
     >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Link to="/">
-  <img
-    src={Logo}
-    alt="Yoana Creative Logo"
-    style={{
-      height: 60,       // adjust for navbar
-      width: "auto",    // maintain aspect ratio
-      cursor: "pointer",
-      transition: "all 0.3s",
-      filter:
-        location.pathname === "/"
-          ? "none"
-          : "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
-    }}
-  />
-</Link>
-
-        {/* Desktop Links */}
-        <Box
-          sx={{ display: { xs: "none", md: "flex" }, gap: 3, alignItems: "center" }}
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          minHeight: "80px",
+        }}
+      >
+        {/* Logo */}
+        <Link
+          to="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            textDecoration: "none",
+          }}
         >
-          {navLinks.map((link) => (
-            <Button
-              key={link.name}
-              component={Link}
-              to={link.path}
-              sx={{
-                fontWeight: 500,
-                color: location.pathname === link.path ? "#2C3E5F" : "black",
-                textDecoration: "none",
-                textTransform: "none",
-                transition: "color 0.3s",
-              }}
-            >
-              {link.name}
-            </Button>
-          ))}
+          <img
+            src={Logo}
+            alt="Yoana Creative Logo"
+            style={{
+              height: 60,
+              width: "auto",
+              objectFit: "contain",
+              transition: "all 0.3s ease",
+            }}
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            gap: 4,
+            alignItems: "center",
+          }}
+        >
+          {navLinks.map((link) => {
+            const active = location.pathname === link.path;
+
+            return (
+              <Button
+                key={link.name}
+                component={Link}
+                to={link.path}
+                sx={{
+                  fontWeight: active ? 600 : 500,
+                  fontSize: "0.95rem",
+                  color: active ? "#2C3E5F" : "#222",
+                  textTransform: "none",
+                  position: "relative",
+                  "&::after": active
+                    ? {
+                        content: '""',
+                        position: "absolute",
+                        bottom: -6,
+                        left: 0,
+                        width: "100%",
+                        height: "2px",
+                        backgroundColor: "#2C3E5F",
+                      }
+                    : {},
+                }}
+              >
+                {link.name}
+              </Button>
+            );
+          })}
 
           {/* CV Button */}
           <Button
@@ -106,12 +136,11 @@ export default function Navbar() {
               px: 3,
               py: 1,
               textTransform: "none",
-              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+              transition: "all 0.3s ease",
               "&:hover": {
                 bgcolor: "#2C3E5F",
                 color: "white",
                 borderColor: "#2C3E5F",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
               },
             }}
           >
@@ -119,7 +148,7 @@ export default function Navbar() {
           </Button>
         </Box>
 
-        {/* Mobile Hamburger Menu */}
+        {/* Mobile Menu */}
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
             edge="end"
@@ -136,46 +165,37 @@ export default function Navbar() {
             PaperProps={{
               sx: {
                 height: "100vh",
-                backgroundColor: "rgba(255,255,255,0.95)",
-                backdropFilter: "blur(10px)",
+                backgroundColor: "rgba(255,255,255,0.97)",
+                backdropFilter: "blur(12px)",
               },
             }}
             TransitionComponent={Slide}
             transitionDuration={400}
           >
             <Box sx={{ textAlign: "center", mt: 3 }}>
-              {/* Close Button */}
               <IconButton
                 onClick={toggleDrawer(false)}
                 sx={{
                   position: "absolute",
-                  top: 10,
-                  right: 10,
+                  top: 16,
+                  right: 16,
                   color: "#2C3E5F",
-                  fontSize: "2rem",
                 }}
               >
-                <CloseIcon fontSize="inherit" />
+                <CloseIcon />
               </IconButton>
 
-              {/* Logo in Drawer */}
               <img
                 src={Logo}
                 alt="Yoana Creative Logo"
                 style={{
-                  height: 50,
+                  height: 60,
                   width: "auto",
                   marginTop: 40,
-                  marginBottom: 20,
-                  filter:
-                    location.pathname === "/" 
-                      ? "none" 
-                      : "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
                 }}
               />
 
-              {/* Menu Items */}
-              <Box sx={{ mt: 4 }}>
+              <Box sx={{ mt: 6 }}>
                 {navLinks.map((link) => (
                   <Button
                     key={link.name}
@@ -185,8 +205,13 @@ export default function Navbar() {
                     sx={{
                       display: "block",
                       fontSize: "1.5rem",
-                      color: location.pathname === link.path ? "#2C3E5F" : "black",
-                      textDecoration: "none",
+                      fontWeight:
+                        location.pathname === link.path ? 600 : 400,
+                      color:
+                        location.pathname === link.path
+                          ? "#2C3E5F"
+                          : "#222",
+                      textTransform: "none",
                       my: 2,
                     }}
                   >
@@ -194,7 +219,6 @@ export default function Navbar() {
                   </Button>
                 ))}
 
-                {/* CV Button */}
                 <Button
                   component="a"
                   href="/CV Yoana Churkina.pdf"
@@ -202,14 +226,15 @@ export default function Navbar() {
                   onClick={toggleDrawer(false)}
                   variant="outlined"
                   sx={{
-                    mt: 3,
+                    mt: 4,
                     borderColor: "#2C3E5F",
                     color: "#2C3E5F",
                     fontWeight: 500,
                     borderRadius: "50px",
                     px: 4,
                     py: 1.5,
-                    fontSize: "1.2rem",
+                    fontSize: "1.1rem",
+                    textTransform: "none",
                     "&:hover": {
                       bgcolor: "#2C3E5F",
                       color: "white",
