@@ -73,7 +73,7 @@ export default function Navbar() {
             src={Logo}
             alt="Yoana Creative Logo"
             style={{
-              height: 60,
+              height: 40,
               width: "auto",
               objectFit: "contain",
               transition: "all 0.3s ease",

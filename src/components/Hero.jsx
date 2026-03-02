@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, useTheme, useMediaQuery } from '@mui/material';
 import Projects from './Projects'; 
 import ArrowDownwardIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -15,6 +15,9 @@ export default function HeroPage() {
   const [projectsVisible, setProjectsVisible] = useState(false);
   const projectsRef = useRef(null);
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); 
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -29,20 +32,22 @@ export default function HeroPage() {
     const message = "FROM INSIGHT TO IMPACT";
 
     // Floating words
-    const floatingWords = Array.from({ length: 30 }).map(() => ({
+    const floatingWords = Array.from({ length: isMobile ? 20 : 30 }).map(() => ({
       text: wordsPool[Math.floor(Math.random() * wordsPool.length)],
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5,
+      x: Math.random() * canvas.width * (isMobile ? 0.8 : 1),
+      y: Math.random() * canvas.height * (isMobile ? 0.8 : 1),
+      vx: (Math.random() - 0.5) * 1.5,  // same speed
+      vy: (Math.random() - 0.5) * 1.5,  // same speed
       opacity: 1
     }));
 
-    // Targets for motto letters
-    ctx.font = "bold 56px 'Ubuntu', sans-serif";
+    const fontSize = isMobile ? 28 : 56;
+    ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
+
     const totalWidth = ctx.measureText(message).width;
     const startX = (canvas.width - totalWidth) / 2;
     const startY = canvas.height / 2;
+
     const targets = [];
     let x = startX;
     for (let char of message) {
@@ -51,17 +56,18 @@ export default function HeroPage() {
       x += w;
     }
 
-    // Letters flying to motto
+    const scaleFactor = isMobile ? 0.7 : 1;
+
     let letters = targets.map((target, i) => ({
       char: target.char,
-      startX: Math.random() * canvas.width,
-      startY: Math.random() * canvas.height,
+      startX: Math.random() * canvas.width * scaleFactor,
+      startY: Math.random() * canvas.height * scaleFactor,
       targetX: target.x,
       targetY: target.y,
-      scale: 0.3,
+      scale: isMobile ? 0.2 : 0.3,
       delay: i * 0.03 + Math.random() * 0.3,
-      controlX: Math.random() * canvas.width,
-      controlY: Math.random() * canvas.height / 2
+      controlX: Math.random() * canvas.width * scaleFactor,
+      controlY: Math.random() * canvas.height / 2 * scaleFactor
     }));
 
     let startTime = null;
@@ -78,7 +84,6 @@ export default function HeroPage() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Phase 1: floating words
       if (elapsed < 2) {
         floatingWords.forEach(word => {
           word.x += word.vx;
@@ -86,25 +91,21 @@ export default function HeroPage() {
           if (word.x < 0 || word.x > canvas.width) word.vx *= -1;
           if (word.y < 0 || word.y > canvas.height) word.vy *= -1;
 
-          ctx.font = "20px 'Ubuntu', sans-serif";
+          ctx.font = `${isMobile ? 14 : 20}px 'Ubuntu', sans-serif`;
           ctx.fillStyle = `rgba(0,0,0,${word.opacity})`;
           ctx.fillText(word.text, word.x, word.y);
         });
       }
-      // Phase 2: letters fly to motto
       else if (elapsed < 4.5) {
-        if (!collectionStart) collectionStart = timestamp; 
-        const tFade = Math.min(1, (timestamp - collectionStart) / 500); // fade floating words
+        if (!collectionStart) collectionStart = timestamp;
+        const tFade = Math.min(1, (timestamp - collectionStart) / 500);
 
         floatingWords.forEach(word => {
           word.opacity = 1 - tFade;
           word.x += word.vx;
           word.y += word.vy;
-          if (word.x < 0 || word.x > canvas.width) word.vx *= -1;
-          if (word.y < 0 || word.y > canvas.height) word.vy *= -1;
-
           if (word.opacity > 0) {
-            ctx.font = "20px 'Ubuntu', sans-serif";
+            ctx.font = `${isMobile ? 14 : 20}px 'Ubuntu', sans-serif`;
             ctx.fillStyle = `rgba(0,0,0,${word.opacity})`;
             ctx.fillText(word.text, word.x, word.y);
           }
@@ -117,17 +118,16 @@ export default function HeroPage() {
           const cx = (1 - t) * (1 - t) * letter.startX + 2 * (1 - t) * t * letter.controlX + t * t * letter.targetX;
           const cy = (1 - t) * (1 - t) * letter.startY + 2 * (1 - t) * t * letter.controlY + t * t * letter.targetY;
 
-          const scale = 0.3 + 0.7 * t;
+          const scale = (isMobile ? 0.2 : 0.3) + ((isMobile ? 0.8 : 0.7) * t);
 
-          ctx.font = `bold ${56 * scale}px 'Ubuntu', sans-serif`;
+          ctx.font = `bold ${fontSize * scale}px 'Ubuntu', sans-serif`;
           ctx.fillStyle = "#2C3E5F";
           ctx.fillText(letter.char, cx, cy);
         });
       }
-      // Phase 3: final motto
       else {
         letters.forEach(letter => {
-          ctx.font = "bold 56px 'Ubuntu', sans-serif";
+          ctx.font = `bold ${fontSize}px 'Ubuntu', sans-serif`;
           ctx.fillStyle = "#2C3E5F";
           ctx.fillText(letter.char, letter.targetX, letter.targetY);
         });
@@ -144,9 +144,8 @@ export default function HeroPage() {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [isMobile]);
 
-  // Intersection Observer for Projects fade-in
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -164,7 +163,6 @@ export default function HeroPage() {
 
   return (
     <>
-      {/* Hero section */}
       <Box sx={{ position: 'relative', height: '100vh', bgcolor: '#fff' }}>
         <canvas
           ref={canvasRef}
@@ -173,7 +171,6 @@ export default function HeroPage() {
 
         {showSubtext && (
           <>
-            {/* Subtext */}
             <Box
               sx={{
                 position: 'absolute',
@@ -184,14 +181,15 @@ export default function HeroPage() {
                 alignItems: 'center',
                 textAlign: 'center',
                 transition: 'opacity 1s',
-                opacity: showSubtext ? 1 : 0
+                opacity: showSubtext ? 1 : 0,
+                px: 2
               }}
             >
               <Typography
                 sx={{
                   fontFamily: "'Ubuntu', sans-serif",
                   mt: 2,
-                  fontSize: { xs: '1rem', md: '1.2rem' },
+                  fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.2rem' },
                   color: 'text.primary'
                 }}
               >
@@ -200,11 +198,10 @@ export default function HeroPage() {
               </Typography>
             </Box>
 
-            {/* Animated scroll down arrow */}
             <Box
               sx={{
                 position: 'absolute',
-                bottom: 150,
+                bottom: { xs: 80, sm: 120, md: 150 },
                 left: '50%',
                 transform: 'translateX(-50%)',
                 display: 'flex',
@@ -213,10 +210,9 @@ export default function HeroPage() {
                 animation: 'bounce 1.5s infinite'
               }}
             >
-              <ArrowDownwardIcon sx={{ fontSize: 40, color: '#2C3E5F' }} />
+              <ArrowDownwardIcon sx={{ fontSize: { xs: 30, sm: 35, md: 40 }, color: '#2C3E5F' }} />
             </Box>
 
-            {/* Keyframes for bounce */}
             <style>
               {`
                 @keyframes bounce {
@@ -230,18 +226,17 @@ export default function HeroPage() {
         )}
       </Box>
 
-      {/* Projects section with fade-up */}
       <Container
         ref={projectsRef}
         sx={{
           textAlign: 'center',
-          mt: 6,
+          mt: { xs: 4, sm: 6 },
           opacity: projectsVisible ? 1 : 0,
           transform: projectsVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
         }}
       >
-        <Typography variant="h3" fontWeight="bold" gutterBottom>
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
           Recent Projects
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" paragraph>
