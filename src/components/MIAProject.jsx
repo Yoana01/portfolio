@@ -83,7 +83,7 @@ const caseStudySections = [
           Through an iterative, value-sensitive design process-including prototyping, stakeholder interviews, and usability testing-I focused on the central challenge: balancing user autonomy with AI guidance.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Key Insight: Balancing autonomy with AI support was identified as the central challenge from the start.
+            Balancing autonomy with AI support was identified as the central challenge from the start.
         </Callout>
       </>
     ),

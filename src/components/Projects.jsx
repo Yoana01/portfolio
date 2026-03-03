@@ -7,7 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emergencyImg from '../assets/emergency-cover.png';
 import financeImg from '../assets/Finance Cover.png';
 import miaImg from '../assets/MIA.png';
-import simacImg from '../assets/SimacOverview.png'; // add your Simac image
+import simptelImg from '../assets/Simptel.png';
+import simacImg from '../assets/SimacOverview.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,29 +17,36 @@ const projects = [
     title: 'Media Innovation Assistant',
     img: miaImg,
     link: '/projects/MIA',
-    sentence: 'A conversational agent that supports research and innovation in media projects.',
-    // question: 'How did I ensure trust and privacy while making it useful for creators?',
+    sentence:
+      'A conversational agent that supports research and innovation in media projects.',
+  },
+  {
+    title: 'Simptel Identity Platform',
+    img: simptelImg,
+    link: '/projects/Simptel',
+    sentence:
+      'A visual development tool for Simptel’s identity platform (IDaaS), enabling users to customize digital identity portals.',
   },
   {
     title: 'Emergency Chatbot',
     img: emergencyImg,
     link: '/projects/emergency',
-    sentence: 'A data-driven chatbot designed to assist in emergency scenarios.',
-    question: 'How did I make it fast and reliable for real-time use?',
+    sentence:
+      'A data-driven chatbot designed to assist in emergency scenarios.',
   },
   {
     title: 'Financial App',
     img: financeImg,
     link: '/projects/FundingApp',
-    sentence: 'A gamified app that helps students build financial literacy and responsible habits.',
-    // question: 'How did I motivate students to track and reach their goals consistently?',
+    sentence:
+      'A gamified app that helps students build financial literacy and responsible habits.',
   },
   {
     title: 'Simac Onboarding Process',
     img: simacImg,
     link: '/projects/SimacOnboarding',
-    sentence: 'A challenge-based onboarding solution improving socialization and inclusion for non-Dutch employees.',
-    question: 'How can SIMAC become more attractive to non-Dutch people?',
+    sentence:
+      'A challenge-based onboarding solution improving socialization and inclusion for non-Dutch employees.',
   },
 ];
 
@@ -61,43 +69,65 @@ export default function Project() {
       });
 
       const card = el.querySelector('.card-content');
+
       if (card) {
         gsap.from(card, {
           opacity: 0,
-          scale: 0.95,
-          duration: 1,
+          scale: 0.96,
+          duration: 0.9,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
-            start: 'top 80%',
+            start: 'top 85%',
             toggleActions: 'play none none reverse',
           },
         });
       }
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
-    <Box sx={{ width: '100%', px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
+    <Box
+      sx={{
+        width: '100%',
+        px: { xs: 2, sm: 4, md: 8 },
+        py: 6,
+      }}
+    >
       {projects.map((project, idx) => (
         <Box
           key={idx}
           ref={(el) => (containerRef.current[idx] = el)}
-          className="card-wrapper"
-          sx={{ width: '100%', mb: 6, position: 'relative', willChange: 'transform' }}
+          sx={{
+            width: '100%',
+            mb: 6,
+            position: 'relative',
+          }}
         >
-          <Link to={project.link} style={{ textDecoration: 'none', width: '100%' }}>
+          <Link
+            to={project.link}
+            style={{
+              textDecoration: 'none',
+              width: '100%',
+              display: 'block',
+            }}
+          >
             <Box
               className="card-content"
               sx={{
-                borderRadius: 6,
+                borderRadius: '8px',
                 overflow: 'hidden',
                 boxShadow: 6,
                 position: 'relative',
                 cursor: 'pointer',
-                '&:hover img': {
-                  transform: 'scale(1.05)',
-                  transition: 'transform 0.5s ease',
+                height: { xs: 280, sm: 380, md: 'auto' },
+                transition: 'transform 0.4s ease',
+                '&:hover': {
+                  transform: 'scale(1.01)',
                 },
               }}
             >
@@ -106,9 +136,10 @@ export default function Project() {
                 alt={project.title}
                 style={{
                   width: '100%',
-                  height: 'auto',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
                   display: 'block',
-                  transition: 'transform 0.5s ease',
                 }}
               />
 
@@ -118,14 +149,15 @@ export default function Project() {
                   position: 'absolute',
                   bottom: 0,
                   width: '100%',
-                  px: { xs: 2, sm: 4, md: 6 },
-                  py: { xs: 2, sm: 4, md: 6 },
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))',
-                  backdropFilter: 'blur(12px)',
+                  px: { xs: 3, sm: 4, md: 6 },
+                  py: { xs: 3, sm: 4, md: 6 },
+                  background:
+                    'linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0))',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: { xs: 0.5, sm: 1, md: 1.5 },
                   alignItems: 'flex-start',
+                  textAlign: 'left',
                 }}
               >
                 <Typography
@@ -133,8 +165,12 @@ export default function Project() {
                   sx={{
                     fontWeight: 600,
                     color: '#ffffff',
-                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.3rem' },
-                    textAlign: 'left',
+                    fontSize: {
+                      xs: '1.3rem',
+                      sm: '1.7rem',
+                      md: '2rem',
+                    },
+                    lineHeight: 1.2,
                   }}
                 >
                   {project.title}
@@ -144,28 +180,15 @@ export default function Project() {
                   variant="body1"
                   sx={{
                     color: 'white',
-                    fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' },
+                    fontSize: { xs: '0.95rem', sm: '1rem', md: '1.05rem' },
                     fontWeight: 400,
-                    lineHeight: 1.4,
-                    mt: 0.5,
-                    textShadow: '0px 1px 3px rgba(0,0,0,0.6)',
+                    lineHeight: 1.5,
+                    mt: 1,
+                    maxWidth: { xs: '100%', sm: '80%' },
+                    textShadow: '0px 2px 6px rgba(0,0,0,0.7)',
                   }}
                 >
                   {project.sentence}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: 'white',
-                    fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
-                    fontWeight: 400,
-                    lineHeight: 1.3,
-                    mt: 0.3,
-                    textShadow: '0px 1px 3px rgba(0,0,0,0.6)',
-                  }}
-                >
-                  {project.question}
                 </Typography>
               </Box>
             </Box>

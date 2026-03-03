@@ -82,7 +82,7 @@ const caseStudySections = [
           As Scrum Master, I led the team using Scrum-ban methodology, coordinating tasks pragmatically, facilitating clear communication, and ensuring timely delivery of project milestones.
         </Typography>
         <Callout icon={calloutIcons.insight}>
-          Key Insight: Onboarding is not just information delivery - it’s about encouraging inclusion, engagement, and early connections.
+            Onboarding is not just information delivery - it’s about encouraging inclusion, engagement, and early connections.
         </Callout>
       </>
     ),
