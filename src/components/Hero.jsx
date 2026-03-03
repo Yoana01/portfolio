@@ -267,10 +267,10 @@ export default function HeroPage() {
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
         }}
       >
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant="h4" fontWeight="bold" gutterBottom color="#2C3E5F">
           Recent Projects
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary" paragraph>
+        <Typography variant="subtitle1" color="#7B7155" paragraph>
           Discover what I’ve built and accomplished over the past year.
         </Typography>
         <Projects />
