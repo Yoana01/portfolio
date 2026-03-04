@@ -190,17 +190,17 @@ const caseStudySections = [
         id: "takeaways",
         title: "Takeaways & Next Steps",
         description: (
-            <>
-                <Typography paragraph sx={{ mb: 2 }}>
-                    This project strengthened my ability to translate complex technical requirements into clear, user-centered workflows. Close collaboration with developers and the product owner ensured that usability improvements aligned with business and security constraints.
-                </Typography>
-                <Typography paragraph sx={{ mb: 2 }}>
-                    Continuous stakeholder communication and iterative validation proved essential in preventing overdesign and maintaining clarity. 
-                </Typography>
-                <Callout icon={calloutIcons.insight}>
-                    Next Step: Expand validation with enterprise clients and measure long-term efficiency gains through real-world adoption metrics.
-                </Callout>
-            </>
+          <>
+    <Typography paragraph sx={{ mb: 2 }}>
+        Working at Simptel helped me grow as a UX designer by balancing creativity with real-world constraints. Collaborating closely with developers, the product owner, and users taught me how to design solutions that are both user-friendly and technically feasible.
+    </Typography>
+    <Typography paragraph sx={{ mb: 2 }}>
+        Iterative testing and constant feedback helped me refine workflows, improve clarity, and avoid overdesign. This experience reinforced the value of frequent stakeholder communication in shaping effective, intuitive products.
+    </Typography>
+    <Callout icon={calloutIcons.insight}>
+        Next Step: Continue exploring ways to enhance customization and efficiency, and expand validation with enterprise users to measure long-term impact and adoption.
+    </Callout>
+</>
         ),
         image: SimptelPresent,
         imageAlt: "A picture of the presentation of the Simptel project",
