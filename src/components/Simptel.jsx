@@ -98,7 +98,7 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>The Challenge:</span>
+                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>The Challenge:</span> <br />
                     Building identity solutions from scratch for every client is time-consuming and inefficient. Industries such as telecommunications, banking, institutions, food service, and software each have unique requirements, making customization essential. Developers often spend valuable time solving technical issues instead of focusing on strategic business goals.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
@@ -146,7 +146,7 @@ const caseStudySections = [
                     Based on wireframe feedback, I developed high-fidelity prototypes over three iterations. The first iteration revealed overdesign issues due to limited early validation with the product owner. Feedback guided refinements to improve clarity, simplicity, and adherence to security requirements. Subsequent iterations focused on incremental development and final pixel-perfect designs, ensuring consistency across mobile and desktop versions.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    During the final phase, I validated the visual development tool with the target audience, conducting six user tests with potential clients, including Jumbo. Task-based testing and heuristic evaluation confirmed that users found the tool efficient, intuitive, and visually appealing. Desktop was preferred for full workflow tasks, while mobile was used only for urgent situations. Participants also confirmed that the tool enabled them to create a positive user experience for the Self-Service Portal.
+                    During the final phase, I validated the visual development tool with the target audience, conducting six user tests with potential clients. Task-based testing and heuristic evaluation confirmed that users found the tool efficient, intuitive, and visually appealing. Desktop was preferred for full workflow tasks, while mobile was used only for urgent situations. Participants also confirmed that the tool enabled them to create a positive user experience for the Self-Service Portal.
                 </Typography>
                 <Callout icon={calloutIcons.result}>
                     Outcome: Users successfully completed tasks, demonstrating measurable improvements in usability, efficiency, and overall experience.
