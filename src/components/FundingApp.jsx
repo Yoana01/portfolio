@@ -155,7 +155,7 @@ const caseStudySections = [
     ),
     image: Students,
     imageAlt: "Students feeling happy about finances",
-    imageCaption: "Illustration showing students feeling confident about finances.",
+    imageCaption: "AI-prompted image showing students feeling confident about finances.",
   },
 ];
 
