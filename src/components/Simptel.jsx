@@ -78,13 +78,13 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    Simptel, a thriving startup in Eindhoven, specializes in providing businesses with secure, mission-critical communication services, emphasizing transparency, simplicity, and connectivity.
+                    Simptel, a growing startup in Eindhoven, provides secure, mission-critical communication services for businesses, emphasizing transparency, simplicity, and connectivity.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    This project focused on creating a visual development tool for Simptel’s identity platform (IDaaS), enabling users to customize digital identity portals with minimal technical knowledge. The goal was to simplify configuration of authentication, authorization, and accounting (AAA) flows while maintaining security and flexibility.
+                    This project focused on designing a visual development tool for Simptel’s identity platform (IDaaS), enabling users to configure authentication, authorization, and accounting (AAA) flows with minimal technical knowledge. The goal: simplify identity customization for developers and non-technical teams.
                 </Typography>
                 <Callout icon={calloutIcons.insight}>
-                    Streamlining identity customization empowers both developers and non-technical users, allowing teams to focus on business challenges rather than complex technical implementation.
+                    Streamlined identity customization empowers teams to focus on business challenges instead of technical complexity.
                 </Callout>
             </>
         ),
@@ -98,15 +98,15 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>The Challenge:</span> <br />
-                    Building identity solutions from scratch for every client is time-consuming and inefficient. Industries such as telecommunications, banking, institutions, food service, and software each have unique requirements, making customization essential. Developers often spend valuable time solving technical issues instead of focusing on strategic business goals.
+                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>The Challenge:</span><br/>
+                    Creating custom identity solutions for each client is time-consuming. Industries like telecommunications, banking, and software have unique requirements, forcing developers to spend hours on technical tasks rather than strategic priorities.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>Stakeholder Landscape & Focus:</span><br />
-                    The platform serves multiple stakeholders, including developers, end-users, and business teams. Developers were prioritized as the  <span style={{ color: "#7B7155", fontStyle: "italic" }}>primary users</span>, as they directly interact with and configure the system. Focusing on their experience ensures workflow efficiency, clarity, and accuracy, while also benefiting end-users and business stakeholders.
+                    <span style={{ color: "#2C3E5F", fontWeight: 600 }}>Users & Focus:</span><br/>
+                    Developers were prioritized as primary users, as improving their workflow efficiency indirectly benefits end-users and business teams.
                 </Typography>
                 <Callout icon={calloutIcons.insight}>
-                    <strong>Key Insight:</strong> Users need customization that is powerful yet intuitive. a tool that empowers developers while indirectly improving the end-user experience, bridging the gap between technical complexity and accessibility.
+                    Key Insight: Users need powerful yet intuitive customization that bridges technical complexity with accessibility.
                 </Callout>
             </>
         ),
@@ -120,21 +120,18 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    Guided by competitive analysis and developer interviews, I positioned the solution around a clear opportunity: making identity customization accessible through a visual, low-code builder. Rather than competing on security features, the focus shifted to simplifying configuration workflows without compromising flexibility.
+                    Competitive analysis and developer interviews highlighted an opportunity: make identity customization accessible via a visual, low-code builder. Focus shifted from security features to simplified workflows without losing flexibility.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    Through 8 developer interviews, two adoption drivers emerged - efficiency and clarity. This insight reframed the direction from feature expansion to workflow simplification, leading to template-based configuration, AI-assisted setup, and a minimal interface structure.
-                </Typography>
-                <Typography paragraph sx={{ mb: 2 }}>
-                    Additional methods such as brainstorming and concept sketching informed ideation, but the design direction was ultimately guided by developer insights and input from the product owner.
+                    Eight developer interviews revealed two adoption drivers: efficiency and clarity. This led to template-based configuration, AI-assisted setup, and a minimal interface structure.
                 </Typography>
                 <Callout icon={calloutIcons.decision}>
-                    Design Decision: Prioritized a visual, template-driven builder with AI-assisted configuration to reduce complexity while preserving advanced flexibility.
+                    Design Decision: Visual, template-driven builder with AI-assisted configuration to reduce complexity while preserving flexibility.
                 </Callout>
             </>
         ),
         images: [
-            { src: Research, alt: "Example of Simptel's identity design", caption: "Wireframes for Simptel's identity platform" }
+            { src: Research, alt: "Wireframes", caption: "Wireframes for Simptel's identity platform" }
         ]
     },
     {
@@ -143,27 +140,19 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    Based on wireframe feedback, I developed high-fidelity prototypes over three iterations. The first iteration revealed overdesign issues due to limited early validation with the product owner. Feedback guided refinements to improve clarity, simplicity, and adherence to security requirements. Subsequent iterations focused on incremental development and final pixel-perfect designs, ensuring consistency across mobile and desktop versions.
+                    High-fidelity prototypes were developed over three iterations. Early feedback revealed overdesign, leading to refinements that improved clarity, simplicity, and security adherence. Desktop was optimized for full workflows; mobile handled urgent tasks.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    During the final phase, I validated the visual development tool with the target audience, conducting six user tests with potential clients. Task-based testing and heuristic evaluation confirmed that users found the tool efficient, intuitive, and visually appealing. Desktop was preferred for full workflow tasks, while mobile was used only for urgent situations. Participants also confirmed that the tool enabled them to create a positive user experience for the Self-Service Portal.
+                    Six task-based user tests confirmed the tool was efficient, intuitive, and visually appealing. Users successfully completed tasks, demonstrating measurable improvements in usability and workflow confidence.
                 </Typography>
                 <Callout icon={calloutIcons.result}>
-                    Outcome: Users successfully completed tasks, demonstrating measurable improvements in usability, efficiency, and overall experience.
+                    Outcome: Users navigated portal configuration with ease, validating the user-centered design approach.
                 </Callout>
             </>
         ),
         images: [
-            {
-                src: Design,
-                alt: "Simptel high-fidelity prototype screen 1 acccessibility",
-                caption: "Accessibility configuration within the Self-Service Portal interface."
-            },
-            {
-                src: Design2,
-                alt: "Simptel high-fidelity prototype screen 2",
-                caption: "Configuration of one of the flows"
-            }
+            { src: Design, alt: "Accessibility screen", caption: "Developers can quickly check accessibility compliance using a visual indicator and color contrast checker, reducing configuration errors" },
+            { src: Design2, alt: "Flow configuration screen", caption: "Configuration of one of the flows" }
         ]
     },
     {
@@ -172,13 +161,13 @@ const caseStudySections = [
         description: (
             <>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    The validated solution streamlined portal configuration by reducing complexity and increasing clarity in workflow creation. Users were able to structure and customize the Self-Service Portal with confidence and minimal friction.
+                    The solution reduced complexity and improved clarity in workflow creation. Users structured and customized the Self-Service Portal confidently, with minimal friction.
                 </Typography>
                 <Typography paragraph sx={{ mb: 2 }}>
-                    Clear visual hierarchy and guided configuration improved efficiency and reduced uncertainty during decision-making. Desktop optimization strengthened full-task performance, while mobile supported situational, urgent use cases.
+                    Desktop optimization supported full workflows; mobile enabled situational, urgent tasks. Clear visual hierarchy and guided configuration improved efficiency and decision-making.
                 </Typography>
                 <Callout icon={calloutIcons.validation}>
-                    Key Result: A validated visual development tool that enables efficient, controlled, and user-centered portal configuration.
+                    Key Result: A validated, user-centered visual development tool for efficient and controlled portal configuration.
                 </Callout>
             </>
         ),
@@ -190,20 +179,20 @@ const caseStudySections = [
         id: "takeaways",
         title: "Takeaways & Next Steps",
         description: (
-          <>
-    <Typography paragraph sx={{ mb: 2 }}>
-        Working at Simptel helped me grow as a UX designer by balancing creativity with real-world constraints. Collaborating closely with developers, the product owner, and users taught me how to design solutions that are both user-friendly and technically feasible.
-    </Typography>
-    <Typography paragraph sx={{ mb: 2 }}>
-        Iterative testing and constant feedback helped me refine workflows, improve clarity, and avoid overdesign. This experience reinforced the value of frequent stakeholder communication in shaping effective, intuitive products.
-    </Typography>
-    <Callout icon={calloutIcons.insight}>
-        Next Step: Continue exploring ways to enhance customization and efficiency, and expand validation with enterprise users to measure long-term impact and adoption.
-    </Callout>
-</>
+            <>
+                <Typography paragraph sx={{ mb: 2 }}>
+                    Working at Simptel strengthened my ability to balance creativity with real-world constraints. Collaboration with developers, product owners, and users taught me how to design solutions that are both user-friendly and technically feasible.
+                </Typography>
+                <Typography paragraph sx={{ mb: 2 }}>
+                    Iterative testing and constant feedback refined workflows, improved clarity, and avoided overdesign. Frequent stakeholder communication reinforced the creation of effective, intuitive products.
+                </Typography>
+                <Callout icon={calloutIcons.insight}>
+                    Next Steps: Enhance customization, refine AI-assisted workflows, and expand validation with enterprise users to measure long-term adoption.
+                </Callout>
+            </>
         ),
         image: SimptelPresent,
-        imageAlt: "A picture of the presentation of the Simptel project",
+        imageAlt: "Project presentation",
         imageCaption: "A picture of the Simptel project presentation."
     }
 ];
