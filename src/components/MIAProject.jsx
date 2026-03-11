@@ -26,11 +26,11 @@ import {
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
-import BlackBox from "../assets/MIAblackbox.png";
+import BlackBox from "../assets/MIA Blackbox.png";
 import MIACover from "../assets/MIA.png";
 import Research from "../assets/MIA RESEARCH.png";
 import Design from "../assets/Design 2.png";
-import TakeawaysImg from "../assets/Support.png";
+import TakeawaysImg from "../assets/MIAPresent.jpeg";
 import ImpactImg from "../assets/MIA Design.png";
 
 // Modern Callout Component
@@ -108,8 +108,8 @@ const caseStudySections = [
       </>
     ),
     image: BlackBox,
-    imageAlt: "AI Black Box: Human Uncertainty in the Age of Automation.",
-    imageCaption: "Illustration showing AI Black Box: Human Uncertainty in the Age of Automation."
+    imageAlt: "Situational map illustrating all partrtcipants role in the problem space",
+    imageCaption: "Situational map illustrating all partrtcipants role in the problem space."
   },
   {
     id: "ideation",
