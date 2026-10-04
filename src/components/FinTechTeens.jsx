@@ -207,8 +207,21 @@ const caseStudySections = [
           knowledge, digital spending, and the way teenagers learn about money.
         </Typography>
 
-        {/* Initial Research Findings */}
-        <Grid container spacing={2} sx={{ mt: 1, mb: 4 }}>
+        {/* INITIAL RESEARCH FINDINGS */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+              md: "repeat(3, minmax(0, 1fr))",
+            },
+            gap: 2,
+            mt: 1,
+            mb: 4,
+            alignItems: "stretch",
+          }}
+        >
           {[
             {
               value: "47%",
@@ -223,46 +236,169 @@ const caseStudySections = [
               label: "Phishing & hidden subscriptions",
             },
           ].map((stat) => (
-            <Grid item xs={12} sm={6} md={4} key={stat.value}>
-              <Box
+            <Box
+              key={stat.value}
+              sx={{
+                minHeight: { xs: 130, sm: 150 },
+                height: "100%",
+                p: 3,
+                borderRadius: 3,
+                bgcolor: "#fcfcfc",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+                },
+              }}
+            >
+              <Typography
                 sx={{
-                  p: 3,
-                  height: "100%",
-                  borderRadius: 3,
-                  bgcolor: "#fcfcfc",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  textAlign: "center",
+                  fontSize:
+                    stat.value === "Digital risks"
+                      ? { xs: "1.25rem", sm: "1.35rem" }
+                      : { xs: "1.8rem", sm: "2rem" },
+                  fontWeight: 800,
+                  color: "#2C3E5F",
+                  mb: 1,
+                  lineHeight: 1.2,
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize:
-                      stat.value === "Digital risks" ? "1.4rem" : "2rem",
-                    fontWeight: 800,
-                    color: "#2C3E5F",
-                    mb: 1,
-                  }}
-                >
-                  {stat.value}
-                </Typography>
+                {stat.value}
+              </Typography>
 
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {stat.label}
-                </Typography>
-              </Box>
-            </Grid>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "text.secondary",
+                  lineHeight: 1.5,
+                  maxWidth: 220,
+                }}
+              >
+                {stat.label}
+              </Typography>
+            </Box>
           ))}
-        </Grid>
-<Typography
+        </Box>
+
+        <Typography paragraph sx={{ mb: 3 }}>
+          These findings suggest that financial education needs to go beyond
+          simply providing information. Teenagers need opportunities to connect
+          financial concepts with everyday decisions and situations they can
+          recognise.
+        </Typography>
+
+        {/* MASTERCARD FINDINGS */}
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 700,
+            color: "#2C3E5F",
+            mb: 2,
+            mt: 4,
+          }}
+        >
+          What teenagers want from financial learning
+        </Typography>
+
+        <Box
+          sx={{
+            display: "grid",
+
+            // EXACTLY 2 x 2 on desktop
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+            },
+
+            gap: 2,
+            mb: 4,
+            alignItems: "stretch",
+          }}
+        >
+          {[
+            {
+              value: "57%",
+              label: "Want parental controls",
+            },
+            {
+              value: "43%",
+              label: "Prefer gamified learning",
+            },
+            {
+              value: "48%",
+              label: "Want real-world simulations",
+            },
+            {
+              value: "67%",
+              label: "Value educational content",
+            },
+          ].map((finding) => (
+            <Box
+              key={finding.value}
+              sx={{
+                minHeight: { xs: 130, sm: 150 },
+                height: "100%",
+                p: 3,
+                borderRadius: 3,
+                bgcolor: "#fcfcfc",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { xs: "1.8rem", sm: "2rem" },
+                  fontWeight: 800,
+                  color: "#2C3E5F",
+                  mb: 1,
+                  lineHeight: 1,
+                }}
+              >
+                {finding.value}
+              </Typography>
+
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "text.secondary",
+                  lineHeight: 1.5,
+                  maxWidth: 220,
+                }}
+              >
+                {finding.label}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          Together, these findings pointed towards an experience that combines
+          education with realistic situations, engaging learning mechanics,
+          and an appropriate level of parental involvement.
+        </Typography>
+
+        <Typography
           variant="body2"
           sx={{
             color: "text.secondary",
@@ -271,92 +407,9 @@ const caseStudySections = [
           }}
         >
           Sources: Dina Bhudia, “The Impact of Cash Versus Cards on
-          Children's Financial Literacy”;OECD PISA
+          Children's Financial Literacy”; Mastercard research; OECD PISA
           Financial Literacy.
         </Typography>
-        <Typography paragraph sx={{ mb: 3 }}>
-          These findings suggest that financial education needs to go beyond
-          simply providing information. Teenagers need opportunities to connect
-          financial concepts with everyday decisions and situations they can
-          recognise.
-        </Typography>
-
-        {/* Mastercard Findings */}
-<Grid container spacing={2} sx={{ mb: 4 }}>
-  {[
-    {
-      value: "57%",
-      label: "Want parental controls",
-    },
-    {
-      value: "43%",
-      label: "Prefer gamified learning",
-    },
-    {
-      value: "48%",
-      label: "Want real-world simulations",
-    },
-    {
-      value: "67%",
-      label: "Value educational content",
-    },
-  ].map((finding) => (
-    <Grid item xs={12} sm={6} key={finding.value}>
-      <Box
-        sx={{
-          p: 3,
-          height: "100%",
-          minHeight: 130,
-          borderRadius: 3,
-          bgcolor: "#fcfcfc",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: "2rem",
-            fontWeight: 800,
-            color: "#2C3E5F",
-            mb: 1,
-          }}
-        >
-          {finding.value}
-        </Typography>
-
-        <Typography
-          variant="body2"
-          sx={{
-            color: "text.secondary",
-            lineHeight: 1.5,
-          }}
-        >
-          {finding.label}
-        </Typography>
-      </Box>
-    </Grid>
-  ))}
-</Grid>
-    <Typography
-          variant="body2"
-          sx={{
-            color: "text.secondary",
-            fontStyle: "italic",
-            mb: 3,
-          }}
-        >
-          Sources:  Mastercard research on teenagers’ financial literacy and learning preferences.
-        </Typography>
-        <Typography paragraph sx={{ mb: 2 }}>
-          Together, these findings pointed towards an experience that combines
-          education with realistic situations, engaging learning mechanics,
-          and an appropriate level of parental involvement.
-        </Typography>
-
-    
 
         <Callout icon={calloutIcons.insight}>
           Key Insight: Financial education becomes more meaningful when
@@ -465,7 +518,7 @@ const caseStudySections = [
           while keeping teenagers involved in their own decisions.
         </Typography>
 
-        {/* Figma Prototype */}
+        {/* FIGMA PROTOTYPE */}
         <Box sx={{ mt: 4, mb: 5 }}>
           <Box
             sx={{
@@ -504,7 +557,6 @@ const caseStudySections = [
           </Typography>
         </Box>
 
-        {/* Annotations */}
         <Typography
           paragraph
           sx={{
@@ -515,7 +567,18 @@ const caseStudySections = [
           Explore the key design decisions behind the experience.
         </Typography>
 
-        <Grid container spacing={2} sx={{ mt: 1 }}>
+        {/* PROTOTYPE ANNOTATIONS */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+            },
+            gap: 2,
+            mt: 1,
+          }}
+        >
           {[
             {
               number: "01",
@@ -554,66 +617,68 @@ const caseStudySections = [
                 "Parents provide an additional layer of safety and guidance without becoming the primary user. For example, a purchase above a suggested limit can require parental confirmation while the teenager remains involved in the decision.",
             },
           ].map((item) => (
-            <Grid item xs={12} md={6} key={item.number}>
+            <Box
+              key={item.number}
+              sx={{
+                display: "flex",
+                gap: 2,
+                p: { xs: 2.5, sm: 3 },
+                minHeight: { xs: 150, sm: 180 },
+                height: "100%",
+                borderRadius: 3,
+                bgcolor: "#fcfcfc",
+                border: "1px solid rgba(0,0,0,0.06)",
+                alignItems: "flex-start",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.06)",
+                },
+              }}
+            >
               <Box
                 sx={{
+                  flexShrink: 0,
+                  width: 38,
+                  height: 38,
+                  borderRadius: "50%",
+                  bgcolor: "#2C3E5F",
+                  color: "#fff",
                   display: "flex",
-                  gap: 2,
-                  p: 2.5,
-                  height: "100%",
-                  borderRadius: 3,
-                  bgcolor: "#fcfcfc",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                  transition: "all 0.2s ease",
-                  "&:hover": {
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.06)",
-                  },
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
                 }}
               >
-                <Box
+                {item.number}
+              </Box>
+
+              <Box sx={{ flex: 1 }}>
+                <Typography
                   sx={{
-                    flexShrink: 0,
-                    width: 38,
-                    height: 38,
-                    borderRadius: "50%",
-                    bgcolor: "#2C3E5F",
-                    color: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "0.8rem",
                     fontWeight: 700,
+                    mb: 0.75,
+                    color: "#2C3E5F",
                   }}
                 >
-                  {item.number}
-                </Box>
+                  {item.title}
+                </Typography>
 
-                <Box>
-                  <Typography
-                    sx={{
-                      fontWeight: 700,
-                      mb: 0.75,
-                      color: "#2C3E5F",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "text.secondary",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {item.description}
-                  </Typography>
-                </Box>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {item.description}
+                </Typography>
               </Box>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         <Callout icon={calloutIcons.result}>
           Core Experience: Help teenagers understand the consequences of a
@@ -656,7 +721,6 @@ const caseStudySections = [
     ),
   },
 ];
-
 
 /* ---------------- Image Renderer WITH ZOOM ---------------- */
 
