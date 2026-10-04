@@ -15,6 +15,7 @@ import MIAProject from './components/MIAProject';
 import FundingApp from './components/FundingApp';
 import Simptel from './components/Simptel';
 import SimacOnboarding from './components/SimacOnboarding';
+import FinTechTeens from './components/FinTechTeens';
 import Footer from './components/Footer';
 
 // Scroll to top on route change
@@ -146,7 +147,20 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-          
+             <Route
+          path="/projects/FinTechTeens"
+          element={
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5 }}
+              style={{ paddingTop: navHeight }}
+            >
+              <FinTechTeens/>
+            </motion.div>
+          }
+        />
           
       </Routes>
        <Footer />
