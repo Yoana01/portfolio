@@ -124,7 +124,7 @@ export default function Navbar() {
           {/* CV Button */}
           <Button
             component="a"
-            href="/CV Yoana Churkina.pdf"
+            href="/CV_UX_Yoana_Churkina.pdf"
             target="_blank"
             variant="outlined"
             sx={{
@@ -221,7 +221,7 @@ export default function Navbar() {
 
                 <Button
                   component="a"
-                  href="/CV Yoana Churkina.pdf"
+                  href="/CV_UX_Yoana_Churkina.pdf"
                   target="_blank"
                   onClick={toggleDrawer(false)}
                   variant="outlined"
