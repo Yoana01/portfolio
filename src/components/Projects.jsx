@@ -23,8 +23,6 @@ const projects = [
     link: '/projects/MIA',
     sentence:
       'A conversational agent that supports research and innovation in media projects.',
-    shortSentence:
-      'A conversational agent for media research and innovation.',
   },
   {
     title: 'Simptel Identity Platform',
@@ -32,17 +30,13 @@ const projects = [
     link: '/projects/Simptel',
     sentence:
       'A visual development tool for Simptel’s identity platform, enabling users to customize digital identity portals.',
-    shortSentence:
-      'A visual tool for customizing digital identity portals.',
   },
   {
     title: 'From Spending to Understanding',
     img: financeTeen,
     link: '/projects/FinTechTeens',
     sentence:
-      'A UX concept helping teenagers build financial literacy',
-    shortSentence:
-      'A UX concept for building financial literacy.',
+      'A UX concept helping teenagers build financial literacy.',
   },
   {
     title: 'Emergency Chatbot',
@@ -50,8 +44,6 @@ const projects = [
     link: '/projects/emergency',
     sentence:
       'A data-driven chatbot designed to assist in emergency scenarios.',
-    shortSentence:
-      'A data-driven chatbot for emergency scenarios.',
   },
   {
     title: 'Financial App',
@@ -59,8 +51,6 @@ const projects = [
     link: '/projects/FundingApp',
     sentence:
       'A gamified app that helps students build financial literacy and responsible habits.',
-    shortSentence:
-      'A gamified app for financial literacy.',
   },
   {
     title: 'Simac Onboarding Process',
@@ -68,8 +58,6 @@ const projects = [
     link: '/projects/SimacOnboarding',
     sentence:
       'A challenge-based onboarding solution improving socialization and inclusion for non-Dutch employees.',
-    shortSentence:
-      'A challenge-based onboarding experience.',
   },
 ];
 
@@ -130,10 +118,10 @@ export default function Project() {
         py: 6,
       }}
     >
-      {/* View toggle */}
+      {/* View toggle - hidden on mobile */}
       <Box
         sx={{
-          display: 'flex',
+          display: { xs: 'none', md: 'flex' },
           justifyContent: 'flex-end',
           mb: 4,
           gap: 0.5,
@@ -197,12 +185,10 @@ export default function Project() {
         sx={{
           display: 'grid',
 
+          // Mobile is ALWAYS a 2-column grid.
+          // From md upward, the selected view controls the layout.
           gridTemplateColumns: {
-            xs:
-              view === 'grid'
-                ? 'repeat(2, 1fr)'
-                : '1fr',
-
+            xs: 'repeat(2, 1fr)',
             md:
               view === 'grid'
                 ? 'repeat(2, 1fr)'
@@ -210,15 +196,8 @@ export default function Project() {
           },
 
           gap: {
-            xs:
-              view === 'grid'
-                ? 2
-                : 6,
-
-            md:
-              view === 'grid'
-                ? 4
-                : 6,
+            xs: 2,
+            md: view === 'grid' ? 4 : 6,
           },
 
           alignItems: 'stretch',
@@ -227,9 +206,9 @@ export default function Project() {
         {projects.map((project, idx) => (
           <Box
             key={idx}
-            ref={(el) =>
-              (containerRef.current[idx] = el)
-            }
+            ref={(el) => {
+              containerRef.current[idx] = el;
+            }}
             sx={{
               width: '100%',
               position: 'relative',
@@ -253,10 +232,7 @@ export default function Project() {
                   position: 'relative',
                   cursor: 'pointer',
 
-                  /*
-                   * Grid cards use the same aspect ratio.
-                   * List cards keep the larger fixed height.
-                   */
+                  // Grid cards
                   aspectRatio:
                     view === 'grid'
                       ? {
@@ -266,6 +242,7 @@ export default function Project() {
                         }
                       : 'auto',
 
+                  // List cards
                   height:
                     view === 'list'
                       ? {
@@ -274,11 +251,6 @@ export default function Project() {
                           md: 500,
                         }
                       : 'auto',
-
-                  minHeight:
-                    view === 'grid'
-                      ? 0
-                      : undefined,
 
                   transition:
                     'transform 0.4s ease',
@@ -354,14 +326,14 @@ export default function Project() {
                     {project.title}
                   </Typography>
 
-                  {/* Full description */}
+                  {/* Description - hidden on mobile */}
                   <Typography
+                    className="card-description"
                     variant="body1"
                     sx={{
                       color: 'white',
 
                       fontSize: {
-                        xs: '0.72rem',
                         sm: '0.9rem',
                         md: '1.05rem',
                       },
@@ -369,18 +341,15 @@ export default function Project() {
                       fontWeight: 400,
 
                       lineHeight: {
-                        xs: 1.3,
                         sm: 1.4,
                         md: 1.5,
                       },
 
                       mt: {
-                        xs: 0.5,
                         sm: 1,
                       },
 
                       maxWidth: {
-                        xs: '100%',
                         sm: '85%',
                       },
 
@@ -388,43 +357,12 @@ export default function Project() {
                         '0px 2px 6px rgba(0,0,0,0.7)',
 
                       display: {
-                        xs:
-                          view === 'grid'
-                            ? 'none'
-                            : 'block',
-
-                        sm: 'block',
+                        xs: 'none',
+                        md: 'block',
                       },
                     }}
                   >
                     {project.sentence}
-                  </Typography>
-
-                  {/* Short description for mobile grid */}
-                  <Typography
-                    sx={{
-                      display: {
-                        xs:
-                          view === 'grid'
-                            ? 'block'
-                            : 'none',
-
-                        sm: 'none',
-                      },
-
-                      color: 'white',
-
-                      fontSize: '0.72rem',
-
-                      lineHeight: 1.3,
-
-                      mt: 0.5,
-
-                      textShadow:
-                        '0px 2px 6px rgba(0,0,0,0.7)',
-                    }}
-                  >
-                    {project.shortSentence}
                   </Typography>
                 </Box>
               </Box>

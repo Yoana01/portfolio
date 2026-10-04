@@ -31,12 +31,11 @@ import { motion } from "framer-motion";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
-import BlackBox from "../assets/MIA Blackbox.png";
-import MIACover from "../assets/MIA.png";
-import Research from "../assets/MIA RESEARCH.png";
-import Design from "../assets/Design 2.png";
-import TakeawaysImg from "../assets/MIAPresent.jpeg";
-import ImpactImg from "../assets/MIA Design.png";
+import FinTechCover from "../assets/FintechPic1.png";
+import Concept from "../assets/FintechMindMap.png";
+import RequirementsImg from "../assets/FintechUserReq.png";
+import Design from "../assets/FintechPrototype.svg";
+
 
 /* ---------------- Callout Component ---------------- */
 
@@ -69,12 +68,18 @@ const Callout = ({ children, icon }) => (
   </Box>
 );
 
+
+/* ---------------- Callout Icons ---------------- */
+
 const calloutIcons = {
   insight: <LightbulbIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
   decision: <ScienceIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
   result: <TrophyIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
   validation: <CheckIcon sx={{ color: "#7B7155", fontSize: 22 }} />,
 };
+
+
+/* ---------------- Sidebar Icons ---------------- */
 
 const icons = [
   <DescriptionOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
@@ -83,10 +88,11 @@ const icons = [
   <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
   <EmojiEventsOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
   <ForwardOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
+  <CheckCircleOutlinedIcon fontSize="small" sx={{ color: "#444" }} />,
 ];
 
-/* ---------------- Case Study Sections ---------------- */
 
+/* ---------------- Case Study Sections ---------------- */
 const caseStudySections = [
   {
     id: "overview",
@@ -94,21 +100,27 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          The Media Innovation Assistant (MIA) is a platform designed to help Dutch media start-ups generate and validate ideas responsibly. Early-stage founders often hesitate to share ideas due to privacy and trust concerns. MIA provides a secure, supportive environment where users can experiment, receive feedback, and maintain control over their data.
+          Fintech Teens is a UX concept exploring how digital experiences can
+          help teenagers better understand the value and consequences of their
+          financial decisions.
         </Typography>
 
         <Typography paragraph sx={{ mb: 2 }}>
-          Through an iterative, value-sensitive design process-including prototyping, stakeholder interviews, and usability testing-I focused on the central challenge: balancing user autonomy with AI guidance.
+          The concept was developed as a focused 2.5-day UX project, moving
+          from research and problem framing to requirements, concept
+          development, and a high-fidelity prototype.
         </Typography>
 
-        <Callout icon={calloutIcons.insight}>
-          Balancing autonomy with AI support was identified as the central challenge from the start.
-        </Callout>
+        <Typography paragraph sx={{ mb: 2 }}>
+          The design process focused on turning financial literacy into
+          something teenagers can see, explore, and experience through everyday
+          spending decisions.
+        </Typography>
       </>
     ),
-    image: MIACover,
-    imageAlt: "MIA Cover",
-    imageCaption: "Project cover illustrating the MIA platform.",
+    image: FinTechCover,
+    imageAlt: "Fintech Teens Cover",
+    imageCaption: "Fintech Teens - from spending to understanding.",
   },
 
   {
@@ -117,100 +129,498 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          AI tools are increasingly embedded in decision-making, yet many users adopt outputs without critical evaluation. In the media sector-where creativity, trust, and data ownership are crucial-professionals often perceive AI as a “black box”, creating hesitancy.
+          Teenagers are growing up in an increasingly digital environment,
+          where technology shapes both their everyday activities and the way
+          they interact with money.
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 700,
+            color: "#2C3E5F",
+            mb: 2,
+            mt: 3,
+          }}
+        >
+          The environment today’s teenagers grow up in
         </Typography>
 
         <Typography paragraph sx={{ mb: 2 }}>
-          Interviews with six start-up founders revealed a privacy paradox: while users valued AI efficiency, they feared data misuse. This insight became the guiding principle for every design decision.
-        </Typography>
-
-        <Callout icon={calloutIcons.insight}>
-          Research Insight: Users rely on AI daily but remain cautious about sensitive data-guiding privacy-focused design decisions.
-        </Callout>
-      </>
-    ),
-    image: BlackBox,
-    imageAlt:
-      "Situational map illustrating all partrtcipants role in the problem space",
-    imageCaption:
-      "Situational map illustrating all partrtcipants role in the problem space.",
-  },
-
-  {
-    id: "ideation",
-    title: "Ideation & Design Process",
-    description: (
-      <>
-        <Typography paragraph sx={{ mb: 2 }}>
-          Guided by Human-Centered and Value-Sensitive Design, I iteratively explored solutions aligned with MIA’s goals and user values. Cognitive walkthroughs, co-design sessions, and usability testing shaped every iteration.
+          On a typical school day,{" "}
+          <strong>25% of teenagers in the EU spend more than 6 hours</strong>{" "}
+          in front of a screen. This increases to{" "}
+          <strong>46% on weekends</strong>, with{" "}
+          <strong>14% spending more than 10 hours</strong> in front of a
+          screen.
         </Typography>
 
         <Typography paragraph sx={{ mb: 2 }}>
-          Excessive guidance reduced creative output, while insufficient guidance left users uncertain. Evaluation criteria were made selectively visible to preserve creativity without sacrificing support.
+          As more of teenagers’ lives move into digital environments, spending
+          also becomes increasingly frictionless and less tangible. A few taps
+          can turn a purchase into something that feels disconnected from its
+          actual value and consequences.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          This creates an opportunity to make financial education more
+          practical — helping teenagers understand where their money goes,
+          recognise digital risks, and see how everyday spending decisions can
+          affect their money and future goals.
+        </Typography>
+
+        <Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+            fontStyle: "italic",
+            mb: 3,
+          }}
+        >
+          Source: European research on teenagers’ digital behaviour and screen
+          time.
         </Typography>
 
         <Callout icon={calloutIcons.decision}>
-          Design Decision: Led prototype flows, evaluation criteria, and guidance systems to maintain autonomy, trust, and transparency.
+          How might we help teenagers better understand the value and
+          consequences of their digital spending, while encouraging healthier
+          financial habits?
         </Callout>
       </>
     ),
-    images: [
-      {
-        src: Research,
-        alt: "Research methods used to solve the problem",
-        caption: "Research methods used to solve the problem",
-      },
-    ],
+  },
+
+  {
+    id: "research",
+    title: "Research & Insights",
+    description: (
+      <>
+        <Typography paragraph sx={{ mb: 2 }}>
+          Given the 2.5-day timeframe, the research focused on existing
+          sources rather than primary user research. The goal was to identify
+          relevant patterns around teenagers, financial literacy, and digital
+          money management that could inform the concept.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 3 }}>
+          The research highlighted several challenges around financial
+          knowledge, digital spending, and the way teenagers learn about money.
+        </Typography>
+
+        {/* Initial Research Findings */}
+        <Grid container spacing={2} sx={{ mt: 1, mb: 4 }}>
+          {[
+            {
+              value: "47%",
+              label: "Have a bank account",
+            },
+            {
+              value: "19%",
+              label: "Lack basic financial knowledge",
+            },
+            {
+              value: "Digital risks",
+              label: "Phishing & hidden subscriptions",
+            },
+          ].map((stat) => (
+            <Grid item xs={12} sm={6} md={4} key={stat.value}>
+              <Box
+                sx={{
+                  p: 3,
+                  height: "100%",
+                  borderRadius: 3,
+                  bgcolor: "#fcfcfc",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize:
+                      stat.value === "Digital risks" ? "1.4rem" : "2rem",
+                    fontWeight: 800,
+                    color: "#2C3E5F",
+                    mb: 1,
+                  }}
+                >
+                  {stat.value}
+                </Typography>
+
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {stat.label}
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+<Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+            fontStyle: "italic",
+            mb: 3,
+          }}
+        >
+          Sources: Dina Bhudia, “The Impact of Cash Versus Cards on
+          Children's Financial Literacy”;OECD PISA
+          Financial Literacy.
+        </Typography>
+        <Typography paragraph sx={{ mb: 3 }}>
+          These findings suggest that financial education needs to go beyond
+          simply providing information. Teenagers need opportunities to connect
+          financial concepts with everyday decisions and situations they can
+          recognise.
+        </Typography>
+
+        {/* Mastercard Findings */}
+<Grid container spacing={2} sx={{ mb: 4 }}>
+  {[
+    {
+      value: "57%",
+      label: "Want parental controls",
+    },
+    {
+      value: "43%",
+      label: "Prefer gamified learning",
+    },
+    {
+      value: "48%",
+      label: "Want real-world simulations",
+    },
+    {
+      value: "67%",
+      label: "Value educational content",
+    },
+  ].map((finding) => (
+    <Grid item xs={12} sm={6} key={finding.value}>
+      <Box
+        sx={{
+          p: 3,
+          height: "100%",
+          minHeight: 130,
+          borderRadius: 3,
+          bgcolor: "#fcfcfc",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: "2rem",
+            fontWeight: 800,
+            color: "#2C3E5F",
+            mb: 1,
+          }}
+        >
+          {finding.value}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+            lineHeight: 1.5,
+          }}
+        >
+          {finding.label}
+        </Typography>
+      </Box>
+    </Grid>
+  ))}
+</Grid>
+    <Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+            fontStyle: "italic",
+            mb: 3,
+          }}
+        >
+          Sources:  Mastercard research on teenagers’ financial literacy and learning preferences.
+        </Typography>
+        <Typography paragraph sx={{ mb: 2 }}>
+          Together, these findings pointed towards an experience that combines
+          education with realistic situations, engaging learning mechanics,
+          and an appropriate level of parental involvement.
+        </Typography>
+
+    
+
+        <Callout icon={calloutIcons.insight}>
+          Key Insight: Financial education becomes more meaningful when
+          teenagers can connect information with realistic decisions, visible
+          consequences, and personal goals.
+        </Callout>
+      </>
+    ),
+  },
+
+  {
+    id: "requirements",
+    title: "From Insights to Requirements",
+    description: (
+      <>
+        <Typography paragraph sx={{ mb: 2 }}>
+          The research was translated into four core needs: understanding
+          spending, planning ahead, learning and staying safe, and maintaining
+          independence with appropriate guidance.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          These became requirements around spending awareness, savings goals,
+          purchase consequences, practical learning, financial safety,
+          motivation, parental controls, and a supportive digital buddy.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          Together, these requirements created a balance between education,
+          exploration, and autonomy rather than treating teenagers simply as
+          users who need to be taught what to do.
+        </Typography>
+
+        <Callout icon={calloutIcons.decision}>
+          Design Principle: Guide teenagers without taking away their
+          independence.
+        </Callout>
+      </>
+    ),
+    image: RequirementsImg,
+    imageAlt: "Fintech Teens user requirements",
+    imageCaption: "Translating research insights into design requirements.",
+  },
+
+  {
+    id: "concept",
+    title: "Concept & Design",
+    description: (
+      <>
+        <Typography paragraph sx={{ mb: 2 }}>
+          The concept brings financial awareness into the everyday decisions
+          teenagers already make. Instead of presenting financial literacy as
+          something separate from daily life, the experience connects learning,
+          spending, saving, and decision-making in one place.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          Spending visualizations make money easier to understand, while
+          savings goals connect financial decisions with things teenagers
+          actually want to achieve. A potential purchase can also be explored
+          before spending, allowing teenagers to see its possible impact on
+          their available money and goals.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          Learning is designed around short video content and realistic
+          financial scenarios. Rather than simply testing what teenagers
+          remember, the concept allows them to explore different choices and
+          understand their potential consequences in a safe environment.
+        </Typography>
+
+        <Typography paragraph sx={{ mb: 2 }}>
+          XP, levels, challenges, and rewards provide motivation, while the
+          digital buddy adds guidance and encouragement throughout the
+          experience. The reward system is intentionally focused on learning
+          and healthy financial behaviour rather than encouraging spending.
+        </Typography>
+
+        <Callout icon={calloutIcons.decision}>
+          Design Direction: Turn financial concepts into something teenagers
+          can see, explore, and experience rather than simply read about.
+        </Callout>
+      </>
+    ),
+    image: Concept,
+    imageAlt: "Fintech Teens interface design",
+    imageCaption:
+      "Design concept combining financial tracking, learning, and decision-making.",
   },
 
   {
     id: "prototype",
-    title: "Prototype & Testing",
+    title: "Prototype",
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          Prototypes balanced usability, privacy, and transparency. Structured submission flows and selective evaluation criteria allowed users to stay in control while receiving guidance.
+          The high-fidelity prototype brings the concept together through a
+          set of connected experiences designed around everyday financial
+          decisions.
         </Typography>
 
         <Typography paragraph sx={{ mb: 2 }}>
-          Refinements included chatbot avatars for context-aware support and an incognito mode to address privacy concerns.
+          The experience combines savings goals, purchase consequences,
+          scenario-based learning, rewards, and a personalised digital
+          companion. Parental controls provide an additional layer of guidance
+          while keeping teenagers involved in their own decisions.
         </Typography>
+
+        {/* Figma Prototype */}
+        <Box sx={{ mt: 4, mb: 5 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              borderRadius: 3,
+              overflow: "hidden",
+              bgcolor: "#f5f5f5",
+              border: "1px solid rgba(0,0,0,0.08)",
+            }}
+          >
+            <iframe
+              src="https://embed.figma.com/design/Xl87ulXKpTx02slBDXoicX/Fintech-teenagers?node-id=0-1&embed-host=share"
+              title="Fintech Teens interactive prototype"
+              style={{
+                width: "100%",
+                height: "700px",
+                border: "none",
+                borderRadius: "16px",
+                display: "block",
+              }}
+              allowFullScreen
+            />
+          </Box>
+
+          <Typography
+            variant="caption"
+            sx={{
+              display: "block",
+              mt: 1,
+              color: "text.secondary",
+              textAlign: "right",
+            }}
+          >
+            Interactive prototype · Figma
+          </Typography>
+        </Box>
+
+        {/* Annotations */}
+        <Typography
+          paragraph
+          sx={{
+            mb: 2,
+            mt: 3,
+          }}
+        >
+          Explore the key design decisions behind the experience.
+        </Typography>
+
+        <Grid container spacing={2} sx={{ mt: 1 }}>
+          {[
+            {
+              number: "01",
+              title: "Savings goals",
+              description:
+                "Connect saving with something personal and tangible. Goals such as saving for a bike give money a clear purpose and help teenagers understand how smaller spending decisions can affect something they want to achieve.",
+            },
+            {
+              number: "02",
+              title: "Purchase consequences",
+              description:
+                "Before making a purchase, teenagers can see how it could affect their available money and progress towards their savings goals. The intention is to encourage reflection without taking away the final decision.",
+            },
+            {
+              number: "03",
+              title: "Learning scenarios",
+              description:
+                "Financial concepts are introduced through realistic everyday situations rather than simply asking teenagers to remember information. Scenarios allow them to explore different choices and consider possible consequences.",
+            },
+            {
+              number: "04",
+              title: "Motivation & rewards",
+              description:
+                "XP, levels, challenges, and rewards make learning more engaging while keeping the focus on healthy financial behaviour. The reward system is designed to reinforce learning rather than encourage spending.",
+            },
+            {
+              number: "05",
+              title: "Digital companion",
+              description:
+                "A familiar digital companion stays with the teenager throughout the experience, providing guidance and encouragement. The avatar also adds a layer of personalisation to an otherwise financial-focused experience.",
+            },
+            {
+              number: "06",
+              title: "Parental involvement",
+              description:
+                "Parents provide an additional layer of safety and guidance without becoming the primary user. For example, a purchase above a suggested limit can require parental confirmation while the teenager remains involved in the decision.",
+            },
+          ].map((item) => (
+            <Grid item xs={12} md={6} key={item.number}>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  p: 2.5,
+                  height: "100%",
+                  borderRadius: 3,
+                  bgcolor: "#fcfcfc",
+                  border: "1px solid rgba(0,0,0,0.06)",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.06)",
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    flexShrink: 0,
+                    width: 38,
+                    height: 38,
+                    borderRadius: "50%",
+                    bgcolor: "#2C3E5F",
+                    color: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "0.8rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  {item.number}
+                </Box>
+
+                <Box>
+                  <Typography
+                    sx={{
+                      fontWeight: 700,
+                      mb: 0.75,
+                      color: "#2C3E5F",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
 
         <Callout icon={calloutIcons.result}>
-          Outcome: Users reported higher confidence sharing ideas; task success improved to 80–95% and SUS score increased from 67.5 to 83.75, showing measurable improvements in usability and trust.
+          Core Experience: Help teenagers understand the consequences of a
+          financial decision before they make it.
         </Callout>
       </>
     ),
-    images: [
-      {
-        src: Design,
-        alt: "One of the pages of MIA",
-        caption: "Example of a MIA design page",
-      },
-    ],
-  },
-
-  {
-    id: "impact",
-    title: "Impact & Results",
-    description: (
-      <>
-        <Typography paragraph sx={{ mb: 2 }}>
-          Testing confirmed privacy, clarity, and transparency are essential for trust. Selective visibility of evaluation criteria preserved originality while providing guidance.
-        </Typography>
-
-        <Typography paragraph sx={{ mb: 2 }}>
-          Thoughtful design decisions increased authentic idea submissions, reduced hesitation to share, and demonstrated measurable impact in usability and engagement.
-        </Typography>
-
-        <Callout icon={calloutIcons.validation}>
-          Key Result: Balanced transparency and guidance enabled users to experiment confidently without compromising creativity.
-        </Callout>
-      </>
-    ),
-    image: ImpactImg,
-    imageAlt: "Impact & Results",
-    imageCaption: "Visualization of the AI and human interaction",
   },
 
   {
@@ -219,114 +629,237 @@ const caseStudySections = [
     description: (
       <>
         <Typography paragraph sx={{ mb: 2 }}>
-          MIA demonstrates how AI can act as a supportive assistant rather than a decision-maker. Human-in-the-loop interactions and context-aware design reduced bias while empowering users.
+          The concept explores how financial education can become more
+          practical by connecting learning with real spending decisions,
+          personal goals, and visible consequences.
         </Typography>
 
         <Typography paragraph sx={{ mb: 2 }}>
-          Key design elements-chatbot avatars, structured submission flows, and incognito mode-promoted engagement and supported idea refinement.
+          The 2.5-day timeframe allowed the concept to move from research and
+          problem framing to a high-fidelity prototype, but it also meant that
+          the concept was not validated with real users.
         </Typography>
 
-        <Callout icon={calloutIcons.insight}>
-          Next Step: Expand collaborative validation features while maintaining trust, autonomy, and transparency.
+        <Typography paragraph sx={{ mb: 2 }}>
+          The next step would be to test the prototype with teenagers and
+          conduct primary research with teenagers, parents, teachers, and
+          financial-education or banking experts. This would help validate the
+          balance between independence, parental involvement, motivation, and
+          financial safety.
+        </Typography>
+
+        <Callout icon={calloutIcons.validation}>
+          Next Step: Test, research, and refine the concept before moving
+          towards a more developed product.
         </Callout>
       </>
     ),
-    image: TakeawaysImg,
-    imageAlt: "AI as a supportive assistant",
-    imageCaption:
-      "Illustration showing AI as a supportive assistant rather than a decision-maker.",
   },
 ];
 
+
 /* ---------------- Image Renderer WITH ZOOM ---------------- */
 
-const renderImage = (src, alt, caption) => (
-  <Box sx={{ mb: 4, borderRadius: 3, overflow: "hidden" }}>
-    <Zoom>
-      <img
-        src={src}
-        alt={alt}
-        style={{
-          width: "100%",
-          borderRadius: "8px",
-          display: "block",
-          cursor: "zoom-in",
-        }}
-      />
-    </Zoom>
+const renderImage = (src, alt, caption) => {
+  if (!src) return null;
 
-    <Typography variant="caption" display="block" align="center" sx={{ mt: 1 }}>
-      {caption} (Click to zoom)
-    </Typography>
-  </Box>
-);
+  return (
+    <Box
+      sx={{
+        mb: 4,
+        borderRadius: 3,
+      }}
+    >
+      <Zoom>
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            display: "block",
+            cursor: "zoom-in",
+          }}
+        />
+      </Zoom>
+
+      {caption && (
+        <Typography
+          variant="caption"
+          display="block"
+          align="center"
+          sx={{
+            mt: 1,
+            color: "text.secondary",
+          }}
+        >
+          {caption} (Click to zoom)
+        </Typography>
+      )}
+    </Box>
+  );
+};
+
 
 /* ---------------- Main Component ---------------- */
 
 const FinTechTeens = () => {
-  const [activeSection, setActiveSection] = useState(caseStudySections[0].id);
+  const [activeSection, setActiveSection] = useState(
+    caseStudySections[0].id
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       const offsets = caseStudySections.map((section) => {
         const el = document.getElementById(section.id);
-        return { id: section.id, offset: el ? el.getBoundingClientRect().top : 0 };
+
+        return {
+          id: section.id,
+          offset: el
+            ? el.getBoundingClientRect().top - 120
+            : Infinity,
+        };
       });
 
-      const current = offsets.reduce((prev, curr) =>
-        Math.abs(curr.offset) < Math.abs(prev.offset) ? curr : prev
+      const visibleSections = offsets.filter(
+        (section) => section.offset <= 0
       );
 
-      if (current) setActiveSection(current.id);
+      if (visibleSections.length > 0) {
+        setActiveSection(
+          visibleSections[visibleSections.length - 1].id
+        );
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (el) {
+      const offset = 100;
+
+      const elementPosition =
+        el.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth",
+      });
+    }
   };
 
+
   return (
-    <Container maxWidth="lg" sx={{ py: 10 }}>
-      <Typography variant="h3" align="center" sx={{ fontWeight: "bold", mb: 10 }}>
-        Fintech Teens: Empowering Young Entrepreneurs with 
+    <Container
+      maxWidth="lg"
+      sx={{
+        py: {
+          xs: 6,
+          md: 10,
+        },
+      }}
+    >
+      {/* ---------------- Page Title ---------------- */}
+
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{
+          fontWeight: 800,
+          mb: {
+            xs: 6,
+            md: 10,
+          },
+          color: "#2C3E5F",
+        }}
+      >
+        Fintech Teens
       </Typography>
 
+
       <Grid container spacing={6}>
-        {/* Sidebar */}
+
+        {/* ---------------- Sidebar ---------------- */}
+
         <Grid item xs={12} md={3}>
-          <Box sx={{ display: { xs: "none", md: "block" }, position: "sticky", top: 100 }}>
-            <Box sx={{ borderRadius: 3, p: 3, mb: 4, bgcolor: "white", boxShadow: 3 }}>
-              <Typography variant="subtitle2" sx={{ px: 1, py: 1, fontWeight: 700 }}>
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+              position: "sticky",
+              top: 100,
+            }}
+          >
+            <Box
+              sx={{
+                borderRadius: 3,
+                p: 3,
+                mb: 4,
+                bgcolor: "white",
+                boxShadow: 3,
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  px: 1,
+                  py: 1,
+                  fontWeight: 700,
+                }}
+              >
                 Contents
               </Typography>
 
               <List dense>
-                {caseStudySections.map((s, i) => (
+                {caseStudySections.map((section, index) => (
                   <ListItemButton
-                    key={s.id}
-                    onClick={() => scrollToId(s.id)}
-                    selected={activeSection === s.id}
+                    key={section.id}
+                    onClick={() => scrollToId(section.id)}
+                    selected={activeSection === section.id}
                     sx={{
                       borderRadius: 2,
                       mb: 1,
                       bgcolor: "transparent",
-                      "&.Mui-selected": { bgcolor: "transparent" },
+
+                      "&.Mui-selected": {
+                        bgcolor: "transparent",
+                      },
+
+                      "&:hover": {
+                        bgcolor: "rgba(44,62,95,0.04)",
+                      },
                     }}
                   >
-                    {icons[i]}
+                    {icons[index]}
 
                     <ListItemText
-                      primary={s.title}
+                      primary={section.title}
                       sx={{
                         ml: 1,
-                        fontWeight: activeSection === s.id ? 700 : 400,
+                        fontWeight:
+                          activeSection === section.id
+                            ? 700
+                            : 400,
                         borderBottom:
-                          activeSection === s.id ? "2px solid #2C3E5F" : "none",
+                          activeSection === section.id
+                            ? "2px solid #2C3E5F"
+                            : "none",
+                        pb:
+                          activeSection === section.id
+                            ? 0.25
+                            : 0,
                       }}
                     />
                   </ListItemButton>
@@ -335,10 +868,15 @@ const FinTechTeens = () => {
             </Box>
           </Box>
 
-          {/* Mobile Accordion */}
+
+          {/* ---------------- Mobile Accordion ---------------- */}
+
           <Box
             sx={{
-              display: { xs: "flex", md: "none" },
+              display: {
+                xs: "flex",
+                md: "none",
+              },
               justifyContent: "center",
               mb: 4,
               width: "100%",
@@ -350,11 +888,22 @@ const FinTechTeens = () => {
               py: 1,
             }}
           >
-            <Accordion sx={{ width: "100%", maxWidth: 400 }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Accordion
+              sx={{
+                width: "100%",
+                maxWidth: 400,
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+              >
                 <Typography
                   variant="subtitle1"
-                  sx={{ fontWeight: 700, textAlign: "center", width: "100%" }}
+                  sx={{
+                    fontWeight: 700,
+                    textAlign: "center",
+                    width: "100%",
+                  }}
                 >
                   Contents
                 </Typography>
@@ -362,9 +911,19 @@ const FinTechTeens = () => {
 
               <AccordionDetails>
                 <List dense>
-                  {caseStudySections.map((s) => (
-                    <ListItemButton key={s.id} onClick={() => scrollToId(s.id)}>
-                      <ListItemText primary={s.title} sx={{ textAlign: "center" }} />
+                  {caseStudySections.map((section) => (
+                    <ListItemButton
+                      key={section.id}
+                      onClick={() =>
+                        scrollToId(section.id)
+                      }
+                    >
+                      <ListItemText
+                        primary={section.title}
+                        sx={{
+                          textAlign: "center",
+                        }}
+                      />
                     </ListItemButton>
                   ))}
                 </List>
@@ -373,38 +932,76 @@ const FinTechTeens = () => {
           </Box>
         </Grid>
 
-        {/* Main Content */}
+
+        {/* ---------------- Main Content ---------------- */}
+
         <Grid item xs={12} md={9}>
           {caseStudySections.map((section, index) => (
             <motion.div
-              key={index}
+              key={section.id}
               id={section.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.1,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+              }}
             >
-              <Box sx={{ mb: 12, maxWidth: 800 }}>
+              <Box
+                sx={{
+                  mb: 12,
+                  maxWidth: 800,
+                  scrollMarginTop: "100px",
+                }}
+              >
                 <Typography
                   variant="h4"
-                  sx={{ fontWeight: 800, mb: 4, color: "primary.main" }}
+                  sx={{
+                    fontWeight: 800,
+                    mb: 4,
+                    color: "#2C3E5F",
+                  }}
                 >
                   {section.title}
                 </Typography>
 
-                <Box sx={{ color: "text.secondary", mb: 4, lineHeight: 1.8 }}>
+                <Box
+                  sx={{
+                    color: "text.secondary",
+                    mb: 4,
+                    lineHeight: 1.8,
+                  }}
+                >
                   {section.description}
                 </Box>
 
+                {/* Only render an image if the section actually has one */}
+
                 {section.images
-                  ? section.images.map((img, idx) =>
-                      renderImage(img.src, img.alt, img.caption)
+                  ? section.images.map((image, index) =>
+                      renderImage(
+                        image.src,
+                        image.alt,
+                        image.caption
+                      )
                     )
-                  : renderImage(
+                  : section.image
+                  ? renderImage(
                       section.image,
                       section.imageAlt,
                       section.imageCaption
-                    )}
+                    )
+                  : null}
               </Box>
             </motion.div>
           ))}
